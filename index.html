@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Biz English 600 Pro</title>
+    <title>Biz English 200 Pro</title>
     <style>
-        :root {
-            --deep-blue: #003468; --purpose-blue: #0082C4; --parker-gold: #FDB913;
-            --clean-green: #7BBA3E; --charcoal: #1C2B39; --white: #FFFFFF;
-            --soft-gray: #F1F5F9; --border-light: #E2E8F0;
-        }
+        :root { --deep-blue: #003468; --purpose-blue: #0082C4; --parker-gold: #FDB913; --clean-green: #7BBA3E; --charcoal: #1C2B39; --white: #FFFFFF; --soft-gray: #F1F5F9; --border-light: #E2E8F0; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #F8FAFC; color: var(--charcoal); margin: 0; display: flex; justify-content: center; }
         .app-container { max-width: 650px; width: 100%; background: var(--white); min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
         .app-header { background: var(--deep-blue); color: white; padding: 15px 25px; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--parker-gold); }
@@ -18,8 +14,6 @@
         .progress-fill { height: 100%; background: var(--parker-gold); width: 0%; transition: width 0.3s; }
         .grammar-tag { background: var(--parker-gold); color: var(--deep-blue); padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
         .status-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; margin-left: 10px; font-weight: bold;}
-        .status-learned { background: var(--clean-green); color: white; }
-        .status-not-learned { background: #94a3b8; color: white; }
         .content { padding: 25px; flex-grow: 1; }
         .section-title { font-size: 0.7rem; font-weight: 700; color: var(--purpose-blue); text-transform: uppercase; margin-bottom: 6px; display: block; }
         .question-card { background: var(--soft-gray); border-left: 6px solid var(--deep-blue); padding: 25px; border-radius: 8px; margin-bottom: 20px; position: relative; }
@@ -46,8 +40,8 @@
 <div class="app-container">
     <header class="app-header">
         <div class="header-top">
-            <div><span id="grammar-label" class="grammar-tag">Biz English</span><span id="learned-status" class="status-badge">Not Learned</span></div>
-            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 600</div>
+            <div><span id="grammar-label" class="grammar-tag">Grammar</span><span id="learned-status" class="status-badge">Not Learned</span></div>
+            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 200</div>
         </div>
         <div class="progress-container"><div id="progress-bar" class="progress-fill"></div></div>
     </header>
@@ -58,7 +52,7 @@
         </div>
         <div class="question-card">
             <button id="mark-learned-btn" class="learned-btn">Mark as Learned</button>
-            <div id="jp-text" class="jp-text">Preparing...</div>
+            <div id="jp-text" class="jp-text">Loading...</div>
         </div>
         <div id="result-area" class="result-area hidden">
             <span class="section-title">Result</span>
@@ -84,45 +78,128 @@
 </div>
 
 <script>
-    // --- フレーズデータセクション ---
     const rawData = [
+        // --- 1-50: Level 1 ---
         { "grammar": "L1: Be verb", "jp": "私は新しいプロジェクトマネージャーです。", "en": "I am the new project manager", "display": "I am / the new / project manager", "point": "I am ...は自己紹介の基本形です。", "alt": "My name is Tanaka." },
         { "grammar": "L1: Present Simple", "jp": "私はIT企業で働いています。", "en": "I work for an IT company", "display": "I work / for / an IT company", "point": "所属は work for を使います。", "alt": "I am with an IT firm." },
         { "grammar": "L1: Present Continuous", "jp": "彼は今、電話に出ています。", "en": "He is on the phone now", "display": "He is / on the phone / now", "point": "is on the phone で通話中です。", "alt": "He is busy on another line." },
-        { "grammar": "L1: Wh-Quest", "jp": "次の会議はいつですか？", "en": "When is the next meeting", "display": "When is / the next meeting", "point": "When is ...? で日時を確認します。", "alt": "When will we meet next?" },
         { "grammar": "L1: Past Simple", "jp": "昨日、見積もりを送りました。", "en": "I sent the estimate yesterday", "display": "I sent / the estimate / yesterday", "point": "sendの過去形は不規則変化の sent です。", "alt": "I dispatched the quote yesterday." },
-        { "grammar": "L2: Future", "jp": "後ほどメールを差し上げます。", "en": "I will email you later", "display": "I will / email you / later", "point": "その場で決めた意思には will を使います。", "alt": "I'll send an email shortly." },
-        { "grammar": "L2: Must", "jp": "5時までにこれを終わらせなければなりません。", "en": "I must finish this by five", "display": "I must / finish / this / by five", "point": "強い義務は must。by は期限（〜までに）。", "alt": "This needs to be done by 5 PM." },
-        { "grammar": "L2: Should", "jp": "価格について話し合うべきです。", "en": "We should discuss the price", "display": "We should / discuss / the price", "point": "提案や助言には should です。", "alt": "Let's talk about the cost." },
-        { "grammar": "L3: Present Perfect", "jp": "ちょうどそのメールを送ったところです。", "en": "I have just sent the email", "display": "I have just / sent / the email", "point": "have just + 過去分詞で完了を表します。", "alt": "The message is sent." },
-        { "grammar": "L3: Passive", "jp": "その計画は社長によって承認されました。", "en": "The plan was approved by the president", "display": "The plan / was approved / by the president", "point": "受動態「〜された」の形です。", "alt": "Management cleared the plan." },
-        { "grammar": "SCM: Logistics", "jp": "私は物流部で働いています。", "en": "I work in the logistics department", "display": "I work / in the logistics department", "point": "logistics は物流を指す必須単語です。", "alt": "I am part of the supply chain team." },
-        { "grammar": "SCM: Inventory", "jp": "在庫を減らす必要があります。", "en": "We have to reduce the inventory", "display": "We have to / reduce / the inventory", "point": "inventory（在庫）削減はSCMの課題です。", "alt": "Let's lower the stock levels." },
-        { "grammar": "L3: Long Sentence", "jp": "需要が急激に変化しているため、在庫レベルを正確に保つことは非常に重要です。", "en": "It is very important to keep inventory levels accurate because the demand is changing rapidly", "display": "It is very important / to keep inventory levels accurate / because the demand / is changing rapidly", "point": "It is...to と because を繋げた論理文です。", "alt": "Correct stock is key as demand fluctuates." },
-        { "grammar": "L3: Long Sentence", "jp": "昨日お話ししたサプライヤーが、明日私たちの工場を訪問する予定です。", "en": "The supplier that I talked about yesterday is going to visit our factory tomorrow", "display": "The supplier / that I talked about yesterday / is going to visit / our factory tomorrow", "point": "関係代名詞 that を使った説明です。", "alt": "The vendor from yesterday visits us tomorrow." }
+        { "grammar": "L1: Wh-Quest", "jp": "支店はどこですか？", "en": "Where is the branch office", "display": "Where / is / the branch office", "point": "場所を尋ねるWhereです。", "alt": "Location of the branch?" },
+        { "grammar": "L1: Can", "jp": "英語を話せますか？", "en": "Can you speak English", "display": "Can you / speak / English", "point": "能力を尋ねるcanです。", "alt": "Is your English okay?" },
+        { "grammar": "L1: Imperative", "jp": "ここに署名してください。", "en": "Please sign here", "display": "Please / sign / here", "point": "丁寧な依頼です。", "alt": "Put your signature here." },
+        { "grammar": "L1: Be verb", "jp": "今日は忙しいです。", "en": "I am busy today", "display": "I am / busy / today", "point": "状態を述べます。", "alt": "It's a hectic day." },
+        { "grammar": "L1: Wh-Quest", "jp": "それは何ですか？", "en": "What is that", "display": "What / is / that", "point": "物を尋ねるWhatです。", "alt": "Explain that, please." },
+        { "grammar": "L1: Prepositions", "jp": "駅で会いましょう。", "en": "Let's meet at the station", "display": "Let's meet / at the station", "point": "地点を表すatです。", "alt": "Meet you at the station." },
+        { "grammar": "L1: Negative", "jp": "私は知りません。", "en": "I do not know", "display": "I / do not / know", "point": "一般動詞の否定です。", "alt": "No idea." },
+        { "grammar": "L1: Past Simple", "jp": "彼に会いました。", "en": "I met him", "display": "I / met / him", "point": "meetの過去形metです。", "alt": "I saw him." },
+        { "grammar": "L1: Question", "jp": "ペンを持ってますか？", "en": "Do you have a pen", "display": "Do you / have / a pen", "point": "有無を確認します。", "alt": "Got a pen?" },
+        { "grammar": "L1: Be verb", "jp": "彼女は私の同僚です。", "en": "She is my colleague", "display": "She / is / my colleague", "point": "関係を述べます。", "alt": "She works with me." },
+        { "grammar": "L1: Wh-Quest", "jp": "誰が来ますか？", "en": "Who is coming", "display": "Who / is / coming", "point": "人を尋ねる進行形です。", "alt": "Expected attendees?" },
+        { "grammar": "L1: Time", "jp": "10時に始まります。", "en": "It starts at ten", "display": "It starts / at ten", "point": "時刻のatです。", "alt": "Start time is 10." },
+        { "grammar": "L1: Can", "jp": "これをコピーできますか？", "en": "Can you copy this", "display": "Can you / copy / this", "point": "事務の依頼です。", "alt": "Duplicate this, please." },
+        { "grammar": "L1: Present Simple", "jp": "コーヒーを飲みます。", "en": "I drink coffee", "display": "I / drink / coffee", "point": "現在の習慣です。", "alt": "Coffee is fine." },
+        { "grammar": "L1: Negative", "jp": "彼は来ません。", "en": "He does not come", "display": "He / does not / come", "point": "三単現の否定です。", "alt": "He's absent." },
+        { "grammar": "L1: Past Simple", "jp": "忘れました。", "en": "I forgot it", "display": "I / forgot / it", "point": "forgetの過去形です。", "alt": "It slipped my mind." },
+        { "grammar": "L1: Wh-Quest", "jp": "いくらですか？", "en": "How much is it", "display": "How much / is / it", "point": "価格を尋ねます。", "alt": "The price, please." },
+        { "grammar": "L1: Imperative", "jp": "窓を閉めて。", "en": "Close the window", "display": "Close / the window", "point": "命令文の基本です。", "alt": "Shut the window." },
+        { "grammar": "L1: Question", "jp": "準備はいい？", "en": "Are you ready", "display": "Are you / ready", "point": "基本の疑問文です。", "alt": "Is everything set?" },
+        { "grammar": "L1: Present Continuous", "jp": "働いています。", "en": "I am working", "display": "I am / working", "point": "動作の進行です。", "alt": "I'm busy." },
+        { "grammar": "L1: Wh-Quest", "jp": "なぜですか？", "en": "Why is that", "display": "Why / is / that", "point": "理由を尋ねます。", "alt": "Tell me why." },
+        { "grammar": "L1: Prepositions", "jp": "オフィスにいます。", "en": "I am in the office", "display": "I am / in the office", "point": "場所のinです。", "alt": "I'm here." },
+        { "grammar": "L1: Be verb", "jp": "それは大きいです。", "en": "It is big", "display": "It / is / big", "point": "サイズの描写です。", "alt": "Large size." },
+        { "grammar": "L1: Can", "jp": "使ってもいい？", "en": "Can I use it", "display": "Can I / use / it", "point": "許可のcanです。", "alt": "May I?" },
+        { "grammar": "L1: Present Simple", "jp": "魚が好きです。", "en": "I like fish", "display": "I / like / fish", "point": "好みの表明です。", "alt": "Fish is good." },
+        { "grammar": "L1: Past Simple", "jp": "勝ちました。", "en": "We won", "display": "We / won", "point": "winの過去形です。", "alt": "Victory." },
+        { "grammar": "L1: Wh-Quest", "jp": "どこですか？", "en": "Where is it", "display": "Where / is / it", "point": "場所のWhです。", "alt": "Location?" },
+        { "grammar": "L1: Negative", "jp": "私は若くない。", "en": "I am not young", "display": "I am / not / young", "point": "否定のbe動詞です。", "alt": "I'm old." },
+        { "grammar": "L1: Be verb", "jp": "今日は月曜。", "en": "It is Monday", "display": "It is / Monday", "point": "曜日のitです。", "alt": "Today is Mon." },
+        { "grammar": "L1: Imperative", "jp": "入ってください。", "en": "Please come in", "display": "Please / come / in", "point": "歓迎の表現です。", "alt": "Enter, please." },
+        { "grammar": "L1: Question", "jp": "彼は先生？", "en": "Is he a teacher", "display": "Is he / a / teacher", "point": "職業の疑問文です。", "alt": "Does he teach?" },
+        { "grammar": "L1: Present Continuous", "jp": "雨が降っている。", "en": "It is raining", "display": "It / is / raining", "point": "天気の進行形です。", "alt": "It's rainy." },
+        { "grammar": "L1: Wh-Quest", "jp": "誰ですか？", "en": "Who is that", "display": "Who / is / that", "point": "人を尋ねるWhです。", "alt": "Whose there?" },
+        { "grammar": "L1: Prepositions", "jp": "箱の上にあります。", "en": "It is on the box", "display": "It is / on / the box", "point": "位置のonです。", "alt": "On top." },
+        { "grammar": "L1: Past Simple", "jp": "それを食べました。", "en": "I ate it", "display": "I / ate / it", "point": "eatの過去形ateです。", "alt": "Finished eating." },
+        { "grammar": "L1: Can", "jp": "泳げます。", "en": "I can swim", "display": "I can / swim", "point": "能力のcanです。", "alt": "I'm a swimmer." },
+        { "grammar": "L1: Be verb", "jp": "私は幸せ。", "en": "I am happy", "display": "I am / happy", "point": "状態の表明です。", "alt": "Feeling good." },
+        { "grammar": "L1: Wh-Quest", "jp": "何時？", "en": "What time is it", "display": "What time / is / it", "point": "時刻のWhです。", "alt": "Got the time?" },
+        { "grammar": "L1: Negative", "jp": "暑くない。", "en": "It is not hot", "display": "It / is not / hot", "point": "天候の否定です。", "alt": "Cool weather." },
+        { "grammar": "L1: Present Simple", "jp": "彼はここに住んでいる。", "en": "He lives here", "display": "He / lives / here", "point": "居住の現在形です。", "alt": "This is his home." },
+        { "grammar": "L1: Imperative", "jp": "座ってください。", "en": "Please sit down", "display": "Please / sit / down", "point": "丁寧な指示です。", "alt": "Take a seat." },
+        { "grammar": "L1: Question", "jp": "あなたは学生？", "en": "Are you a student", "display": "Are you / a / student", "point": "身分の疑問文です。", "alt": "Do you study?" },
+        { "grammar": "L1: Wh-Quest", "jp": "どこに行くの？", "en": "Where do you go", "display": "Where / do you / go", "point": "目的地のWhです。", "alt": "Heading where?" },
+        { "grammar": "L1: Past Simple", "jp": "彼は死んだ。", "en": "He died", "display": "He / died", "point": "過去の事実です。", "alt": "He is gone." },
+        { "grammar": "L1: Can", "jp": "見えますか？", "en": "Can you see it", "display": "Can you / see / it", "point": "視覚のcanです。", "alt": "Is it visible?" },
+        { "grammar": "L1: Be verb", "jp": "これは私のもの。", "en": "This is mine", "display": "This / is / mine", "point": "所有の代名詞です。", "alt": "It's my item." },
+
+        // --- 51-100: Level 2 ---
+        { "grammar": "L2: Future", "jp": "後で確認します。", "en": "I will check it later", "display": "I will / check it / later", "point": "意思のwillです。" },
+        { "grammar": "L2: Must", "jp": "これを終わらせなければならない。", "en": "I must finish this", "display": "I / must finish / this", "point": "義務のmustです。" },
+        { "grammar": "L2: Should", "jp": "謝るべきです。", "en": "You should apologize", "display": "You / should / apologize", "point": "提案のshouldです。" },
+        { "grammar": "L2: To-Infinitive", "jp": "話すために来ました。", "en": "I came here to talk", "display": "I came here / to talk", "point": "目的の不定詞です。" },
+        { "grammar": "L2: Gerund", "jp": "本を読むのが好きです。", "en": "I like reading books", "display": "I like / reading / books", "point": "動名詞-ingです。" },
+        { "grammar": "L2: Comparison", "jp": "彼は私より高い。", "en": "He is taller than me", "display": "He / is / taller than / me", "point": "比較級erです。" },
+        { "grammar": "L2: Superlative", "jp": "これが一番安い。", "en": "This is the cheapest", "display": "This is / the / cheapest", "point": "最上級estです。" },
+        { "grammar": "L2: If", "jp": "もし晴れたら行こう。", "en": "If it is sunny, let's go", "display": "If / it is sunny, / let's go", "point": "条件のifです。" },
+        { "grammar": "L2: Because", "jp": "忙しいから行けない。", "en": "I cannot go because I am busy", "display": "I cannot go / because / I am busy", "point": "理由のbecauseです。" },
+        { "grammar": "L2: Future", "jp": "明日は雨だろう。", "en": "It will rain tomorrow", "display": "It / will / rain tomorrow", "point": "予測のwillです。" },
+        { "grammar": "SCM: Inventory", "jp": "在庫を減らして。", "en": "Reduce the inventory", "display": "Reduce / the inventory", "point": "SCM必須動詞です。" },
+        { "grammar": "SCM: Logistics", "jp": "運賃をチェックして。", "en": "Check the freight", "display": "Check / the freight", "point": "freightは運賃です。" },
+        { "grammar": "L2: Must", "jp": "急がなきゃ。", "en": "I must hurry", "display": "I / must / hurry", "point": "自身の義務です。" },
+        { "grammar": "L2: Should", "jp": "寝たほうがいいよ。", "en": "You should sleep", "display": "You / should / sleep", "point": "軽い助言です。" },
+        { "grammar": "L2: To-Infinitive", "jp": "何か飲むものが欲しい。", "en": "I want something to drink", "display": "I want / something / to drink", "point": "形容詞的用法です。" },
+        { "grammar": "L2: Comparison", "jp": "これはあれより良い。", "en": "This is better than that", "display": "This is / better / than that", "point": "不規則比較級です。" },
+        { "grammar": "L2: Superlative", "jp": "彼女は世界一幸せだ。", "en": "She is the happiest in the world", "display": "She is / the happiest / in the world", "point": "最上級の強調です。" },
+        { "grammar": "L2: Gerund", "jp": "走るのが得意です。", "en": "I am good at running", "display": "I am / good at / running", "point": "atの後は-ingです。" },
+        { "grammar": "L2: Future", "jp": "すぐに戻るよ。", "en": "I will be back soon", "display": "I will / be back / soon", "point": "未来の状態will be。" },
+        { "grammar": "L2: If", "jp": "暇なら手伝って。", "en": "If you are free, help me", "display": "If / you are free, / help me", "point": "仮定の条件です。" },
+        { "grammar": "SCM: Supplier", "jp": "新しい業者を探そう。", "en": "Let's find a new supplier", "display": "Let's / find / a new supplier", "point": "サプライヤー開拓。" },
+        { "grammar": "SCM: Delay", "jp": "出荷が遅れています。", "en": "The shipment is delayed", "display": "The shipment / is / delayed", "point": "遅延の報告。" },
+        { "grammar": "L2: Comparison", "jp": "今日は昨日より寒い。", "en": "Today is colder than yesterday", "display": "Today / is / colder than yesterday", "point": "日常の比較。" },
+        { "grammar": "L2: Must", "jp": "静かにして！", "en": "You must be quiet", "display": "You / must / be / quiet", "point": "強い命令に近い義務。" },
+        { "grammar": "L2: To-Infinitive", "jp": "勉強するために来ました。", "en": "I came here to study", "display": "I came here / to study", "point": "目的の表現。" },
+        { "grammar": "L2: Gerund", "jp": "料理は楽しい。", "en": "Cooking is fun", "display": "Cooking / is / fun", "point": "動名詞主語。" },
+        { "grammar": "L2: Comparison", "jp": "あれはこれより高い。", "en": "That is more expensive than this", "display": "That is / more expensive / than this", "point": "長い形容詞の比較。" },
+        { "grammar": "L2: Superlative", "jp": "これが最も重要だ。", "en": "This is the most important", "display": "This is / the / most important", "point": "重要度の最上級。" },
+        { "grammar": "L2: Conjunction", "jp": "彼が来たら教えて。", "en": "Tell me when he comes", "display": "Tell me / when / he comes", "point": "時を繋ぐwhen。" },
+        { "grammar": "L2: Because", "jp": "雨だから中止。", "en": "It is canceled because of rain", "display": "It is canceled / because of / rain", "point": "理由の名詞形接続。" },
+        { "grammar": "SCM: Route", "jp": "ルートを変えよう。", "en": "Let's change the route", "display": "Let's / change / the route", "point": "物流経路の変更。" },
+        { "grammar": "SCM: Stock", "jp": "在庫は十分です。", "en": "The stock is sufficient", "display": "The stock / is / sufficient", "point": "在庫充足の報告。" },
+        { "grammar": "L2: Future", "jp": "彼は成功するだろう。", "en": "He will succeed", "display": "He / will / succeed", "point": "未来の成功予測。" },
+        { "grammar": "L2: Should", "jp": "もっと早く出発すべきだ。", "en": "We should leave earlier", "display": "We / should / leave earlier", "point": "出発のアドバイス。" },
+        { "grammar": "L2: To-Infinitive", "jp": "寝る時間だよ。", "en": "It is time to sleep", "display": "It is / time / to sleep", "point": "形容詞的用法の定番。" },
+        { "grammar": "L2: Comparison", "jp": "彼はあなたほど背が高くない。", "en": "He is not as tall as you", "display": "He is / not as tall / as you", "point": "as as の否定。" },
+        { "grammar": "L2: Superlative", "jp": "これがベストな方法だ。", "en": "This is the best way", "display": "This is / the / best way", "point": "最良の選択。" },
+        { "grammar": "L2: Gerund", "jp": "泳ぐのをやめて。", "en": "Stop swimming", "display": "Stop / swimming", "point": "stop -ing。" },
+        { "grammar": "L2: Future", "jp": "雨は降らないだろう。", "en": "It will not rain", "display": "It / will / not rain", "point": "否定の未来予測。" },
+        { "grammar": "L2: If", "jp": "もしよければどうぞ。", "en": "Take it if you like", "display": "Take it / if / you like", "point": "条件の提示。" },
+        { "grammar": "SCM: Vendor", "jp": "ベンダーに連絡して。", "en": "Contact the vendor", "display": "Contact / the vendor", "point": "業者の呼び方。" },
+        { "grammar": "SCM: SKU", "jp": "SKUはいくつ？", "en": "How many SKUs are there", "display": "How many / SKUs / are there", "point": "管理単位の確認。" },
+        { "grammar": "L2: Must", "jp": "これを読まなければならない。", "en": "I must read this", "display": "I / must / read this", "point": "強い意志の義務。" },
+        { "grammar": "L2: Should", "jp": "座るべきだよ。", "en": "You should sit down", "display": "You / should / sit down", "point": "提案の表現。" },
+        { "grammar": "L2: Comparison", "jp": "リンゴはオレンジより赤い。", "en": "Apples are redder than oranges", "display": "Apples / are / redder than oranges", "point": "単純比較。" },
+        { "grammar": "L2: Superlative", "jp": "彼は学校で一番有名だ。", "en": "He is the most famous in school", "display": "He is / the / most famous", "point": "学内の最上級。" },
+        { "grammar": "L2: Conjunction", "jp": "準備ができたら呼んで。", "en": "Call me when you are ready", "display": "Call me / when / you are ready", "point": "時機を待つ表現。" },
+        { "grammar": "L2: Because", "jp": "疲れてるので寝ます。", "en": "I sleep because I am tired", "display": "I sleep / because / I am tired", "point": "理由の接続。" },
+        { "grammar": "L2: Comparison", "jp": "猫は犬より小さい。", "en": "Cats are smaller than dogs", "display": "Cats / are / smaller than dogs", "point": "サイズの比較。" },
+        { "grammar": "L2: Superlative", "jp": "これが私の最高のアイデアだ。", "en": "This is my best idea", "display": "This / is / my best idea", "point": "自己最高の表現。" }
     ];
 
-    // --- ロジックセクション ---
-    // 足りない分はリピートして、画面上の進捗を「600」に固定します。
-    const questions = [];
-    const targetCount = 600;
-    for(let i=0; i<targetCount; i++) {
-        const item = rawData[i % rawData.length];
-        questions.push({ ...item, id: i + 1 });
-    }
-
-    let learnedList = JSON.parse(localStorage.getItem('learned_v600_integrated')) || [];
+    // --- ロジック ---
+    const questions = rawData.map((q, i) => ({ ...q, id: i + 1 }));
+    let learnedList = JSON.parse(localStorage.getItem('learned_v200_final')) || [];
     let currentIndex = 0;
     let isRandomMode = false;
     let recognition, mediaRecorder, audioChunks = [], audioUrl, synth = window.speechSynthesis, stream;
 
     function updateOverallProgress() {
         const count = learnedList.length;
-        document.getElementById('learned-count').innerText = `Learned: ${count} / ${targetCount}`;
-        document.getElementById('progress-bar').style.width = (count / targetCount * 100) + '%';
+        const total = 200; // この後の追加を考慮して200に設定
+        document.getElementById('learned-count').innerText = `Learned: ${count} / ${total}`;
+        document.getElementById('progress-bar').style.width = (count / total * 100) + '%';
     }
 
     function init() {
+        if (questions.length === 0) return;
         const q = questions[currentIndex];
         const isLearned = learnedList.includes(q.id);
         document.getElementById('grammar-label').innerText = q.grammar;
@@ -134,14 +211,13 @@
             markBtn.innerText = "Learned ✅"; markBtn.classList.add('active');
         } else {
             statusBadge.innerText = "Not Learned"; statusBadge.className = "status-badge status-not-learned";
-            markBtn.innerText = "Mark Learned"; markBtn.classList.remove('active');
+            markBtn.innerText = "Check as Learned"; markBtn.classList.remove('active');
         }
         document.getElementById('result-area').classList.add('hidden');
         document.getElementById('next-btn').classList.add('hidden');
         document.getElementById('retry-btn').classList.add('hidden');
         document.getElementById('record-btn').classList.remove('hidden');
         document.getElementById('record-btn').innerText = "🎤 Click to Speak";
-        document.getElementById('record-btn').style.backgroundColor = "";
         updateOverallProgress();
     }
 
@@ -149,7 +225,7 @@
         const q = questions[currentIndex];
         if (learnedList.includes(q.id)) { learnedList = learnedList.filter(id => id !== q.id); } 
         else { learnedList.push(q.id); }
-        localStorage.setItem('learned_v600_integrated', JSON.stringify(learnedList));
+        localStorage.setItem('learned_v200_final', JSON.stringify(learnedList));
         init();
     };
 
@@ -164,30 +240,24 @@
             try {
                 stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 mediaRecorder = new MediaRecorder(stream);
-                mediaRecorder.ondataavailable = e => audioChunks.push(event.data);
+                mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
                 mediaRecorder.onstop = () => { audioUrl = URL.createObjectURL(new Blob(audioChunks, { type: 'audio/wav' })); };
-            } catch (e) { alert("Mic permission needed."); return; }
+            } catch (e) { alert("Mic error."); return; }
         }
         if (!recognition) {
             const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-            recognition = new SpeechRec();
-            recognition.lang = 'en-US';
+            recognition = new SpeechRec(); recognition.lang = 'en-US';
             recognition.onresult = (e) => {
                 if(mediaRecorder.state === "recording") mediaRecorder.stop();
                 showResult(e.results[0][0].transcript);
             };
-            recognition.onerror = () => { document.getElementById('record-btn').innerText = "🎤 Error (Retry)"; };
         }
     }
 
     document.getElementById('record-btn').onclick = async () => {
-        await setupAudio();
-        audioChunks = [];
-        try {
-            recognition.start();
-            mediaRecorder.start();
+        await setupAudio(); audioChunks = [];
+        try { recognition.start(); mediaRecorder.start();
             document.getElementById('record-btn').innerText = "Listening...";
-            document.getElementById('record-btn').style.backgroundColor = "#E74C3C";
         } catch(e) {}
     };
 
@@ -195,8 +265,9 @@
         const q = questions[currentIndex];
         document.getElementById('user-speech').innerText = `"${userSpeech}"`;
         document.getElementById('model-answer').innerHTML = q.display.split(' / ').map(p => p + `<span class="slash">/</span>`).join('');
-        document.getElementById('feedback-jp').innerText = "Check the answer and practice shadowing!";
-        document.getElementById('grammar-point-text').innerHTML = `<strong>Note:</strong> ${q.point}<br><strong>Alt:</strong> ${q.alt}`;
+        const isPerfect = userSpeech.toLowerCase().replace(/[.\s,?]/g,'') === q.en.toLowerCase().replace(/[.\s,?]/g,'');
+        document.getElementById('feedback-jp').innerText = isPerfect ? "Perfect! Well done." : "Good try! Check the answer.";
+        document.getElementById('grammar-point-text').innerHTML = `<strong>Note:</strong> ${q.point}<br><strong>Alt:</strong> ${q.alt || "N/A"}`;
         document.getElementById('result-area').classList.remove('hidden');
         document.getElementById('record-btn').classList.add('hidden');
         document.getElementById('next-btn').classList.remove('hidden');
@@ -205,20 +276,17 @@
     }
 
     window.playModel = (speed) => {
-        synth.cancel();
-        const utter = new SpeechSynthesisUtterance(questions[currentIndex].en);
+        synth.cancel(); const utter = new SpeechSynthesisUtterance(questions[currentIndex].en);
         utter.lang = 'en-US'; utter.rate = speed; synth.speak(utter);
     };
 
     document.getElementById('replay-btn').onclick = () => { if(audioUrl) new Audio(audioUrl).play(); };
     document.getElementById('next-btn').onclick = () => {
-        if (isRandomMode) { currentIndex = Math.floor(Math.random() * targetCount); } 
-        else { currentIndex = (currentIndex + 1) % targetCount; }
+        if (isRandomMode) { currentIndex = Math.floor(Math.random() * questions.length); } 
+        else { currentIndex = (currentIndex + 1) % questions.length; }
         init();
     };
     document.getElementById('retry-btn').onclick = init;
-
-    // 開始
     init();
 </script>
 </body>
