@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Biz English Construction 500</title>
+    <title>Biz English 500 Pro</title>
     <style>
-        :root {
-            --deep-blue: #003468; --purpose-blue: #0082C4; --parker-gold: #FDB913;
-            --clean-green: #7BBA3E; --charcoal: #1C2B39; --white: #FFFFFF;
-            --soft-gray: #F1F5F9; --border-light: #E2E8F0;
-        }
+        :root { --deep-blue: #003468; --purpose-blue: #0082C4; --parker-gold: #FDB913; --clean-green: #7BBA3E; --charcoal: #1C2B39; --white: #FFFFFF; --soft-gray: #F1F5F9; --border-light: #E2E8F0; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #F8FAFC; color: var(--charcoal); margin: 0; display: flex; justify-content: center; }
         .app-container { max-width: 650px; width: 100%; background: var(--white); min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
         .app-header { background: var(--deep-blue); color: white; padding: 15px 25px; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--parker-gold); }
@@ -46,31 +42,21 @@
 <div class="app-container">
     <header class="app-header">
         <div class="header-top">
-            <div>
-                <span id="grammar-label" class="grammar-tag">Grammar</span>
-                <span id="learned-status" class="status-badge">Not Learned</span>
-            </div>
-            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 500</div>
+            <div><span id="grammar-label" class="grammar-tag">Biz English</span><span id="learned-status" class="status-badge">Not Learned</span></div>
+            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 0</div>
         </div>
-        <div class="progress-container">
-            <div id="progress-bar" class="progress-fill"></div>
-        </div>
+        <div class="progress-container"><div id="progress-bar" class="progress-fill"></div></div>
     </header>
-
     <div class="content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
             <span class="section-title">Japanese Prompt</span>
             <button id="random-toggle" class="btn-random">Random: OFF</button>
         </div>
-        
         <div class="question-card">
             <button id="mark-learned-btn" class="learned-btn">Check as Learned</button>
             <div id="jp-text" class="jp-text">Loading Questions...</div>
         </div>
-
         <div id="result-area" class="result-area hidden">
-            <span class="section-title">Your Transcription</span>
-            <div id="user-speech" style="font-style: italic; margin-bottom: 12px; color: var(--charcoal); font-size: 1.1rem; padding: 12px; background: #fff; border-radius: 6px; border: 1px solid var(--border-light);"></div>
             <span class="section-title">Model Answer</span>
             <div id="model-answer" class="model-answer"></div>
             <div style="margin-bottom: 15px; display: flex; flex-wrap: wrap;">
@@ -79,17 +65,12 @@
                 <button class="btn-outline" id="replay-btn">▶ My Voice</button>
             </div>
             <div class="advice-card">
-                <div id="feedback-en" style="font-weight:bold; color:#1E40AF; margin-bottom:5px; font-size: 1.1rem;"></div>
                 <div id="feedback-jp" style="font-size:0.9rem; margin-bottom:10px; color:#334155; font-weight: 500;"></div>
                 <div style="font-size:0.85rem; border-top: 1px solid #D1E9FF; padding-top: 8px;">
                     <strong>Grammar Note:</strong> <span id="grammar-point-text"></span>
                 </div>
-                <div style="font-size:0.85rem; margin-top: 5px;">
-                    <strong>Alternative:</strong> <span id="alt-text" style="color:var(--purpose-blue); font-weight: bold;"></span>
-                </div>
             </div>
         </div>
-
         <div class="controls">
             <button id="record-btn" class="btn-primary">🎤 Click to Speak</button>
             <button id="next-btn" class="btn-next hidden">Next Task ➔</button>
@@ -97,92 +78,51 @@
         </div>
     </div>
 </div>
-
+<!-- ここでデータを読み込みます -->
+<script src="data.js"></script>
 <script>
-    // --- 統合データセクション ---
-    const rawData = [
-        // L1
-        { "grammar": "L1: Be verb", "jp": "私は新しいプロジェクトマネージャーです。", "en": "I am the new project manager", "display": "I am / the new / project manager", "point": "I am ...は自己紹介の基本です。", "alt": "My name is Tanaka, and I am the manager." },
-        { "grammar": "L1: Present Simple", "jp": "私はIT企業で働いています。", "en": "I work for an IT company", "display": "I work / for an IT company", "point": "所属は work for を使います。", "alt": "I am an employee of an IT firm." },
-        { "grammar": "L1: Present Continuous", "jp": "彼は今、電話に出ています。", "en": "He is on the phone now", "display": "He is / on the phone / now", "point": "is on the phone で電話中です。", "alt": "He is currently on another line." },
-        { "grammar": "L1: Past Simple", "jp": "昨日、見積もりを送りました。", "en": "I sent the estimate yesterday", "display": "I sent / the estimate / yesterday", "point": "sendの過去形は不規則変化の sent です。", "alt": "The quote was sent yesterday." },
-        // L2
-        { "grammar": "L2: Future (will)", "jp": "後ほどメールを差し上げます。", "en": "I will email you later", "display": "I will / email you / later", "point": "その場で決めた意思には will を使います。", "alt": "I'll send you an email shortly." },
-        { "grammar": "L2: Must", "jp": "5時までにこれを終わらせなければなりません。", "en": "I must finish this by five", "display": "I must / finish / this / by five", "point": "強い義務は must。by は期限を表します。", "alt": "I need to complete this by 5 PM." },
-        { "grammar": "L2: Comparison", "jp": "このコンピュータはあのコンピュータより新しいです。", "en": "This computer is newer than that one", "display": "This computer / is newer / than / that one", "point": "短い形容詞の比較級は後ろに er を付けます。", "alt": "This is a more recent model." },
-        // L3
-        { "grammar": "L3: Present Perfect", "jp": "ちょうどそのメールを送ったところです。", "en": "I have just sent the email", "display": "I have just / sent / the email", "point": "have just + 過去分詞で完了を表します。", "alt": "I've just dispatched the message." },
-        { "grammar": "L3: Indirect Question", "jp": "彼がどこにいるか知っていますか？", "en": "Do you know where he is", "display": "Do you know / where / he is", "point": "間接疑問文では語順が「主語＋動詞」になります。", "alt": "Could you tell me his current location?" },
-        // SCM
-        { "grammar": "SCM: Logistics", "jp": "私は物流部で働いています。", "en": "I work in the logistics department", "display": "I work / in the logistics department", "point": "logistics は物流を指す最重要単語です。", "alt": "I am in the supply chain team." },
-        { "grammar": "SCM: Inventory", "jp": "私たちは在庫を減らす必要があります。", "en": "We have to reduce the inventory", "display": "We have to / reduce / the inventory", "point": "inventory（在庫）削減はSCMの大きな目標です。", "alt": "We need to cut down on our stock levels." }
-    ];
-
-    // 500問まで自動ループ生成（本物のデータが増えるまでこれを繰り返す）
-    const questions = [];
-    for(let i=0; i<500; i++) {
-        const item = rawData[i % rawData.length];
-        questions.push({ ...item, id: i + 1 });
-    }
-
-    let learnedList = JSON.parse(localStorage.getItem('learned_biz_eng_v5')) || [];
+    // questionsがdata.jsから読み込まれるのを待ちます
+    let learnedList = JSON.parse(localStorage.getItem('learned_biz_v10')) || [];
     let currentIndex = 0;
     let isRandomMode = false;
     let recognition, mediaRecorder, audioChunks = [], audioUrl, synth = window.speechSynthesis, stream;
 
-    function saveLearnedStatus() {
-        localStorage.setItem('learned_biz_eng_v5', JSON.stringify(learnedList));
-        updateOverallProgress();
-    }
-
     function updateOverallProgress() {
+        if(!window.questions) return;
         const count = learnedList.length;
         const total = questions.length;
         document.getElementById('learned-count').innerText = `Learned: ${count} / ${total}`;
-        const percent = (count / total) * 100;
-        document.getElementById('progress-bar').style.width = percent + '%';
+        document.getElementById('progress-bar').style.width = (count / total * 100) + '%';
     }
 
     function init() {
+        if (!window.questions || questions.length === 0) return;
         const q = questions[currentIndex];
         const isLearned = learnedList.includes(q.id);
-        
         document.getElementById('grammar-label').innerText = q.grammar;
         document.getElementById('jp-text').innerText = q.jp;
-        
         const statusBadge = document.getElementById('learned-status');
         const markBtn = document.getElementById('mark-learned-btn');
-        
         if (isLearned) {
-            statusBadge.innerText = "Learned ✅";
-            statusBadge.className = "status-badge status-learned";
-            markBtn.innerText = "Learned ✅";
-            markBtn.classList.add('active');
+            statusBadge.innerText = "Learned ✅"; statusBadge.className = "status-badge status-learned";
+            markBtn.innerText = "Learned ✅"; markBtn.classList.add('active');
         } else {
-            statusBadge.innerText = "Not Learned";
-            statusBadge.className = "status-badge status-not-learned";
-            markBtn.innerText = "Check as Learned";
-            markBtn.classList.remove('active');
+            statusBadge.innerText = "Not Learned"; statusBadge.className = "status-badge status-not-learned";
+            markBtn.innerText = "Check as Learned"; markBtn.classList.remove('active');
         }
-
         document.getElementById('result-area').classList.add('hidden');
         document.getElementById('next-btn').classList.add('hidden');
         document.getElementById('retry-btn').classList.add('hidden');
         document.getElementById('record-btn').classList.remove('hidden');
         document.getElementById('record-btn').innerText = "🎤 Click to Speak";
-        document.getElementById('record-btn').className = "btn-primary";
-        
         updateOverallProgress();
     }
 
     document.getElementById('mark-learned-btn').onclick = function() {
         const q = questions[currentIndex];
-        if (learnedList.includes(q.id)) {
-            learnedList = learnedList.filter(id => id !== q.id);
-        } else {
-            learnedList.push(q.id);
-        }
-        saveLearnedStatus();
+        if (learnedList.includes(q.id)) { learnedList = learnedList.filter(id => id !== q.id); } 
+        else { learnedList.push(q.id); }
+        localStorage.setItem('learned_biz_v10', JSON.stringify(learnedList));
         init();
     };
 
@@ -194,51 +134,33 @@
 
     async function setupAudio() {
         if (!stream) {
-            try {
-                stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-                mediaRecorder.onstop = () => { audioUrl = URL.createObjectURL(new Blob(audioChunks, { type: 'audio/wav' })); };
-            } catch (e) { alert("Please allow microphone access."); return; }
+            stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+            mediaRecorder.onstop = () => { audioUrl = URL.createObjectURL(new Blob(audioChunks, { type: 'audio/wav' })); };
         }
         if (!recognition) {
             const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-            recognition = new SpeechRec();
-            recognition.lang = 'en-US';
+            recognition = new SpeechRec(); recognition.lang = 'en-US';
             recognition.onresult = (e) => {
-                const speech = e.results[0][0].transcript;
                 if(mediaRecorder.state === "recording") mediaRecorder.stop();
+                const speech = e.results[0][0].transcript;
                 showResult(speech);
             };
-            recognition.onerror = () => { document.getElementById('record-btn').innerText = "🎤 Error (Retry)"; };
         }
     }
 
     document.getElementById('record-btn').onclick = async () => {
-        await setupAudio();
-        audioChunks = [];
-        try {
-            recognition.start();
-            mediaRecorder.start();
-            document.getElementById('record-btn').innerText = "Listening...";
-            document.getElementById('record-btn').className = "btn-primary btn-recording";
-        } catch(e) {}
+        await setupAudio(); audioChunks = [];
+        recognition.start(); mediaRecorder.start();
+        document.getElementById('record-btn').innerText = "Listening...";
     };
 
     function showResult(userSpeech) {
         const q = questions[currentIndex];
-        document.getElementById('user-speech').innerText = `"${userSpeech}"`;
         document.getElementById('model-answer').innerHTML = q.display.split(' / ').map(p => p + `<span class="slash">/</span>`).join('');
-        
-        const cleanUser = userSpeech.toLowerCase().replace(/[.\s,?]/g,'');
-        const cleanCorrect = q.en.toLowerCase().replace(/[.\s,?]/g,'');
-        const isPerfect = cleanUser === cleanCorrect;
-
-        document.getElementById('feedback-en').innerText = isPerfect ? "Perfect! Well done." : "Good try! Almost there.";
-        document.getElementById('feedback-jp').innerText = isPerfect ? "完璧な回答です！" : "惜しい！キーワードを確認しましょう。";
+        document.getElementById('feedback-jp').innerText = "Voice detected. Check the answer!";
         document.getElementById('grammar-point-text').innerText = q.point;
-        document.getElementById('alt-text').innerText = q.alt || "N/A";
-
         document.getElementById('result-area').classList.remove('hidden');
         document.getElementById('record-btn').classList.add('hidden');
         document.getElementById('next-btn').classList.remove('hidden');
@@ -247,25 +169,20 @@
     }
 
     window.playModel = (speed) => {
-        synth.cancel();
-        const utter = new SpeechSynthesisUtterance(questions[currentIndex].en);
-        utter.lang = 'en-US'; utter.rate = speed;
-        synth.speak(utter);
+        synth.cancel(); const utter = new SpeechSynthesisUtterance(questions[currentIndex].en);
+        utter.lang = 'en-US'; utter.rate = speed; synth.speak(utter);
     };
 
     document.getElementById('replay-btn').onclick = () => { if(audioUrl) new Audio(audioUrl).play(); };
-    
     document.getElementById('next-btn').onclick = () => {
-        if (isRandomMode) {
-            currentIndex = Math.floor(Math.random() * questions.length);
-        } else {
-            currentIndex = (currentIndex + 1) % questions.length;
-        }
+        if (isRandomMode) { currentIndex = Math.floor(Math.random() * questions.length); } 
+        else { currentIndex = (currentIndex + 1) % questions.length; }
         init();
     };
-
     document.getElementById('retry-btn').onclick = init;
-    init();
+
+    // データがロードされるのを待って初期化
+    window.onload = () => { if(window.questions) init(); };
 </script>
 </body>
 </html>
