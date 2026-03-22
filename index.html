@@ -3,41 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Biz English Construction 500</title>
+    <title>Biz English Construction 500 - Advanced</title>
     <style>
         :root {
             --deep-blue: #003468; --purpose-blue: #0082C4; --parker-gold: #FDB913;
             --clean-green: #7BBA3E; --charcoal: #1C2B39; --white: #FFFFFF;
             --soft-gray: #F1F5F9; --border-light: #E2E8F0;
         }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #F8FAFC; color: var(--charcoal); margin: 0; display: flex; justify-content: center; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #F8FAFC; color: var(--charcoal); margin: 0; display: flex; justify-content: center; }
         .app-container { max-width: 650px; width: 100%; background: var(--white); min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
-        .app-header { background: var(--deep-blue); color: white; padding: 15px 25px; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--parker-gold); }
+        
+        /* Header & Progress Bar */
+        .app-header { background: var(--deep-blue); color: white; padding: 15px 25px; position: sticky; top: 0; z-index: 100; }
         .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
         .progress-container { width: 100%; height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; overflow: hidden; }
         .progress-fill { height: 100%; background: var(--parker-gold); width: 0%; transition: width 0.3s; }
-        .grammar-tag { background: var(--parker-gold); color: var(--deep-blue); padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
-        .status-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; margin-left: 10px; font-weight: bold;}
+        
+        .grammar-tag { background: var(--parker-gold); color: var(--deep-blue); padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; }
+        .status-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; margin-left: 10px; }
         .status-learned { background: var(--clean-green); color: white; }
         .status-not-learned { background: #94a3b8; color: white; }
+
         .content { padding: 25px; flex-grow: 1; }
         .section-title { font-size: 0.7rem; font-weight: 700; color: var(--purpose-blue); text-transform: uppercase; margin-bottom: 6px; display: block; }
-        .question-card { background: var(--soft-gray); border-left: 6px solid var(--deep-blue); padding: 25px; border-radius: 8px; margin-bottom: 20px; position: relative; }
+        .question-card { background: var(--soft-gray); border-left: 6px solid var(--deep-blue); padding: 20px; border-radius: 8px; margin-bottom: 20px; position: relative; }
+        
+        /* Learned Toggle Button */
         .learned-btn { position: absolute; top: 10px; right: 10px; background: white; border: 1px solid var(--border-light); padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; cursor: pointer; }
         .learned-btn.active { background: var(--clean-green); color: white; border-color: var(--clean-green); }
-        .jp-text { font-size: 1.4rem; font-weight: 700; color: var(--deep-blue); line-height: 1.5; padding-right: 60px; }
-        .result-area { border-top: 2px solid var(--soft-gray); padding-top: 15px; animation: fadeIn 0.4s ease-out; }
-        .model-answer { font-size: 1.3rem; font-weight: 700; color: var(--deep-blue); margin-bottom: 10px; }
-        .slash { color: #CBD5E1; margin: 0 3px; font-weight: normal;}
-        .advice-card { background: #F0F7FF; border-radius: 12px; padding: 20px; border: 1px solid var(--border-light); margin-top: 20px; }
+
+        .jp-text { font-size: 1.3rem; font-weight: 700; color: var(--deep-blue); line-height: 1.4; padding-right: 60px; }
+        .result-area { border-top: 2px solid var(--soft-gray); padding-top: 15px; animation: fadeIn 0.3s ease-out; }
+        .model-answer { font-size: 1.25rem; font-weight: 700; color: var(--deep-blue); margin-bottom: 10px; }
+        .slash { color: #CBD5E1; margin: 0 3px; }
+        
+        .advice-card { background: #F0F7FF; border-radius: 10px; padding: 15px; border: 1px solid var(--border-light); margin-top: 15px; }
+        
+        /* Buttons */
+        .controls { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
         button { border: none; padding: 16px; font-size: 1rem; border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.2s; }
         .btn-primary { background: var(--deep-blue); color: white; width: 100%; }
         .btn-recording { background: #E74C3C; color: white; animation: pulse 1.5s infinite; }
         .btn-next { background: var(--clean-green); color: white; }
-        .btn-random { background: var(--white); color: var(--deep-blue); border: 1px solid var(--deep-blue); padding: 8px; font-size: 0.8rem; width: 120px;}
+        .btn-random { background: var(--white); color: var(--deep-blue); border: 1px solid var(--deep-blue); padding: 8px; font-size: 0.8rem; }
         .btn-random.active { background: var(--deep-blue); color: white; }
+        
         .btn-outline { background: white; border: 1px solid var(--border-light); color: var(--purpose-blue); width: auto; padding: 8px 12px; font-size: 0.8rem; margin-right: 5px; margin-bottom: 5px; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); } 100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); } }
         .hidden { display: none; }
     </style>
@@ -50,7 +63,7 @@
                 <span id="grammar-label" class="grammar-tag">Grammar</span>
                 <span id="learned-status" class="status-badge">Not Learned</span>
             </div>
-            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 0</div>
+            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 500</div>
         </div>
         <div class="progress-container">
             <div id="progress-bar" class="progress-fill"></div>
@@ -65,12 +78,12 @@
         
         <div class="question-card">
             <button id="mark-learned-btn" class="learned-btn">Check as Learned</button>
-            <div id="jp-text" class="jp-text">Ready to Start...</div>
+            <div id="jp-text" class="jp-text">...</div>
         </div>
 
         <div id="result-area" class="result-area hidden">
             <span class="section-title">Your Transcription</span>
-            <div id="user-speech" style="font-style: italic; margin-bottom: 12px; color: var(--charcoal); font-size: 1.1rem; padding: 12px; background: #fff; border-radius: 6px; border: 1px solid var(--border-light);"></div>
+            <div id="user-speech" style="font-style: italic; margin-bottom: 12px; color: var(--charcoal); font-size: 1rem; padding: 10px; background: #fff; border-radius: 6px; border: 1px solid var(--border-light);"></div>
             <span class="section-title">Model Answer</span>
             <div id="model-answer" class="model-answer"></div>
             <div style="margin-bottom: 15px; display: flex; flex-wrap: wrap;">
@@ -79,14 +92,9 @@
                 <button class="btn-outline" id="replay-btn">▶ My Voice</button>
             </div>
             <div class="advice-card">
-                <div id="feedback-en" style="font-weight:bold; color:#1E40AF; margin-bottom:5px; font-size: 1.1rem;"></div>
-                <div id="feedback-jp" style="font-size:0.9rem; margin-bottom:10px; color:#334155; font-weight: 500;"></div>
-                <div style="font-size:0.85rem; border-top: 1px solid #D1E9FF; padding-top: 8px;">
-                    <strong>Grammar Note:</strong> <span id="grammar-point-text"></span>
-                </div>
-                <div style="font-size:0.85rem; margin-top: 5px;">
-                    <strong>Alternative:</strong> <span id="alt-text" style="color:var(--purpose-blue); font-weight: bold;"></span>
-                </div>
+                <div id="feedback-en" style="font-weight:bold; color:#1E40AF;"></div>
+                <div id="feedback-jp" style="font-size:0.85rem; margin-bottom:10px;"></div>
+                <div style="font-size:0.85rem;"><strong>Tip:</strong> <span id="grammar-point-text"></span></div>
             </div>
         </div>
 
@@ -99,45 +107,21 @@
 </div>
 
 <script>
-    const rawData = [
-        // LEVEL 1
-        { "grammar": "Be verb (am)", "jp": "私は新しいプロジェクトマネージャーです。", "en": "I am the new project manager", "display": "I am / the new / project manager", "keywords": ["project", "manager"], "point": "I am ...（私は〜です）は自己紹介の基本です。", "alt": "My name is Tanaka, and I am the manager." },
-        { "grammar": "Present Simple", "jp": "私はIT企業で働いています。", "en": "I work for an IT company", "display": "I work / for an IT company", "keywords": ["work for"], "point": "所属は work for を使います。場所を指す場合は work at です。", "alt": "I am an employee of an IT firm." },
-        { "grammar": "L1: Present Continuous", "jp": "彼は今、電話に出ています。", "en": "He is on the phone now", "display": "He is / on the phone / now", "keywords": ["phone"], "point": "is on the phone で『電話中』です。", "alt": "He is currently on another line." },
-        { "grammar": "L1: Past Simple", "jp": "昨日、見積もりを送りました。", "en": "I sent the estimate yesterday", "display": "I sent / the estimate / yesterday", "keywords": ["sent", "estimate"], "point": "sendの過去形は不規則変化の sent です。", "alt": "The quote was sent yesterday." },
-        { "grammar": "L1: Can", "jp": "明日お会いできますか？", "en": "Can I meet you tomorrow", "display": "Can I / meet you / tomorrow", "keywords": ["meet", "tomorrow"], "point": "許可や可能性を問う can です。", "alt": "Would it be possible to meet tomorrow?" },
-
-        // LEVEL 2
-        { "grammar": "L2: Future (will)", "jp": "後ほどメールを差し上げます。", "en": "I will email you later", "display": "I will / email you / later", "keywords": ["will", "later"], "point": "その場で決めた意思には will を使います。", "alt": "I'll send you an email shortly." },
-        { "grammar": "L2: Must", "jp": "5時までにこれを終わらせなければなりません。", "en": "I must finish this by five", "display": "I must / finish / this / by five", "keywords": ["must", "by"], "point": "強い義務は must。by は期限（〜までに）を表します。", "alt": "I need to complete this by 5 PM." },
-        { "grammar": "L2: To-Infinitive", "jp": "あなたと話すためにここに来ました。", "en": "I came here to talk with you", "display": "I came here / to talk / with you", "keywords": ["to talk"], "point": "目的を表す不定詞の副詞的用法です。", "alt": "I am here specifically to discuss things with you." },
-        { "grammar": "L2: Comparison", "jp": "このコンピュータはあのコンピュータより新しいです。", "en": "This computer is newer than that one", "display": "This computer / is newer / than / that one", "keywords": ["newer than"], "point": "短い形容詞の比較級は er を付けます。", "alt": "This is a more recent model." },
-
-        // LEVEL 3
-        { "grammar": "L3: Present Perfect", "jp": "ちょうどそのメールを送ったところです。", "en": "I have just sent the email", "display": "I have just / sent / the email", "keywords": ["just", "sent"], "point": "have just + 過去分詞で完了を表します。", "alt": "I've just dispatched the message." },
-        { "grammar": "L3: Indirect Question", "jp": "彼がどこにいるか知っていますか？", "en": "Do you know where he is", "display": "Do you know / where / he is", "keywords": ["where he is"], "point": "間接疑問文では、疑問詞の後の語順は「主語＋動詞」になります。", "alt": "Could you tell me his current location?" },
-        { "grammar": "L3: Relative Pronoun", "jp": "私は英語を話せるスタッフを探しています。", "en": "I am looking for a staff member who can speak English", "display": "I am looking for / a staff member / who / can speak English", "keywords": ["who"], "point": "関係代名詞 who を使って直前の「人」を説明します。", "alt": "I need an English-speaking employee." },
-
-        // SCM
-        { "grammar": "SCM: Logistics", "jp": "私は物流部で働いています。", "en": "I work in the logistics department", "display": "I work / in the logistics department", "keywords": ["logistics"], "point": "logistics は「物流」を指す不可欠な単語です。", "alt": "I am in the supply chain team." },
-        { "grammar": "SCM: Inventory", "jp": "私たちは在庫を減らす必要があります。", "en": "We have to reduce the inventory", "display": "We have to / reduce / the inventory", "keywords": ["reduce", "inventory"], "point": "inventory（在庫）の削減はSCMの大きな目標です。", "alt": "We need to cut down on our stock levels." },
-        { "grammar": "SCM: Indirect Quest", "jp": "いつ部品が届くか知っていますか？", "en": "Do you know when the parts will arrive", "display": "Do you know / when / the parts / will arrive", "keywords": ["parts", "arrive"], "point": "間接疑問文の語順に注意しましょう。", "alt": "Can you confirm the arrival time of the components?" }
+    // --- ここに500問のデータを貼り付けてください ---
+    const questions = [
+        { id: 1, grammar: "L1: Present Simple", jp: "私はIT企業で働いています。", en: "I work for an IT company", display: "I work / for an IT company", point: "所属は work for を使います。" },
+        { id: 2, grammar: "L1: Present Continuous", jp: "彼は今、電話に出ています。", en: "He is on the phone now", display: "He is / on the phone / now", point: "is on the phone で電話中です。" },
+        // ... (以下 500個分)
     ];
 
-    // 500問まで自動ループ（本物のデータが増えたらここが上書きされる）
-    const questions = [];
-    for(let i=0; i<500; i++) {
-        const item = rawData[i % rawData.length];
-        questions.push({ ...item, id: i + 1 });
-    }
-
-    let learnedList = JSON.parse(localStorage.getItem('learned_biz_eng_v4')) || [];
+    // ローカルストレージから学習済リストを取得 (問題のIDを保存)
+    let learnedList = JSON.parse(localStorage.getItem('learned_biz_eng')) || [];
     let currentIndex = 0;
     let isRandomMode = false;
     let recognition, mediaRecorder, audioChunks = [], audioUrl, synth = window.speechSynthesis, stream;
 
     function saveLearnedStatus() {
-        localStorage.setItem('learned_biz_eng_v4', JSON.stringify(learnedList));
+        localStorage.setItem('learned_biz_eng', JSON.stringify(learnedList));
         updateOverallProgress();
     }
 
@@ -151,39 +135,55 @@
     function init() {
         const q = questions[currentIndex];
         const isLearned = learnedList.includes(q.id);
+        
         document.getElementById('grammar-label').innerText = q.grammar;
         document.getElementById('jp-text').innerText = q.jp;
+        
         const statusBadge = document.getElementById('learned-status');
         const markBtn = document.getElementById('mark-learned-btn');
+        
         if (isLearned) {
-            statusBadge.innerText = "Learned ✅"; statusBadge.className = "status-badge status-learned";
-            markBtn.innerText = "Learned ✅"; markBtn.classList.add('active');
+            statusBadge.innerText = "Learned ✅";
+            statusBadge.className = "status-badge status-learned";
+            markBtn.innerText = "Learned ✅";
+            markBtn.classList.add('active');
         } else {
-            statusBadge.innerText = "Not Learned"; statusBadge.className = "status-badge status-not-learned";
-            markBtn.innerText = "Mark as Learned"; markBtn.classList.remove('active');
+            statusBadge.innerText = "Not Learned";
+            statusBadge.className = "status-badge status-not-learned";
+            markBtn.innerText = "Mark as Learned";
+            markBtn.classList.remove('active');
         }
+
         document.getElementById('result-area').classList.add('hidden');
         document.getElementById('next-btn').classList.add('hidden');
         document.getElementById('retry-btn').classList.add('hidden');
         document.getElementById('record-btn').classList.remove('hidden');
         document.getElementById('record-btn').innerText = "🎤 Click to Speak";
         document.getElementById('record-btn').className = "btn-primary";
+        
         updateOverallProgress();
     }
 
+    // 学習済ボタンのクリック
     document.getElementById('mark-learned-btn').onclick = function() {
         const q = questions[currentIndex];
-        if (learnedList.includes(q.id)) { learnedList = learnedList.filter(id => id !== q.id); } 
-        else { learnedList.push(q.id); }
-        saveLearnedStatus(); init();
+        if (learnedList.includes(q.id)) {
+            learnedList = learnedList.filter(id => id !== q.id);
+        } else {
+            learnedList.push(q.id);
+        }
+        saveLearnedStatus();
+        init(); // 表示更新
     };
 
+    // ランダムモードの切り替え
     document.getElementById('random-toggle').onclick = function() {
         isRandomMode = !isRandomMode;
         this.innerText = isRandomMode ? "Random: ON" : "Random: OFF";
         this.classList.toggle('active');
     };
 
+    // 音声認識システム (以前のロジックと同じ)
     async function setupAudio() {
         if (!stream) {
             try {
@@ -195,32 +195,34 @@
         }
         if (!recognition) {
             const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-            recognition = new SpeechRec(); recognition.lang = 'en-US';
+            recognition = new SpeechRec();
+            recognition.lang = 'en-US';
             recognition.onresult = (e) => {
+                const speech = e.results[0][0].transcript;
                 if(mediaRecorder.state === "recording") mediaRecorder.stop();
-                showResult(e.results[0][0].transcript);
+                showResult(speech);
             };
-            recognition.onerror = () => { document.getElementById('record-btn').innerText = "🎤 Mic Error (Retry)"; };
         }
     }
 
     document.getElementById('record-btn').onclick = async () => {
-        await setupAudio(); audioChunks = [];
-        try { recognition.start(); mediaRecorder.start();
-            document.getElementById('record-btn').innerText = "Listening...";
-            document.getElementById('record-btn').className = "btn-primary btn-recording";
-        } catch(e) {}
+        await setupAudio();
+        audioChunks = [];
+        recognition.start();
+        mediaRecorder.start();
+        document.getElementById('record-btn').innerText = "Listening...";
+        document.getElementById('record-btn').className = "btn-primary btn-recording";
     };
 
     function showResult(userSpeech) {
         const q = questions[currentIndex];
         document.getElementById('user-speech').innerText = `"${userSpeech}"`;
         document.getElementById('model-answer').innerHTML = q.display.split(' / ').map(p => p + `<span class="slash">/</span>`).join('');
-        const isPerfect = userSpeech.toLowerCase().replace(/[.\s,?]/g,'') === q.en.toLowerCase().replace(/[.\s,?]/g,'');
-        document.getElementById('feedback-en').innerText = isPerfect ? "Perfect! Well done." : "Good try! Almost there.";
-        document.getElementById('feedback-jp').innerText = isPerfect ? "完璧な回答です！" : "惜しい！キーワードを確認しましょう。";
+        
+        const isPerfect = userSpeech.toLowerCase().replace(/[.\s]/g,'') === q.en.toLowerCase().replace(/[.\s]/g,'');
+        document.getElementById('feedback-en').innerText = isPerfect ? "Perfect!" : "Good try!";
         document.getElementById('grammar-point-text').innerText = q.point;
-        document.getElementById('alt-text').innerText = q.alt || "N/A";
+
         document.getElementById('result-area').classList.remove('hidden');
         document.getElementById('record-btn').classList.add('hidden');
         document.getElementById('next-btn').classList.remove('hidden');
@@ -229,17 +231,26 @@
     }
 
     window.playModel = (speed) => {
-        synth.cancel(); const utter = new SpeechSynthesisUtterance(questions[currentIndex].en);
-        utter.lang = 'en-US'; utter.rate = speed; synth.speak(utter);
+        synth.cancel();
+        const utter = new SpeechSynthesisUtterance(questions[currentIndex].en);
+        utter.lang = 'en-US'; utter.rate = speed;
+        synth.speak(utter);
     };
 
     document.getElementById('replay-btn').onclick = () => { if(audioUrl) new Audio(audioUrl).play(); };
+    
     document.getElementById('next-btn').onclick = () => {
-        if (isRandomMode) { currentIndex = Math.floor(Math.random() * questions.length); } 
-        else { currentIndex = (currentIndex + 1) % questions.length; }
+        if (isRandomMode) {
+            currentIndex = Math.floor(Math.random() * questions.length);
+        } else {
+            currentIndex = (currentIndex + 1) % questions.length;
+        }
         init();
     };
+
     document.getElementById('retry-btn').onclick = init;
+
+    // 初期起動
     init();
 </script>
 </body>
