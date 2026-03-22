@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Biz English 500 Pro</title>
+    <title>Biz English 600 Pro</title>
     <style>
-        :root { --deep-blue: #003468; --purpose-blue: #0082C4; --parker-gold: #FDB913; --clean-green: #7BBA3E; --charcoal: #1C2B39; --white: #FFFFFF; --soft-gray: #F1F5F9; --border-light: #E2E8F0; }
+        :root {
+            --deep-blue: #003468; --purpose-blue: #0082C4; --parker-gold: #FDB913;
+            --clean-green: #7BBA3E; --charcoal: #1C2B39; --white: #FFFFFF;
+            --soft-gray: #F1F5F9; --border-light: #E2E8F0;
+        }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #F8FAFC; color: var(--charcoal); margin: 0; display: flex; justify-content: center; }
         .app-container { max-width: 650px; width: 100%; background: var(--white); min-height: 100vh; box-shadow: 0 0 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
         .app-header { background: var(--deep-blue); color: white; padding: 15px 25px; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--parker-gold); }
@@ -41,7 +45,7 @@
     <header class="app-header">
         <div class="header-top">
             <div><span id="grammar-label" class="grammar-tag">Biz English</span><span id="learned-status" class="status-badge">Not Learned</span></div>
-            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 500</div>
+            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 600</div>
         </div>
         <div class="progress-container"><div id="progress-bar" class="progress-fill"></div></div>
     </header>
@@ -52,7 +56,7 @@
         </div>
         <div class="question-card">
             <button id="mark-learned-btn" class="learned-btn">Check as Learned</button>
-            <div id="jp-text" class="jp-text">Loading Questions...</div>
+            <div id="jp-text" class="jp-text">Ready to Start...</div>
         </div>
         <div id="result-area" class="result-area hidden">
             <span class="section-title">Result</span>
@@ -65,8 +69,7 @@
                 <button class="btn-outline" id="replay-btn">▶ My Voice</button>
             </div>
             <div class="advice-card">
-                <div id="feedback-en" style="font-weight:bold; color:#1E40AF; margin-bottom:5px;"></div>
-                <div id="feedback-jp" style="font-size:0.9rem; margin-bottom:10px; color:#334155;"></div>
+                <div id="feedback-jp" style="font-size:0.9rem; margin-bottom:10px; color:#334155; font-weight: 500;"></div>
                 <div id="grammar-point-text" style="font-size:0.85rem; border-top: 1px solid #D1E9FF; padding-top: 8px;"></div>
             </div>
         </div>
@@ -77,24 +80,35 @@
         </div>
     </div>
 </div>
-<script src="data.js"></script>
+
 <script>
-    let learnedList = JSON.parse(localStorage.getItem('learned_v500_final')) || [];
+    // ★★★ここにデータを貼り付けます★★★
+    const rawData = [
+        // データの貼り付け場所
+    ];
+
+    // IDを自動で振り分ける
+    const questions = rawData.map((q, i) => ({ ...q, id: i + 1 }));
+
+    // --- ロジック ---
+    let learnedList = JSON.parse(localStorage.getItem('learned_biz_600_v1')) || [];
     let currentIndex = 0;
     let isRandomMode = false;
     let recognition, mediaRecorder, audioChunks = [], audioUrl, synth = window.speechSynthesis, stream;
 
     function updateOverallProgress() {
-        if(!window.questions) return;
         const count = learnedList.length;
-        const total = 500; // 目標値
+        const total = 600; 
         document.getElementById('learned-count').innerText = `Learned: ${count} / ${total}`;
-        document.getElementById('progress-bar').style.width = Math.min(100, (count / total * 100)) + '%';
+        document.getElementById('progress-bar').style.width = (count / total * 100) + '%';
     }
 
     function init() {
-        if (!window.questions) return;
-        const q = window.questions[currentIndex];
+        if (questions.length === 0) {
+            document.getElementById('jp-text').innerText = "Please paste data into the code.";
+            return;
+        }
+        const q = questions[currentIndex];
         const isLearned = learnedList.includes(q.id);
         document.getElementById('grammar-label').innerText = q.grammar;
         document.getElementById('jp-text').innerText = q.jp;
@@ -116,10 +130,10 @@
     }
 
     document.getElementById('mark-learned-btn').onclick = function() {
-        const q = window.questions[currentIndex];
+        const q = questions[currentIndex];
         if (learnedList.includes(q.id)) { learnedList = learnedList.filter(id => id !== q.id); } 
         else { learnedList.push(q.id); }
-        localStorage.setItem('learned_v500_final', JSON.stringify(learnedList));
+        localStorage.setItem('learned_biz_600_v1', JSON.stringify(learnedList));
         init();
     };
 
@@ -153,14 +167,9 @@
     };
 
     function showResult(userSpeech) {
-        const q = window.questions[currentIndex];
+        const q = questions[currentIndex];
         document.getElementById('user-speech').innerText = `Your voice: "${userSpeech}"`;
         document.getElementById('model-answer').innerHTML = q.display.split(' / ').map(p => p + `<span class="slash">/</span>`).join('');
-        const cleanUser = userSpeech.toLowerCase().replace(/[.\s,?]/g,'');
-        const cleanCorrect = q.en.toLowerCase().replace(/[.\s,?]/g,'');
-        const isPerfect = cleanUser === cleanCorrect;
-        document.getElementById('feedback-en').innerText = isPerfect ? "Perfect! Well done." : "Good try!";
-        document.getElementById('feedback-jp').innerText = isPerfect ? "完璧な正解です！" : "惜しい！模範解答を聞きましょう。";
         document.getElementById('grammar-point-text').innerHTML = `<strong>Note:</strong> ${q.point}<br><strong>Alt:</strong> ${q.alt}`;
         document.getElementById('result-area').classList.remove('hidden');
         document.getElementById('record-btn').classList.add('hidden');
@@ -170,18 +179,18 @@
     }
 
     window.playModel = (speed) => {
-        synth.cancel(); const utter = new SpeechSynthesisUtterance(window.questions[currentIndex].en);
+        synth.cancel(); const utter = new SpeechSynthesisUtterance(questions[currentIndex].en);
         utter.lang = 'en-US'; utter.rate = speed; synth.speak(utter);
     };
 
     document.getElementById('replay-btn').onclick = () => { if(audioUrl) new Audio(audioUrl).play(); };
     document.getElementById('next-btn').onclick = () => {
-        if (isRandomMode) { currentIndex = Math.floor(Math.random() * window.questions.length); } 
-        else { currentIndex = (currentIndex + 1) % window.questions.length; }
+        if (isRandomMode) { currentIndex = Math.floor(Math.random() * questions.length); } 
+        else { currentIndex = (currentIndex + 1) % questions.length; }
         init();
     };
     document.getElementById('retry-btn').onclick = init;
-    window.onload = () => { if(window.questions) init(); };
+    init();
 </script>
 </body>
 </html>
