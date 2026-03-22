@@ -14,8 +14,6 @@
         .progress-fill { height: 100%; background: var(--parker-gold); width: 0%; transition: width 0.3s; }
         .grammar-tag { background: var(--parker-gold); color: var(--deep-blue); padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; }
         .status-badge { font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; margin-left: 10px; font-weight: bold;}
-        .status-learned { background: var(--clean-green); color: white; }
-        .status-not-learned { background: #94a3b8; color: white; }
         .content { padding: 25px; flex-grow: 1; }
         .section-title { font-size: 0.7rem; font-weight: 700; color: var(--purpose-blue); text-transform: uppercase; margin-bottom: 6px; display: block; }
         .question-card { background: var(--soft-gray); border-left: 6px solid var(--deep-blue); padding: 25px; border-radius: 8px; margin-bottom: 20px; position: relative; }
@@ -43,7 +41,7 @@
     <header class="app-header">
         <div class="header-top">
             <div><span id="grammar-label" class="grammar-tag">Biz English</span><span id="learned-status" class="status-badge">Not Learned</span></div>
-            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 0</div>
+            <div id="learned-count" style="font-size: 0.8rem;">Learned: 0 / 500</div>
         </div>
         <div class="progress-container"><div id="progress-bar" class="progress-fill"></div></div>
     </header>
@@ -57,6 +55,8 @@
             <div id="jp-text" class="jp-text">Loading Questions...</div>
         </div>
         <div id="result-area" class="result-area hidden">
+            <span class="section-title">Result</span>
+            <div id="user-speech" style="font-style: italic; margin-bottom: 12px; color: var(--charcoal); font-size: 1.1rem; padding: 12px; background: #fff; border-radius: 6px; border: 1px solid var(--border-light);"></div>
             <span class="section-title">Model Answer</span>
             <div id="model-answer" class="model-answer"></div>
             <div style="margin-bottom: 15px; display: flex; flex-wrap: wrap;">
@@ -65,10 +65,9 @@
                 <button class="btn-outline" id="replay-btn">▶ My Voice</button>
             </div>
             <div class="advice-card">
-                <div id="feedback-jp" style="font-size:0.9rem; margin-bottom:10px; color:#334155; font-weight: 500;"></div>
-                <div style="font-size:0.85rem; border-top: 1px solid #D1E9FF; padding-top: 8px;">
-                    <strong>Grammar Note:</strong> <span id="grammar-point-text"></span>
-                </div>
+                <div id="feedback-en" style="font-weight:bold; color:#1E40AF; margin-bottom:5px;"></div>
+                <div id="feedback-jp" style="font-size:0.9rem; margin-bottom:10px; color:#334155;"></div>
+                <div id="grammar-point-text" style="font-size:0.85rem; border-top: 1px solid #D1E9FF; padding-top: 8px;"></div>
             </div>
         </div>
         <div class="controls">
@@ -78,11 +77,9 @@
         </div>
     </div>
 </div>
-<!-- ここでデータを読み込みます -->
 <script src="data.js"></script>
 <script>
-    // questionsがdata.jsから読み込まれるのを待ちます
-    let learnedList = JSON.parse(localStorage.getItem('learned_biz_v10')) || [];
+    let learnedList = JSON.parse(localStorage.getItem('learned_v500_final')) || [];
     let currentIndex = 0;
     let isRandomMode = false;
     let recognition, mediaRecorder, audioChunks = [], audioUrl, synth = window.speechSynthesis, stream;
@@ -90,14 +87,14 @@
     function updateOverallProgress() {
         if(!window.questions) return;
         const count = learnedList.length;
-        const total = questions.length;
+        const total = 500; // 目標値
         document.getElementById('learned-count').innerText = `Learned: ${count} / ${total}`;
-        document.getElementById('progress-bar').style.width = (count / total * 100) + '%';
+        document.getElementById('progress-bar').style.width = Math.min(100, (count / total * 100)) + '%';
     }
 
     function init() {
-        if (!window.questions || questions.length === 0) return;
-        const q = questions[currentIndex];
+        if (!window.questions) return;
+        const q = window.questions[currentIndex];
         const isLearned = learnedList.includes(q.id);
         document.getElementById('grammar-label').innerText = q.grammar;
         document.getElementById('jp-text').innerText = q.jp;
@@ -119,10 +116,10 @@
     }
 
     document.getElementById('mark-learned-btn').onclick = function() {
-        const q = questions[currentIndex];
+        const q = window.questions[currentIndex];
         if (learnedList.includes(q.id)) { learnedList = learnedList.filter(id => id !== q.id); } 
         else { learnedList.push(q.id); }
-        localStorage.setItem('learned_biz_v10', JSON.stringify(learnedList));
+        localStorage.setItem('learned_v500_final', JSON.stringify(learnedList));
         init();
     };
 
@@ -144,8 +141,7 @@
             recognition = new SpeechRec(); recognition.lang = 'en-US';
             recognition.onresult = (e) => {
                 if(mediaRecorder.state === "recording") mediaRecorder.stop();
-                const speech = e.results[0][0].transcript;
-                showResult(speech);
+                showResult(e.results[0][0].transcript);
             };
         }
     }
@@ -157,10 +153,15 @@
     };
 
     function showResult(userSpeech) {
-        const q = questions[currentIndex];
+        const q = window.questions[currentIndex];
+        document.getElementById('user-speech').innerText = `Your voice: "${userSpeech}"`;
         document.getElementById('model-answer').innerHTML = q.display.split(' / ').map(p => p + `<span class="slash">/</span>`).join('');
-        document.getElementById('feedback-jp').innerText = "Voice detected. Check the answer!";
-        document.getElementById('grammar-point-text').innerText = q.point;
+        const cleanUser = userSpeech.toLowerCase().replace(/[.\s,?]/g,'');
+        const cleanCorrect = q.en.toLowerCase().replace(/[.\s,?]/g,'');
+        const isPerfect = cleanUser === cleanCorrect;
+        document.getElementById('feedback-en').innerText = isPerfect ? "Perfect! Well done." : "Good try!";
+        document.getElementById('feedback-jp').innerText = isPerfect ? "完璧な正解です！" : "惜しい！模範解答を聞きましょう。";
+        document.getElementById('grammar-point-text').innerHTML = `<strong>Note:</strong> ${q.point}<br><strong>Alt:</strong> ${q.alt}`;
         document.getElementById('result-area').classList.remove('hidden');
         document.getElementById('record-btn').classList.add('hidden');
         document.getElementById('next-btn').classList.remove('hidden');
@@ -169,19 +170,17 @@
     }
 
     window.playModel = (speed) => {
-        synth.cancel(); const utter = new SpeechSynthesisUtterance(questions[currentIndex].en);
+        synth.cancel(); const utter = new SpeechSynthesisUtterance(window.questions[currentIndex].en);
         utter.lang = 'en-US'; utter.rate = speed; synth.speak(utter);
     };
 
     document.getElementById('replay-btn').onclick = () => { if(audioUrl) new Audio(audioUrl).play(); };
     document.getElementById('next-btn').onclick = () => {
-        if (isRandomMode) { currentIndex = Math.floor(Math.random() * questions.length); } 
-        else { currentIndex = (currentIndex + 1) % questions.length; }
+        if (isRandomMode) { currentIndex = Math.floor(Math.random() * window.questions.length); } 
+        else { currentIndex = (currentIndex + 1) % window.questions.length; }
         init();
     };
     document.getElementById('retry-btn').onclick = init;
-
-    // データがロードされるのを待って初期化
     window.onload = () => { if(window.questions) init(); };
 </script>
 </body>
