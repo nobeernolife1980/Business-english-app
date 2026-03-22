@@ -111,6 +111,746 @@
     const questions = [
         { id: 1, grammar: "L1: Present Simple", jp: "私はIT企業で働いています。", en: "I work for an IT company", display: "I work / for an IT company", point: "所属は work for を使います。" },
         { id: 2, grammar: "L1: Present Continuous", jp: "彼は今、電話に出ています。", en: "He is on the phone now", display: "He is / on the phone / now", point: "is on the phone で電話中です。" },
+        [
+{ "grammar": "Be verb (am)", "jp": "私は新しいプロジェクトマネージャーです。", "en": "I am the new project manager", "display": "I am / the new / project manager", "keywords": ["project", "manager"], "point: "I am ...（私は〜です）は自己紹介の基本です。", "alt": "My name is Tanaka, and I am the manager." },
+{ "grammar": "Be verb (is)", "jp": "田中さんは今、会議室にいます。", "en": "Mr. Tanaka is in the meeting room now", "display": "Mr. Tanaka / is / in the meeting room / now", "keywords": ["meeting room"], "point": "場所を表す時は is in ... を使います。", "alt": "He is in a meeting at the moment." },
+{ "grammar": "Be verb (are)", "jp": "彼らは私たちのクライアントです。", "en": "They are our clients", "display": "They are / our clients", "keywords": ["client"], "point": "複数形 They に合わせて be 動詞は are になります。", "alt": "Those people are our customers." },
+{ "grammar": "Be verb (Neg)", "jp": "このファイルは重要ではありません。", "en": "This file is not important", "display": "This file / is not / important", "keywords": ["important"], "point": "be 動詞の後に not を置くと否定文になります。", "alt": "This document is not necessary." },
+{ "grammar": "Be verb (Quest)", "jp": "あなたは営業部の所属ですか？", "en": "Are you in the sales department", "display": "Are you / in the sales department", "keywords": ["sales", "department"], "point": "be 動詞を文頭に出すと「〜ですか？」という疑問文になります。", "alt": "Do you work for the sales team?" },
+{ "grammar": "Present Simple", "jp": "私はIT企業で働いています。", "en": "I work for an IT company", "display": "I work / for an IT company", "keywords": ["work for"], "point": "習慣や事実を言う時は現在形を使います。所属は work for です。", "alt": "I am an employee of an IT firm." },
+{ "grammar": "Present Simple (3rd sing)", "jp": "彼女は英語を上手に話します。", "en": "She speaks English well", "display": "She speaks / English / well", "keywords": ["speaks", "well"], "point": "主語が She の時は動詞に s が付きます。", "alt": "Her English is very good." },
+{ "grammar": "Present Simple (3rd sing)", "jp": "私の会社は新宿にあります。", "en": "My company is in Shinjuku", "display": "My company / is / in Shinjuku", "keywords": ["company"], "point": "会社がどこにあるかを示す時も be 動詞が使えます。", "alt": "Our office is located in Shinjuku." },
+{ "grammar": "Present Simple (Neg)", "jp": "私はコーヒーを飲みません。", "en": "I do not drink coffee", "display": "I do not / drink coffee", "keywords": ["drink"], "point": "一般動詞の否定は do not (don't) を使います。", "alt": "I don't need any coffee, thank you." },
+{ "grammar": "Present Simple (3rd Neg)", "jp": "彼は名刺を持っていません。", "en": "He does not have a business card", "display": "He / does not have / a business card", "keywords": ["business card"], "point": "三人称単数の否定は does not を使い、動詞は原形に戻します。", "alt": "He doesn't have his card with him." },
+{ "grammar": "Present Simple (Quest)", "jp": "あなたは名刺を持っていますか？", "en": "Do you have a business card", "display": "Do you have / a business card", "keywords": ["business card"], "point": "Do you ...? は相手に有無や習慣を尋ねる基本です。", "alt": "Could I have your business card?" },
+{ "grammar": "Present Simple (Wh-quest)", "jp": "あなたは何時にオフィスに来ますか？", "en": "What time do you come to the office", "display": "What time / do you come / to the office", "keywords": ["what time"], "point": "具体的な時間を聞く時は What time do you ...? を使います。", "alt": "When do you arrive at work?" },
+{ "grammar": "Present Simple (Wh-quest)", "jp": "あなたのオフィスはどこにありますか？", "en": "Where is your office", "display": "Where is / your office", "keywords": ["Where"], "point": "場所を聞く時は Where を使います。", "alt": "Where are you located?" },
+{ "grammar": "Imperative", "jp": "ここに署名をお願いします。", "en": "Please sign here", "display": "Please / sign / here", "keywords": ["sign"], "point": "動詞の原形で始めると命令文（依頼）になります。Pleaseを付けると丁寧です。", "alt": "Could you put your signature here?" },
+{ "grammar": "Imperative (Neg)", "jp": "この部屋で電話をしないでください。", "en": "Please do not use the phone in this room", "display": "Please / do not use / the phone / in this room", "keywords": ["do not"], "point": "Do not (Don't) + 動詞の原形で「〜しないで」という禁止になります。", "alt": "Please refrain from using mobile phones here." },
+{ "grammar": "Can (Ability)", "jp": "私はパソコンを修理できます。", "en": "I can fix a computer", "display": "I can / fix / a computer", "keywords": ["fix"], "point": "Can は「〜できる」という能力を表します。", "alt": "I am able to repair PCs." },
+{ "grammar": "Can (Request)", "jp": "私を手伝ってくれますか？", "en": "Can you help me", "display": "Can you / help me", "keywords": ["help"], "point": "Can you ...? はカジュアルな依頼の表現です。", "alt": "Could you give me a hand?" },
+{ "grammar": "Can (Permission)", "jp": "ここで待ってもいいですか？", "en": "Can I wait here", "display": "Can I / wait / here", "keywords": ["wait"], "point": "Can I ...? は「〜してもいいですか？」という許可を求めます。", "alt": "May I stay here for a while?" },
+{ "grammar": "Present Continuous", "jp": "私は今、メールを書いています。", "en": "I am writing an email now", "display": "I am writing / an email / now", "keywords": ["writing"], "point": "be 動詞 + 動詞の ing 形で「今〜している」を表します。", "alt": "I'm currently replying to an email." },
+{ "grammar": "Present Continuous", jp: "彼は今、プレゼンをしています。", "en": "He is giving a presentation now", "display": "He is giving / a presentation / now", "keywords": ["presentation"], "point": "プレゼンをするは give a presentation と言います。", "alt": "He is making a speech at the moment." },
+{ "grammar": "Present Continuous (Neg)", "jp": "彼らは今、働いていません。", "en": "They are not working now", "display": "They are not / working / now", "keywords": ["working"], "point": "進行形の否定は be 動詞の後に not を置きます。", "alt": "They are on a break right now." },
+{ "grammar": "Present Continuous (Quest)", "jp": "あなたは今、何を作っていますか？", "en": "What are you making now", "display": "What / are you making / now", "keywords": ["What"], "point: "進行形の疑問文は be 動詞を主語の前に置きます。", "alt": "What are you working on currently?" },
+{ "grammar": "Wh-quest (Who)", "jp": "誰がこのプロジェクトの担当ですか？", "en": "Who is in charge of this project", "display": "Who / is in charge of / this project", "keywords": ["charge"], "point": "Who is in charge of ...? は「誰が担当ですか？」という頻出表現です。", "alt": "Who is leading this project?" },
+{ "grammar": "Wh-quest (Which)", "jp": "どちらのペンがあなたのものですか？", "en": "Which pen is yours", "display": "Which pen / is / yours", "keywords": ["Which"], "point": "Which + 名詞で「どちらの〜」という意味になります。", "alt": "Is this your pen or that one?" },
+{ "grammar": "Wh-quest (How)", "jp": "ここへはどうやって来ますか？", "en": "How do you come here", "display": "How / do you come / here", "keywords": ["How"], "point": "手段を聞く時は How を使います。", "alt": "What is your commute like?" },
+{ "grammar": "Wh-quest (How many)", "jp": "会議室には何人の人がいますか？", "en": "How many people are in the meeting room", "display": "How many people / are / in the meeting room", "keywords": ["How many"], "point": "数を数える時は How many + 複数名詞を使います。", "alt": "What is the attendance for the meeting?" },
+{ "grammar": "Past Simple (Be)", "jp": "昨日は休みでした。", "en": "I was off yesterday", "display": "I was / off / yesterday", "keywords": ["off", "yesterday"], "point": "I の過去の be 動詞は was です。be off で休みを意味します。", "alt": "Yesterday was my holiday." },
+{ "grammar": "Past Simple (Be)", "jp": "彼らは先週、ロンドンにいました。", "en": "They were in London last week", "display": "They were / in London / last week", "keywords": ["were", "London"], "point": "They の過去の be 動詞は were です。", "alt": "They visited London last week." },
+{ "grammar": "Past Simple (Reg)", "jp": "私は昨日、その資料をチェックしました。", "en": "I checked the document yesterday", "display": "I checked / the document / yesterday", "keywords": ["checked"], "point": "規則動詞は後ろに ed を付けて過去を表します。", "alt": "I looked over the files yesterday." },
+{ "grammar": "Past Simple (Irreg)", "jp": "私は今朝、メールを送りました。", "en": "I sent an email this morning", "display": "I sent / an email / this morning", "keywords": ["sent"], "point": "send（送る）の過去形は不規則変化の sent です。", "alt: "I've dispatched an email earlier today." },
+{ "grammar": "Past Simple (Neg)", "jp": "彼は会議に参加しませんでした。", "en": "He did not attend the meeting", "display": "He / did not attend / the meeting", "keywords": ["attend"], "point": "過去の否定は did not + 動詞の原形です。", "alt": "He was absent from the meeting." },
+{ "grammar": "Past Simple (Quest)", "jp": "昨日のプレゼンは見ましたか？", "en": "Did you see the presentation yesterday", "display": "Did you see / the presentation / yesterday", "keywords": ["Did"], "point": "過去の疑問文は Did で始め、動詞は原形にします。", "alt": "Did you watch yesterday's presentation?" },
+{ "grammar": "Wh-quest + Past", "jp": "いつその報告書を書きましたか？", "en": "When did you write the report", "display": "When / did you write / the report", "keywords": ["When", "report"], "point": "いつ〜したか聞く時は When did you ...? です。", "alt": "When was the report finished?" },
+{ "grammar": "There is", "jp": "机の上に資料があります。", "en": "There is a document on the desk", "display": "There is / a document / on the desk", "keywords": ["document"], "point": "単数のものが「ある」と言う時は There is ... を使います。", "alt": "A document is on the desk." },
+{ "grammar": "There are", "jp": "このビルには3つの会議室があります。", "en": "There are three meeting rooms in this building", "display": "There are / three meeting rooms / in this building", "keywords": ["meeting rooms"], "point": "複数のものがある時は There are ... です。", "alt": "This building has three conference rooms." },
+{ "grammar": "Pronouns (Possessive)", "jp": "これは私の名刺です。", "en": "This is my business card", "display": "This is / my business card", "keywords": ["business card"], "point": "my は「私の」という所有を表します。", "alt": "Here is my card." },
+{ "grammar": "Pronouns (Object)", "jp": "後で彼に電話してください。", "en": "Please call him later", "display": "Please / call him / later", "keywords": ["him"], "point": "動詞の後に置く時は he ではなく目的格の him を使います。", "alt": "Give him a call afterwards." },
+{ "grammar": "Adverbs of Frequency", "jp": "私はいつも7時に起きます。", "en": "I always get up at seven", "display": "I always / get up / at seven", "keywords": ["always"], "point": "always（いつも）は一般動詞の前に置きます。", "alt": "I wake up at seven every morning." },
+{ "grammar": "Prepositions (Time)", "jp": "会議は午前10時に始まります。", "en": "The meeting starts at 10 AM", "display": "The meeting starts / at 10 AM", "keywords": ["at"], "point": "時刻の前には前置詞 at を使います。", "alt": "Our meeting is scheduled for 10 AM." },
+{ "grammar": "Prepositions (Day)", "jp": "月曜日に会いましょう。", "en": "Let's meet on Monday", "display": "Let's meet / on Monday", "keywords": ["on Monday"], "point": "曜日の前には前置詞 on を使います。", "alt": "We shall meet this Monday." },
+{ "grammar": "Prepositions (Place)", "jp": "ロビーでお待ちしています。", "en": "I am waiting in the lobby", "display": "I am waiting / in the lobby", "keywords": ["in"], "point": "広い場所や空間の中は in を使います。", "alt": "I'll be in the lobby." },
+{ "grammar: "This/That", "jp": "あれが私たちの新工場です。", "en": "That is our new factory", "display": "That / is / our new factory", "keywords: ["That", "factory"], "point": "遠くのものを指す時は That を使います。", "alt": "Our new plant is over there." },
+{ "grammar": "What (Subject)", "jp": "何が問題ですか？", "en": "What is the problem", "display": "What / is / the problem", "keywords": ["problem"], "point": "What is ...? で事態を尋ねます。", "alt": "What's wrong?" },
+{ "grammar": "Imperative (Let's)", "jp": "プロジェクトを始めましょう。", "en: "Let's start the project", "display": "Let's / start / the project", "keywords": ["start"], "point": "Let's + 動詞の原形で「〜しましょう」という勧誘になります。", "alt": "Shall we begin the project?" },
+{ "grammar": "Conjunction (and)", "jp": "私は名刺と資料を持っています。", "en": "I have a business card and a document", "display": "I have / a business card / and / a document", "keywords": ["and"], "point": "名詞と名詞を繋ぐ and です。", "alt": "I have both my card and the papers." },
+{ "grammar": "Counting", "jp": "コーヒーを2杯お願いします。", "en": "Two coffees, please", "display": "Two coffees / please", "keywords": ["please"], "point": "注文の際は「数 + 物, please」で通じます。", "alt": "Could I have two cups of coffee?" },
+{ "grammar": "Past Simple (Wh-Where)", "jp": "昨日はどこにいましたか？", "en": "Where were you yesterday", "display": "Where / were you / yesterday", "keywords": ["Where", "yesterday"], "point": "Where was/were ...? で過去の居場所を尋ねます。", "alt": "Were you away yesterday?" },
+{ "grammar": "Be verb (Present)", "jp": "今日はとても忙しいです。", "en": "I am very busy today", "display": "I am / very busy / today", "keywords": ["busy"], "point": "busy は形容詞なので be 動詞が必要です。", "alt": "It's a busy day for me." },
+{ "grammar": "Present Simple (Quest-Wh)", "jp": "この単語はどういう意味ですか？", "en": "What does this word mean", "display": "What / does this word / mean", "keywords": ["mean"], "point": "意味を尋ねる What does ... mean? は非常に役立ちます。", "alt": "What is the meaning of this term?" },
+{ "grammar": "Can (Negative)", "jp": "今日は会議室を予約できません。", "en": "I cannot book a meeting room today", "display": "I cannot / book / a meeting room / today", "keywords": ["book"], "point": "cannot (can't) で不可能を表します。book は予約するです。", "alt": "No rooms are available for booking today." }
+[
+  { "grammar": "L1: Pronouns (Object)", "jp": "彼にメールを送ってください。", "en": "Please send him an email", "display": "Please / send him / an email", "keywords": ["send", "him"], "point": "「彼に」は動詞の後に置くので目的格の him を使います。", "alt": "Could you email him, please?" },
+  { "grammar": "L1: Pronouns (Possessive)", "jp": "このペンは私のものではありません。", "en": "This pen is not mine", "display": "This pen / is not / mine", "keywords": ["mine"], "point": "「私のもの」は所有代名詞の mine を使います。", "alt": "I believe this isn't my pen." },
+  { "grammar": "L1: Whose", "jp": "これは誰のパソコンですか？", "en": "Whose computer is this", "display": "Whose computer / is this", "keywords": ["Whose"], "point": "「誰の〜」と所有を尋ねる時は Whose + 名詞 を使います。", "alt": "Does this computer belong to someone?" },
+  { "grammar": "L1: Which", "jp": "どちらの計画が良いですか？", "en": "Which plan is good", "display": "Which plan / is / good", "keywords": ["Which"], "point": "「どちらの〜」と選択を促す時は Which + 名詞 です。", "alt": "Which option do you prefer?" },
+  { "grammar": "L1: Adverbs of frequency", "jp": "私はたいてい電車で通勤します。", "en": "I usually come to work by train", "display": "I usually / come to work / by train", "keywords": ["usually", "by train"], "point": "usually（たいてい）などの頻度の副詞は一般動詞の前に置きます。", "alt": "I generally take the train to the office." },
+  { "grammar": "L1: Prepositions (Time)", "jp": "会議は3時に終わります。", "en": "The meeting ends at three", "display": "The meeting / ends / at three", "keywords": ["at"], "point": "時刻を示す時は前置詞 at を使います。", "alt": "The meeting is expected to finish at 3:00." },
+  { "grammar": "L1: Present Continuous", "jp": "私たちは今、そのプロジェクトについて話しています。", "en": "We are talking about the project now", "display": "We are talking / about the project / now", "keywords": ["talking"], "point": "「今〜している」は be動詞 + ing の進行形です。", "alt": "We are currently discussing the project." },
+  { "grammar": "L1: Present Continuous (Quest)", "jp": "田中さんは今、電話に出ていますか？", "en": "Is Mr. Tanaka on the phone now", "display": "Is Mr. Tanaka / on the phone / now", "keywords": ["on the phone"], "point": "進行形ではありませんが、「〜している状態」として be動詞の疑問文で表せます。", "alt": "Is he taking a call at the moment?" },
+  { "grammar": "L1: Present Continuous (Neg)", "jp": "私は今、働いていません。休憩中です。", "en": "I am not working now. I am on a break.", "display": "I am not working / now. / I am on a break.", "keywords": ["on a break"], "point": "進行形の否定は be動詞の後に not を入れます。", "alt": "I'm currently off duty." },
+  { "grammar": "L1: Past Simple (Be)", "jp": "昨日はとても忙しかったです。", "en": "I was very busy yesterday", "display": "I was / very busy / yesterday", "keywords": ["was", "yesterday"], "point": "I の過去の be動詞は was を使います。", "alt": "It was a hectic day yesterday." },
+  { "grammar": "L1: Past Simple (Be)", "jp": "彼らは先週、不在でした。", "en": "They were out last week", "display": "They were / out / last week", "keywords": ["were out"], "point": "They の過去の be動詞は were です。out で「外出・不在」を指します。", "alt": "They were away from the office last week." },
+  { "grammar": "L1: Past Simple (Reg)", "jp": "私はそのメールに返信しました。", "en": "I replied to the email", "display": "I replied / to the email", "keywords": ["replied"], "point": "reply の過去形は y を i に変えて ed を付けます。", "alt": "I have answered the message." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "昨日、新しいカタログを見ました。", "en": "I saw the new catalog yesterday", "display": "I saw / the new catalog / yesterday", "keywords": ["saw"], "point": "see の過去形は不規則変化の saw です。", "alt": "I checked the new catalog yesterday." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "彼は1時間前にここを出ました。", "en": "He left here an hour ago", "display": "He left here / an hour ago", "keywords": ["left", "ago"], "point": "leave（去る・出る）の過去形は left です。", "alt": "He stepped out an hour ago." },
+  { "grammar": "L1: Past Simple (Quest)", "jp": "そのニュースを聞きましたか？", "en": "Did you hear the news", "display": "Did you / hear / the news", "keywords": ["Did", "hear"], "point": "一般動詞の過去の疑問文は Did を文頭に置き、動詞は原形にします。", "alt": "Have you heard the latest news?" },
+  { "grammar": "L1: Past Simple (Neg)", "jp": "私はその報告書を読みませんでした。", "en": "I did not read the report", "display": "I / did not read / the report", "keywords": ["did not read"], "point": "過去の否定は did not (didn't) + 動詞の原形です。", "alt": "I haven't had a chance to read the report." },
+  { "grammar": "L1: Wh-Quest (Past)", "jp": "誰がその会議に出席しましたか？", "en": "Who attended the meeting", "display": "Who / attended / the meeting", "keywords": ["Who", "attended"], "point": "Whoが主語の疑問文では do/did を使わず、動詞をそのまま過去形にします。", "alt": "Who was present at the meeting?" },
+  { "grammar": "L1: Wh-Quest (Past)", "jp": "いつ彼に会いましたか？", "en": "When did you meet him", "display": "When / did you meet / him", "keywords": ["When"], "point": "When did you ...? で「いつ〜しましたか？」と過去の時点を聞きます。", "alt": "When was your meeting with him?" },
+  { "grammar": "L1: Wh-Quest (Past)", "jp": "どこでその名刺をもらいましたか？", "en": "Where did you get the business card", "display": "Where / did you get / the business card", "keywords": ["Where", "get"], "point": "Where did you ...? で「どこで〜しましたか？」と場所を聞きます。", "alt": "Where did you receive that card?" },
+  { "grammar": "L1: There is (Quest)", "jp": "ロビーに誰かいますか？", "en": "Is there anyone in the lobby", "display": "Is there anyone / in the lobby", "keywords": ["anyone"], "point": "「誰かいますか」という疑問文では someone ではなく anyone を使います。", "alt": "Is there someone waiting in the lobby?" },
+  { "grammar": "L1: There are (Neg)", "jp": "今日、会議はありません。", "en": "There are no meetings today", "display": "There are / no meetings / today", "keywords": ["no meetings"], "point": "There are not any ... または There are no ... で否定を表します。", "alt": "My schedule is clear today." },
+  { "grammar": "L1: Can (Ability)", "jp": "彼女はプレゼン資料を作ることができます。", "en": "She can make presentation slides", "display": "She can make / presentation slides", "keywords": ["presentation", "slides"], "point": "can（〜できる）の後には必ず動詞の原形を置きます。", "alt": "She is capable of creating presentations." },
+  { "grammar": "L1: Can (Request)", "jp": "そのドアを開けてもらえますか？", "en": "Can you open the door", "display": "Can you / open / the door", "keywords": ["Can you"], "point": "Can you ...? は相手に何かを頼む時の表現です。", "alt": "Would you mind opening the door?" },
+  { "grammar": "L1: May I", "jp": "質問してもよろしいですか？", "en": "May I ask a question", "display": "May I / ask / a question", "keywords": ["May I"], "point": "May I ...? は Can I ...? よりも丁寧でビジネス向きな許可の求め方です。", "alt": "Could I ask a quick question?" },
+  { "grammar": "L1: Present Simple (Review)", "jp": "私は営業部に所属しています。", "en": "I belong to the sales department", "display": "I belong to / the sales department", "keywords": ["belong to"], "point": "「所属している」という現在の状態は現在形を使います。", "alt": "I work in the sales team." },
+  { "grammar": "L1: Present Simple (Review)", "jp": "私たちの会社は良い製品を売っています。", "en": "Our company sells good products", "point": "Our company は三人称単数扱いなので、動詞に s が付きます。", "display": "Our company / sells / good products", "alt": "We offer high-quality items." },
+  { "grammar": "L1: Why", "jp": "なぜあなたはここにいるのですか？", "en": "Why are you here", "display": "Why / are you / here", "keywords": ["Why"], "point": "理由を尋ねる時は Why を文頭に置きます。", "alt": "What brings you here today?" },
+  { "grammar": "L1: What time", "jp": "会議は何時に終わりますか？", "en": "What time does the meeting end", "display": "What time / does the meeting / end", "keywords": ["What time"], "point": "時刻を聞く What time の後は疑問文の語順 (does the meeting end) です。", "alt": "When is the meeting scheduled to finish?" },
+  { "grammar": "L1: How many", "jp": "参加者は何人ですか？", "en": "How many participants are there", "display": "How many participants / are there", "keywords": ["How many"], "point": "How many + 複数名詞 + are there? で「いくつありますか」となります。", "alt": "What is the total number of attendees?" },
+  { "grammar": "L1: Adverbs", "jp": "彼はいつも一生懸命働きます。", "en": "He always works hard", "display": "He always / works hard", "keywords": ["always", "hard"], "point": "hard は「一生懸命に」という副詞として働きます。", "alt": "He is a very hardworking employee." },
+  { "grammar": "L1: Pronouns (Object)", "jp": "それを見せてください。", "en": "Please show it to me", "display": "Please / show it / to me", "keywords": ["show"], "point": "「私に」は目的語として me を使います。", "alt": "Could you let me see that?" },
+  { "grammar": "L1: Prepositions (Place)", "jp": "資料は私の机の上にあります。", "en": "The document is on my desk", "display": "The document / is / on my desk", "keywords": ["on"], "point": "「〜の上に（接して）」は前置詞 on を使います。", "alt": "You can find the file on my table." },
+  { "grammar": "L1: Prepositions (Place)", "jp": "出口の近くで会いましょう。", "en": "Let's meet near the exit", "display": "Let's meet / near / the exit", "keywords": ["near"], "point": "「〜の近くで」は前置詞 near を使います。", "alt": "I'll wait for you by the exit." },
+  { "grammar": "L1: Present Continuous (Review)", "jp": "彼は今、ロビーで待っています。", "en": "He is waiting in the lobby now", "display": "He is waiting / in the lobby / now", "keywords": ["waiting"], "point": "「待っているところです」という動作の進行を表します。", "alt": "He is currently in the lobby." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "今朝、コーヒーを飲みました。", "en": "I drank coffee this morning", "display": "I drank / coffee / this morning", "keywords": ["drank"], "point": "drink の過去形は drank です。", "alt": "I had a cup of coffee earlier today." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "私はその価格を知っていました。", "en": "I knew the price", "display": "I knew / the price", "keywords": ["knew"], "point": "know（知っている）の過去形は knew です。", "alt": "I was aware of the cost." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "昨日、契約書を書きました。", "en": "I wrote a contract yesterday", "display": "I wrote / a contract / yesterday", "keywords": ["wrote"], "point": "write の過去形は wrote です。", "alt": "I drafted the agreement yesterday." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "私たちは新しい車を買いました。", "en": "We bought a new car", "display": "We bought / a new car", "keywords": ["bought"], "point": "buy（買う）の過去形は bought です。", "alt": "We have purchased a new vehicle." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "彼は良いアイデアを持ってきました。", "en": "He brought a good idea", "display": "He brought / a good idea", "keywords": ["brought"], "point": "bring（持ってくる）の過去形は brought です。", "alt": "He proposed a great idea." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "私は昨日、彼に会いました。", "en": "I met him yesterday", "display": "I met / him / yesterday", "keywords": ["met"], "point": "meet（会う）の過去形は met です。", "alt": "I had a meeting with him yesterday." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "彼女はそのファイルを見つけました。", "en": "She found the file", "display": "She found / the file", "keywords": ["found"], "point": "find（見つける）の過去形は found です。", "alt": "She has located the document." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "私たちは新しいオフィスへ行きました。", "en": "We went to the new office", "display": "We went / to the new office", "keywords": ["went"], "point": "go の過去形は went です。", "alt": "We visited the new office space." },
+  { "grammar": "L1: Past Simple (Neg)", "jp": "彼は昨日、来ませんでした。", "en": "He did not come yesterday", "display": "He / did not come / yesterday", "keywords": ["did not come"], "point": "不規則動詞でも過去の否定は did not + 原形 です。", "alt": "He was unable to attend yesterday." },
+  { "grammar": "L1: Past Simple (Quest)", "jp": "あなたは名刺をなくしましたか？", "en": "Did you lose your business card", "display": "Did you / lose / your business card", "keywords": ["lose"], "point": "lose（なくす）の疑問文は Did you lose ...? です。", "alt": "Have you misplaced your card?" },
+  { "grammar": "L1: Past Simple (Review)", "jp": "それはとても良いプレゼンでした。", "en": "That was a very good presentation", "display": "That was / a very good / presentation", "keywords": ["That was"], "point": "物事の感想を過去形で述べる時の基本です。", "alt": "The presentation was excellent." },
+  { "grammar": "L1: Whose (Review)", "jp": "これは誰のバッグですか？", "en": "Whose bag is this", "display": "Whose bag / is this", "keywords": ["Whose"], "point": "忘れ物などを確認する時に役立つ表現です。", "alt": "Does anyone know who this bag belongs to?" },
+  { "grammar": "L1: Which (Review)", "jp": "どちらのバスが駅に行きますか？", "en": "Which bus goes to the station", "display": "Which bus / goes / to the station", "keywords": ["Which"], "point": "Which bus が三人称単数の主語なので goes になります。", "alt": "Which bus should I take for the station?" },
+  { "grammar": "L1: Adverbs of Frequency (Review)", "jp": "彼はめったに遅刻しません。", "en": "He is rarely late", "display": "He is / rarely late", "keywords": ["rarely"], "point": "rarely（めったに〜ない）は頻度の副詞です。", "alt": "He is almost always on time." },
+  { "grammar": "L1: How much", "jp": "これはいくらですか？", "en": "How much is this", "display": "How much / is this", "keywords": ["How much"], "point": "値段を尋ねる時の基本フレーズです。", "alt": "What is the price of this item?" },
+  { "grammar": "L1: Present Simple (Review)", "jp": "私は週末に働きます。", "en": "I work on weekends", "display": "I work / on weekends", "keywords": ["weekends"], "point": "「週末ごとに」という習慣なので現在形と複数形の weekends を使います。", "alt": "I am available for work on Saturdays and Sundays." }
+[
+  { "grammar": "L1: Be verb (Review)", "jp": "その価格は非常に妥当です。", "en": "The price is very reasonable", "display": "The price / is / very reasonable", "keywords": ["reasonable"], "point": "cheap（安い）よりも reasonable（妥当な・手頃な）の方がビジネスでは好まれます。", "alt": "The cost is fair." },
+  { "grammar": "L1: Present Simple (3rd sing)", "jp": "このバスは空港へ行きますか？", "en": "Does this bus go to the airport", "display": "Does this bus / go / to the airport", "keywords": ["airport"], "point": "this bus は三人称単数なので疑問文は Does で始めます。", "alt": "Is this the right bus for the airport?" },
+  { "grammar": "L1: Present Simple", "jp: "私は毎日たくさんのメールを受け取ります。", "en": "I receive many emails every day", "display": "I receive / many emails / every day", "keywords": ["receive"], "point: "receive（受け取る）は get よりもフォーマルな響きになります。", "alt": "I get a lot of emails daily." },
+  { "grammar": "L1: Negative", "jp: "彼はそのプロジェクトのメンバーではありません。", "en": "He is not a member of the project", "display": "He is not / a member / of the project", "keywords": ["member"], "point: "「〜のメンバー」は a member of ... と表現します。", "alt": "He isn't part of the project team." },
+  { "grammar": "L1: Wh-Quest (What)", "jp": "あなたの役職は何ですか？", "en": "What is your job title", "display": "What / is / your job title", "keywords": ["job title"], "point": "役職名は position や job title と言います。", "alt": "What position do you hold?" },
+  { "grammar": "L1: Wh-Quest (Who)", "jp": "あそこにいる男性は誰ですか？", "en": "Who is the man over there", "display": "Who / is the man / over there", "keywords": ["over there"], "point": "「あそこに」は over there というセットフレーズを使います。", "alt": "Who is that person sitting over there?" },
+  { "grammar": "L1: Wh-Quest (Where)", "jp": "本社はどこにありますか？", "en": "Where is the head office", "display": "Where is / the head office", "keywords": ["head office"], "point": "本社は head office、支店は branch office と言います。", "alt": "Where is your company located?" },
+  { "grammar": "L1: Imperative (Request)", "jp": "もう一度言ってください。", "en": "Please say that again", "display": "Please / say / that again", "keywords": ["say again"], "point": "聞き取れなかった時に必須のフレーズです。Pleaseを忘れずに。", "alt": "Pardon? Could you repeat that?" },
+  { "grammar": "L1: Imperative (Request)", "jp": "私に資料を見せてください。", "en": "Please show me the document", "display": "Please show me / the document", "keywords": ["show"], "point": "show + 人 + 物（人に物を見せる）という語順になります。", "alt": "Could you let me see the document?" },
+  { "grammar": "L1: Imperative (Neg)", "jp": "ここでタバコを吸わないでください。", "en": "Please do not smoke here", "display": "Please / do not smoke / here", "keywords": ["do not"], "point": "禁止を優しく伝える時は Please do not ... を使います。", "alt": "Smoking is not allowed in this area." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp": "私は今朝、新しい情報を得ました。", "en": "I got some new information this morning", "display": "I got / some new information / this morning", "keywords": ["got"], "point": "get の過去形 got はビジネスで「情報を得る」「理解する」際によく使われます。", "alt": "I received an update earlier today." },
+  { "grammar": "L1: Past Simple (Reg)", "jp: "私は昨日、そのシステムを使いました。", "en": "I used the system yesterday", "display": "I used / the system / yesterday", "keywords": ["used"], "point: "use のように e で終わる動詞の過去形は d だけを付けます。", "alt": "I utilized the system yesterday." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp: "彼は昨日、重要な決定をしました。", "en": "He made an important decision yesterday", "display": "He made / an important decision / yesterday", "keywords": ["made"], "point: "「決定をする」は make a decision と言います。", "alt": "A major decision was made by him yesterday." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp: "私たちは昨年、大きな契約を獲得しました。", "en": "We got a big contract last year", "display": "We got / a big contract / last year", "keywords": ["contract"], "point: "契約は contract。get（獲得する）の過去形 got を使います。", "alt": "We secured a major deal last year." },
+  { "grammar": "L1: Past Simple (Quest)", "jp: "あなたは昨日、何時に寝ましたか？", "en": "What time did you go to bed yesterday", "display": "What time / did you go to bed / yesterday", "keywords": ["What time", "did"], "point": "過去の具体的な時間を聞く時は What time did you ...? です。", "alt": "When did you finish your day yesterday?" },
+  { "grammar": "L1: Past Simple (Neg)", "jp: "私は昨日、働きませんでした。", "en": "I did not work yesterday", "display": "I / did not work / yesterday", "keywords": ["did not work"], "point": "昨日は休みだった時などに使う否定文です。", "alt": "I was off yesterday." },
+  { "grammar": "L1: Can (Request)", "jp: "この書類をスキャンしてくれますか？", "en": "Can you scan this document", "display": "Can you / scan / this document", "keywords": ["scan"], "point: "依頼の can です。scan は動詞としてそのまま使えます。", "alt": "Could you please scan this for me?" },
+  { "grammar": "L1: Can (Permission)", "jp: "あなたのペンを借りてもいいですか？", "en": "Can I borrow your pen", "display": "Can I / borrow / your pen", "keywords": ["borrow"], "point: "borrow は「無料で借りる」、rent は「有料で借りる」です。", "alt": "May I use your pen for a moment?" },
+  { "grammar": "L1: Can (Ability)", "jp: "彼は非常に速くタイプすることができます。", "en": "He can type very fast", "display": "He can type / very fast", "keywords": ["type"], "point": "fast（速く）は副詞として動詞の type を修飾します。", "alt": "He is a very fast typist." },
+  { "grammar": "L1: Wh-Quest (Whose)", "jp: "これは誰のスマートフォンですか？", "en": "Whose smartphone is this", "display": "Whose smartphone / is this", "keywords": ["Whose"], "point": "Whose + 名詞（誰の〜）で所有者を確認します。", "alt": "Is this someone's smartphone?" },
+  { "grammar": "L1: Prepositions (In)", "jp: "部長は今、会議室にいます。", "en: "The manager is in the meeting room now", "display": "The manager / is in / the meeting room / now", "keywords": ["manager"], "point": "「〜の中に（いる）」は前置詞 in を使います。", "alt": "The supervisor is currently in a meeting." },
+  { "grammar": "L1: Prepositions (At)", "jp: "駅で会いましょう。", "en": "Let's meet at the station", "display": "Let's meet / at the station", "keywords": ["at the station"], "point": "特定の「地点」を表す時は前置詞 at を使います。", "alt": "I'll see you at the station entrance." },
+  { "grammar": "L1: Time expression (Ago)", "jp: "彼は5分前に出発しました。", "en": "He left five minutes ago", "display": "He left / five minutes ago", "keywords": ["ago"], "point": "「〜前」は [期間] + ago で表現します。", "alt": "He just headed out five minutes ago." },
+  { "grammar": "L1: Time expression (Next)", "jp: "来週お会いしましょう。", "en": "Let's meet next week", "display": "Let's meet / next week", "keywords": ["next week"], "point": "next week（来週）には前置詞（onなど）は不要です。", "alt": "I look forward to meeting you next week." },
+  { "grammar": "L1: Pronouns (Possessive)", "jp: "そのアイデアは彼のものではありません。", "en": "The idea is not his", "display": "The idea / is not / his", "keywords": ["his"], "point": "his は「彼の」も「彼のもの」も同じ形です。", "alt": "That isn't his proposal." },
+  { "grammar": "L1: Be verb (Review)", "jp: "今日はとても良い天気です。", "en": "It is very sunny today", "display": "It is / very sunny / today", "keywords": ["sunny"], "point": "天気や時間を表す時の主語は It を使います。", "alt": "The weather is beautiful today." },
+  { "grammar": "L1: Wh-Quest (How)", "jp: "調子はどうですか？", "en": "How are you doing", "display": "How / are you / doing", "keywords": ["How"], "point": "How are you? よりも少し親しみのある挨拶です。", "alt": "How is everything going with you?" },
+  { "grammar": "L1: What kind of", "jp: "どのような会社ですか？", "en": "What kind of company is it", "display": "What kind of / company / is it", "keywords": ["What kind of"], "point": "What kind of + 名詞 で「どのような〜」と種類を尋ねます。", "alt": "What business is your company in?" },
+  { "grammar": "L1: Present Continuous", "jp: "私たちは新製品をテストしています。", "en": "We are testing a new product", "display": "We are testing / a new product", "keywords": ["testing"], "point": "「今テストしている最中です」という進行の状態です。", "alt": "We're currently in the testing phase." },
+  { "grammar": "L1: Present Simple (Review)", "jp: "私はコーヒーよりお茶が好きです。", "en": "I like tea more than coffee", "display": "I like tea / more than / coffee", "keywords": ["more than"], "point": "比較の要素が入りますが、like という現在形を使った基礎文です。", "alt": "I prefer tea to coffee." },
+  { "grammar": "L1: Be verb (Past)", "jp: "その会議は非常に有益でした。", "en": "The meeting was very useful", "display": "The meeting / was / very useful", "keywords": ["useful"], "point": "会議の感想を述べる時の定番です。", "alt: "I found the meeting quite helpful." },
+  { "grammar": "L1: Present Simple (Neg)", "jp: "私はその理由を知りません。", "en": "I do not know the reason", "display": "I do not know / the reason", "keywords": ["reason"], "point": "一般動詞の否定文の基本形です。", "alt": "I'm not sure why." },
+  { "grammar": "L1: Wh-Quest (Past)", "jp: "昨日のランチに何を食べましたか？", "en": "What did you eat for lunch yesterday", "display": "What / did you eat / for lunch / yesterday", "keywords": ["What did"], "point": "過去の行為を具体的に尋ねる練習です。", "alt": "What was on your lunch menu yesterday?" },
+  { "grammar": "L1: Prepositions (With)", "jp: "同僚と一緒にランチに行きました。", "en": "I went to lunch with my colleagues", "display": "I went to lunch / with / my colleagues", "keywords": ["with"], "point": "「〜と一緒に」は前置詞 with を使います。", "alt": "I had lunch with my coworkers." },
+  { "grammar": "L1: Adverbs (Fast)", "jp: "彼はとても速く走ります。", "en": "He runs very fast", "display": "He runs / very fast", "keywords": ["fast"], "point: "fast は「速い（形容詞）」も「速く（副詞）」も同じ形です。", "alt": "He is a very fast runner." },
+  { "grammar": "L1: Wh-Quest (How many)", "jp: "あなたは名刺を何枚持っていますか？", "en": "How many business cards do you have", "display": "How many business cards / do you have", "keywords": ["How many"], "point": "How many の後は必ず複数名詞が来ます。", "alt": "Do you have enough business cards?" },
+  { "grammar": "L1: Past Simple (Irreg)", "jp: "私は今朝、鍵をなくしました。", "en": "I lost my key this morning", "display": "I lost / my key / this morning", "keywords": ["lost"], "point": "lose（なくす）の過去形は lost です。", "alt": "I can't find my key; I misplaced it earlier." },
+  { "grammar": "L1: Present Simple (Review)", "jp: "彼はいつも親切です。", "en": "He is always kind", "display": "He is / always / kind", "keywords": ["always"], "point": "頻度の副詞 always は be動詞の後、一般動詞の前に置きます。", "alt": "He is consistently helpful." },
+  { "grammar": "L1: This / That (Plural)", "jp: "これらの資料は古いですよ。", "en": "These documents are old", "display": "These documents / are / old", "keywords": ["These"], "point": "this の複数は these。名詞も複数形にします。", "alt": "This paperwork is out of date." },
+  { "grammar": "L1: Imperative (Let's)", "jp: "タクシーで行きましょう。", "en": "Let's go by taxi", "display": "Let's go / by taxi", "keywords": ["by taxi"], "point": "「交通手段」を言う時は by + 無冠詞の名詞 です。", "alt": "Shall we take a cab?" },
+  { "grammar": "L1: Past Simple (Irreg)", "jp: "私たちは昨夜、夕食を食べました。", "en": "We had dinner last night", "display": "We had dinner / last night", "keywords": ["had"], "point": "have（食べる）の過去形は had です。", "alt": "We ate out last night." },
+  { "grammar": "L1: Wh-Quest (Whose)", "jp: "これは誰の許可ですか？", "en": "Whose permission is this", "display": "Whose permission / is this", "keywords": ["Whose"], "point": "permission（許可）の所有を確認する実用的な問いです。", "alt": "Who gave this approval?" },
+  { "grammar": "L1: Past Simple (Be Neg)", "jp: "彼女は昨日の朝、忙しくありませんでした。", "en": "She was not busy yesterday morning", "display": "She / was not busy / yesterday morning", "keywords": ["was not"], "point": "過去の be動詞の否定形です。", "alt": "She was free yesterday morning." },
+  { "grammar": "L1: Present Simple (Quest)", "jp": "あなたは日本語を理解しますか？", "en": "Do you understand Japanese", "display": "Do you / understand / Japanese", "keywords": ["understand"], "point": "動詞 understand を使った基本的な質問です。", "alt": "Can you speak or read Japanese?" },
+  { "grammar": "L1: Time expression", "jp: "2時間前に終わりました。", "en": "It finished two hours ago", "display": "It finished / two hours ago", "keywords": ["two hours ago"], "point": "時間、分、時間などの後に ago を付けます。", "alt": "The task was completed two hours ago." },
+  { "grammar": "L1: Present Continuous (Neg)", "jp: "彼らは今、議論をしていません。", "en": "They are not having a discussion now", "display": "They are not / having a discussion / now", "keywords": ["discussion"], "point": "have a discussion で「議論をする」です。", "alt": "There is no ongoing discussion at the moment." },
+  { "grammar": "L1: Past Simple (Irreg)", "jp: "彼は私にその本をくれました。", "en": "He gave me the book", "display": "He gave / me / the book", "keywords": ["gave"], "point": "give の過去形は gave です。", "alt: "He provided me with the textbook." },
+  { "grammar": "L1: Present Simple (Review)", "jp: "私は週末に働きます。", "en": "I work on weekends", "display": "I work / on weekends", "keywords": ["on weekends"], "point": "「週末ごとに」という習慣は weekends と複数形にします。", "alt": "I am available for work on Saturdays and Sundays." },
+  { "grammar": "L1: Can (Ability)", "jp: "あなたはその問題を解決できますか？", "en": "Can you solve the problem", "display": "Can you / solve / the problem", "keywords": ["solve"], "point": "solve（解決する）はビジネスの重要動詞です。", "alt": "Are you able to handle this issue?" },
+  { "grammar": "L1: Be verb (Review)", "jp: "私は元気です、ありがとう。", "en": "I am fine, thank you", "display": "I am fine, / thank you", "keywords": ["fine"], "point": "挨拶への基本的な返しです。", "alt": "I'm doing well, thanks for asking." }
+[
+  { "grammar": "L2: Future (will)", "jp": "後ほどメールを差し上げます。", "en": "I will email you later", "display": "I will / email you / later", "keywords": ["will", "later"], "point": "その場で決めた意思や、単純な未来の予測には will を使います。", "alt": "I'll send you an email shortly." },
+  { "grammar": "L2: Future (be going to)", "jp": "明日、新しいプロジェクトを始める予定です。", "en": "We are going to start a new project tomorrow", "display": "We are going to / start / a new project / tomorrow", "keywords": ["going to", "project"], "point": "あらかじめ決まっている具体的な予定には be going to を使います。", "alt": "A new project is scheduled to begin tomorrow." },
+  { "grammar": "L2: Future (Quest)", "jp": "あなたも会議に参加しますか？", "en": "Will you join the meeting", "display": "Will you / join / the meeting", "keywords": ["Will you", "join"], "point": "Will you ...? は相手の予定を尋ねたり、依頼をしたりする時に使います。", "alt": "Are you going to attend the meeting?" },
+  { "grammar": "L2: Must", "jp": "5時までにこれを終わらせなければなりません。", "en": "I must finish this by five", "display": "I must / finish / this / by five", "keywords": ["must", "by five"], "point": "強い義務や必要性を表す時は助動詞 must を使います。by は「〜までに」という期限です。", "alt": "I need to complete this by 5 PM." },
+  { "grammar": "L2: Have to", "jp": "私たちはルールに従わなければなりません。", "en": "We have to follow the rules", "display": "We have to / follow / the rules", "keywords": ["have to", "rules"], "point": "have to は周囲の状況からくる義務「〜しなければならない」を表します。", "alt": "It is necessary to comply with the regulations." },
+  { "grammar": "L2: Should", "jp": "私たちは価格について話し合うべきです。", "en": "We should discuss the price", "display": "We should / discuss / the price", "keywords": ["should", "discuss"], "point": "「〜すべきだ」と提案や助言をする時は should を使います。", "alt": "I suggest we have a talk about the pricing." },
+  { "grammar": "L2: Don't have to", "jp": "急ぐ必要はありませんよ。", "en": "You do not have to hurry", "display": "You do not / have to / hurry", "keywords": ["do not have to"], "point": "don't have to は「〜する必要はない（不必要）」を意味します。禁止ではありません。", "alt": "There is no rush." },
+  { "grammar": "L2: Shall I", "jp": "お手伝いしましょうか？", "en": "Shall I help you", "display": "Shall I / help you", "keywords": ["Shall I"], "point": "Shall I ...? は「（私が）〜しましょうか？」という申し出の表現です。", "alt": "Would you like some help?" },
+  { "grammar": "L2: Shall we", "jp": "ランチに行きませんか？", "en": "Shall we go to lunch", "display": "Shall we / go / to lunch", "keywords": ["Shall we"], "point": "Shall we ...? は「（一緒に）〜しませんか？」という勧誘の表現です。", "alt": "Why don't we have lunch?" },
+  { "grammar": "L2: Future (will)", "jp": "今日の午後は雨が降るでしょう。", "en": "It will rain this afternoon", "display": "It will / rain / this afternoon", "keywords": ["rain"], "point": "天気の予測も will を使って表現します。", "alt": "We are expecting rain later today." },
+  { "grammar": "L2: To-Infinitive (Noun)", "jp": "私は工場を訪問したいです。", "en": "I want to visit the factory", "display": "I want / to visit / the factory", "keywords": ["want to", "factory"], "point": "want to do で「〜したい」という名詞的用法です。", "alt": "I'd like to take a look at the plant." },
+  { "grammar": "L2: To-Infinitive (Noun)", "jp": "私の仕事はソフトウェアをテストすることです。", "en": "My job is to test software", "display": "My job / is to test / software", "keywords": ["to test"], "point": "be動詞 + to do で「〜することです」という補語になります。", "alt": "Testing software is my primary responsibility." },
+  { "grammar": "L2: To-Infinitive (Adv)", "jp": "あなたと話すためにここに来ました。", "en": "I came here to talk with you", "display": "I came here / to talk / with you", "keywords": ["to talk"], "point": "「〜するために」という目的を表す副詞的用法です。", "alt": "I am here specifically to discuss things with you." },
+  { "grammar": "L2: To-Infinitive (Adj)", "jp": "今日やるべきことがたくさんあります。", "en": "I have many things to do today", "display": "I have / many things / to do today", "keywords": ["things to do"], "point": "things to do で「やるべきこと」という形容詞的用法です。", "alt": "My schedule is packed today." },
+  { "grammar": "L2: To-Infinitive (Adj)", "jp": "何か言うことはありますか？", "en": "Do you have anything to say", "display": "Do you have / anything / to say", "keywords": ["anything to say"], "point: "anything to say で「言うべきこと（何か）」を修飾します。", "alt": "Is there anything you would like to add?" },
+  { "grammar": "L2: It is ... to", "jp": "この機械を使うのは簡単です。", "en": "It is easy to use this machine", "display": "It is easy / to use / this machine", "keywords": ["easy to use"], "point": "It is [形容詞] to do ... の形式主語の構文です。", "alt": "This machine is user-friendly." },
+  { "grammar": "L2: Gerund", "jp": "私はゴルフをすることが好きです。", "en": "I like playing golf", "display": "I like / playing golf", "keywords": ["playing"], "point": "like の後に動名詞 -ing を置いて「〜することが好き」となります。", "alt": "I enjoy a round of golf." },
+  { "grammar": "L2: Gerund (Subject)", "jp": "ここで働くことは刺激的です。", "en": "Working here is exciting", "display": "Working here / is / exciting", "keywords": ["Working"], "point": "動名詞を主語にして「〜することは」という意味を作ります。", "alt": "I find it exciting to work in this environment." },
+  { "grammar": "L2: Gerund (After Prep)", "jp": "彼は英語を話すのが得意です。", "en": "He is good at speaking English", "display": "He is good at / speaking English", "keywords": ["good at"], "point": "前置詞 at の後は名詞または動名詞が来ます。", "alt": "He is a fluent English speaker." },
+  { "grammar": "L2: Gerund (After Prep)", "jp": "来てくれてありがとう。", "en": "Thank you for coming", "display": "Thank you / for coming", "keywords": ["for coming"], "point": "for は前置詞なので、後ろに動詞を置く場合は ing 形になります。", "alt": "I appreciate your attendance." },
+  { "grammar": "L2: Gerund", "jp": "プレゼンの準備を楽しんでいます。", "en": "I enjoy preparing for the presentation", "display": "I enjoy / preparing / for the presentation", "keywords": ["enjoy", "preparing"], "point": "enjoy の後には必ず動名詞を置きます。", "alt": "Preparing for presentations is fun for me." },
+  { "grammar": "L2: Stop -ing", "jp": "お喋りをやめてください。", "en": "Stop talking, please", "display": "Stop / talking, / please", "keywords": ["Stop talking"], "point": "stop -ing で「〜するのをやめる」という意味です。", "alt": "Please be quiet." },
+  { "grammar": "L2: Start -ing", "jp": "報告書を書き始めてください。", "en": "Start writing the report", "display": "Start / writing / the report", "keywords": ["Start writing"], "point": "start の後には動名詞または不定詞が使えます。", "alt": "Please begin drafting the report." },
+  { "grammar": "L2: Remember to do", "jp": "IDカードを持ってくるのを忘れないでください。", "en": "Remember to bring your ID card", "display": "Remember / to bring / your ID card", "keywords": ["Remember to"], "point": "remember to do で「（これから）〜することを忘れない」です。", "alt": "Don't forget your identification card." },
+  { "grammar": "L2: Try to do", "jp": "彼に電話しようとしました。", "en": "I tried to call him", "display": "I tried / to call / him", "keywords": ["tried to"], "point": "try to do で「〜しようと試みる（努力する）」です。", "alt": "I attempted to reach him by phone." },
+  { "grammar": "L2: Comparison", "jp": "このコンピュータはあのコンピュータより新しいです。", "en": "This computer is newer than that one", "display": "This computer / is newer / than / that one", "keywords": ["newer than"], "point": "短い形容詞の比較級は後ろに er を付けます。", "alt": "This is a more recent model." },
+  { "grammar": "L2: Comparison (More)", "jp": "この計画の方が重要です。", "en": "This plan is more important", "display": "This plan / is / more important", "keywords": ["more important"], "point": "長い形容詞の比較級は前に more を置きます。", "alt": "This proposal takes higher priority." },
+  { "grammar": "L2: Superlative", "jp": "彼は私たちのチームで一番背が高いです。", "en": "He is the tallest in our team", "display": "He is / the tallest / in our team", "keywords": ["the tallest"], "point": "最上級には必ず the を付け、語尾を est にします。", "alt": "No one in the team is taller than him." },
+  { "grammar": "L2: Superlative (Most)", "jp": "これが最も人気のある製品です。", "en": "This is the most popular product", "display": "This is / the most popular / product", "keywords": ["most popular"], "point": "長い形容詞の最上級は the most を前に置きます。", "alt": "This item is our best-seller." },
+  { "grammar": "L2: As ... as", "jp": "私は上司と同じくらい忙しいです。", "en": "I am as busy as my boss", "display": "I am / as busy as / my boss", "keywords": ["as as"], "point": "「〜と同じくらい〜だ」という同等比較は as [形容詞] as ... を使います。", "alt": "My workload is equal to my manager's." },
+  { "grammar": "L2: Better (Comparison)", "jp": "AとB、どちらが良いですか？", "en": "Which is better, A or B", "display": "Which is better, / A or B", "keywords": ["better"], "point": "good の比較級は不規則変化の better です。", "alt": "Which option do you prefer?" },
+  { "grammar": "L2: Conjunction (When)", "jp": "私が到着した時、彼は外出していました。", "en": "When I arrived, he was out", "display": "When I arrived, / he / was out", "keywords": ["When"], "point": "接続詞 when で時を表す節を作ります。", "alt": "He was already gone by the time I got there." },
+  { "grammar": "L2: Conjunction (If)", "jp": "もし時間があれば、手伝ってください。", "en": "If you have time, please help me", "display": "If you have time, / please / help me", "keywords": ["If"], "point": "接続詞 if で条件を表します。if節の中は（未来のことでも）現在形です。", "alt": "Please lend me a hand provided you're free." },
+  { "grammar": "L2: Conjunction (That)", "jp": "私は彼が正しいと思います。", "en": "I think that he is right", "display": "I think / that / he is right", "keywords": ["think that"], "point": "think や believe の後に that節 を置いて「〜だと思う」と述べます。", "alt": "In my opinion, he's correct." },
+  { "grammar": "L2: Conjunction (Because)", "jp": "疲れていたので、家に帰りました。", "en": "Because I was tired, I went home", "display": "Because I was tired, / I / went home", "keywords": ["Because"], "point": "理由を表す接続詞 because です。文末に置くことも可能です。", "alt": "I headed home due to exhaustion." },
+  { "grammar": "L2: Conjunction (Although)", "jp": "雨でしたが、彼は外出しました。", "en": "Although it was raining, he went out", "display": "Although it was raining, / he / went out", "keywords": ["Although"], "point": "「〜だけれども」という逆接の接続詞 although です。", "alt": "Despite the rain, he stepped out." },
+  { "grammar": "L2: When clause (Review)", "jp": "暇な時に本を読みます。", "en": "I read books when I am free", "display": "I read books / when / I am free", "keywords": ["when"], "point": "when節 を文の後半に置くパターンです。", "alt: "I enjoy reading in my spare time." },
+  { "grammar": "L2: That clause (Review)", "jp": "締切が明日だと彼は私に言いました。", "en": "He told me that the deadline is tomorrow", "display": "He told me / that / the deadline is tomorrow", "keywords": ["told me that"], "point": "tell + 人 + that節 で「人に〜だと言う」です。", "alt": "I was informed by him that we finish tomorrow." },
+  { "grammar": "L2: If clause (Review)", "jp": "晴れたら、行きましょう。", "en": "If it is sunny, let's go", "display": "If it is sunny, / let's / go", "keywords": ["If"], "point": "天気の場合の主語は it です。", "alt": "Shall we go provided the weather is good?" },
+  { "grammar": "L2: Because of (Preposition)", "jp": "交通渋滞のせいで遅れました。", "en": "I was late because of the traffic", "display": "I was late / because of / the traffic", "keywords": ["because of"], "point": "because of は前置詞句なので、後ろには名詞が来ます。", "alt": "The heavy traffic caused my delay." },
+  { "grammar": "L2: Must not", "jp": "ここでタバコを吸ってはいけません。", "en": "You must not smoke here", "display": "You must not / smoke / here", "keywords": ["must not"], "point": "must not は強い禁止「〜してはいけない」を表します。", "alt": "Smoking is strictly prohibited in this area." },
+  { "grammar": "L2: Had to (Past)", "jp": "遅くまで残らなければなりませんでした。", "en": "I had to stay late", "display": "I had to / stay / late", "keywords": ["had to"], "point": "must には過去形がないため、過去の義務は had to を使います。", "alt": "I was required to work overtime." },
+  { "grammar": "L2: Will you (Request)", "jp": "窓を開けてくれますか？", "en": "Will you open the window", "display": "Will you / open / the window", "keywords": ["Will you"], "point": "Will you ...? は「〜してくれますか？」という依頼にもなります。", "alt": "Would you mind opening the window?" },
+  { "grammar": "L2: May I (Permission)", "jp": "入ってもいいですか？", "en": "May I come in", "display": "May I / come / in", "keywords": ["May I"], "point": "May I ...? は許可を求める非常に丁寧な表現です。", "alt": "Is it alright if I enter?" },
+  { "grammar": "L2: Imperative (Review)", "jp": "このグラフを見てください。", "en": "Look at this graph", "display": "Look at / this / graph", "keywords": ["Look at"], "point": "プレゼンなどで注目を集める基本表現です。", "alt": "Please direct your attention to this chart." },
+  { "grammar": "L2: Listen to", "jp": "アナウンスを聞いてください。", "en": "Listen to the announcement", "display": "Listen to / the announcement", "keywords": ["Listen to"], "point": "「（意識して）聞く」は listen to を使います。", "alt": "Please pay attention to the broadast." },
+  { "grammar": "L2: Look forward to -ing", "jp": "お会いできるのを楽しみにしています。", "en": "I am looking forward to seeing you", "display": "I am looking forward to / seeing / you", "keywords": ["looking forward to"], "point": "to は前置詞なので、動詞は ing 形にします。", "alt": "I can't wait to meet you." },
+  { "grammar": "L2: Better than (Review)", "jp": "彼は私より上手です。", "en": "He is better than me", "display": "He is / better / than me", "keywords": ["better than"], "point": "me は口語的な目的格です。より正式には than I (am) です。", "alt": "His skills surpass mine." },
+  { "grammar": "L2: Most difficult (Review)", "jp": "これが最も難しいタスクです。", "en": "This is the most difficult task", "display": "This is / the most difficult / task", "keywords": ["most difficult"], "point": "長い形容詞の最上級の復習です。", "alt": "No other job is as tough as this one." },
+  { "grammar": "L2: Launch (Future)", "jp": "新製品を発売する予定です。", "en": "We are going to launch a new product", "display": "We are going to / launch / a new product", "keywords": ["launch"], "point": "launch は「（製品などを）発売する・開始する」というビジネス用語です。", "alt": "Our new product rollout is coming soon." }
+[
+  { "grammar": "L2: To-Infinitive (Purpose)", "jp": "情報を得るためにインターネットを使います。", "en": "I use the internet to get information", "display": "I use the internet / to get / information", "keywords": ["information"], "point": "to get で「得るために」という目的を表す副詞的用法です。", "alt": "The internet is my source for information." },
+  { "grammar": "L2: To-Infinitive (Noun)", "jp": "私の夢は自分の会社を持つことです。", "en": "My dream is to have my own company", "display": "My dream / is / to have / my own company", "keywords": ["own company"], "point": "to have で「持つこと」という名詞的用法です。own は「自身の」という意味です。", "alt": "I want to start my own business in the future." },
+  { "grammar": "L2: To-Infinitive (Adj)", "jp": "何か食べるものはありますか？", "en": "Do you have anything to eat", "display": "Do you have / anything / to eat", "keywords": ["anything to eat"], "point": "anything to eat で「食べるための何か」という形容詞的用法です。", "alt": "Is there any food available?" },
+  { "grammar": "L2: To-Infinitive (Adj)", "jp": "私は今日、読むべき本が1冊あります。", "en": "I have a book to read today", "display": "I have / a book / to read today", "keywords": ["book to read"], "point": "book to read で「読むべき本」です。ビジネスでは report to read などに応用できます。", "alt": "I need to read this book today." },
+  { "grammar": "L2: Gerund", "jp": "彼は資料を作るのを終えました。", "en": "He finished making the document", "display": "He finished / making / the document", "keywords": ["finished", "making"], "point": "finish の後は必ず動名詞 -ing を使います。", "alt": "The document preparation is complete." },
+  { "grammar": "L2: Gerund (Subject)", "jp": "毎日英語を話すことは重要です。", "en": "Speaking English every day is important", "display": "Speaking English / every day / is important", "keywords": ["Speaking"], "point": "動名詞を主語にして「〜することは」と述べる形です。", "alt": "It is vital to practice English daily." },
+  { "grammar": "L2: Gerund (Preposition)", "jp": "お電話いただきありがとうございます。", "en": "Thank you for calling", "display": "Thank you / for / calling", "keywords": ["for calling"], "point": "前置詞 for の後は動名詞になります。電話応対の基本です。", "alt": "I appreciate your call." },
+  { "grammar": "L2: Stop -ing", "jp": "彼はタバコを吸うのをやめました。", "en": "He stopped smoking", "display": "He stopped / smoking", "keywords": ["stopped"], "point": "stop -ing で「（習慣などを）やめる」です。stop to smoke だと「吸うために立ち止まる」になります。", "alt": "He is no longer a smoker." },
+  { "grammar": "L2: Comparison (Adj)", "jp": "このプロジェクトは以前のものより小さいです。", "en": "This project is smaller than the previous one", "display": "This project / is smaller / than / the previous one", "keywords": ["smaller"], "point": "small の比較級は smaller です。previous one で「前のもの」を指します。", "alt": "This is a smaller-scale project." },
+  { "grammar": "L2: Comparison (More)", "jp": "このコンピュータはあのコンピュータより高価です。", "en": "This computer is more expensive than that one", "display": "This computer / is / more expensive / than that one", "keywords": ["more expensive"], "point": "expensive（高価な）のように長い単語は more を付けます。", "alt": "That computer is cheaper than this one." },
+  { "grammar": "L2: Comparison (Adv)", "jp": "彼は私より速くタイプします。", "en": "He types faster than me", "display": "He types / faster / than me", "keywords": ["faster"], "point": "副詞 fast（速く）の比較級も faster です。", "alt": "He is a quicker typist than I am." },
+  { "grammar": "L2: Superlative (Est)", "jp": "これがこの店で一番安い鞄です。", "en": "This is the cheapest bag in this store", "display": "This is / the cheapest bag / in this store", "keywords": ["the cheapest"], "point": "cheap の最上級は the cheapest です。", "alt": "No other bag here is cheaper than this one." },
+  { "grammar": "L2: Superlative (Most)", "jp": "彼は私たちの会社で最も有名なセールスマンです。", "en": "He is the most famous salesman in our company", "display": "He is / the most famous salesman / in our company", "keywords": ["most famous"], "point": "famous の最上級は the most famous です。", "alt": "He is the best-known salesperson we have." },
+  { "grammar": "L2: As ... as", "jp": "私はあなたと同じくらい忙しいです。", "en": "I am as busy as you", "display": "I am / as busy as / you", "keywords": ["as as"], "point": "「同じくらい〜だ」は as [形容詞] as で表します。", "alt": "My schedule is as full as yours." },
+  { "grammar": "L2: Best (Superlative)", "jp": "これが私たちの最良の案です。", "en": "This is our best plan", "display": "This is / our / best plan", "keywords": ["best"], "point": "good の最上級は不規則変化の best です。", "alt": "This is the most effective proposal we have." },
+  { "grammar": "L2: Conjunction (When)", "jp": "私がオフィスに着いたとき、雨が降っていました。", "en": "When I reached the office, it was raining", "display": "When I reached the office, / it / was raining", "keywords": ["reached"], "point": "when節 で「〜したとき」という過去の場面を設定します。", "alt": "It was raining upon my arrival at the office." },
+  { "grammar": "L2: Conjunction (If)", "jp": "もし彼が来たら、教えてください。", "en": "If he comes, please let me know", "display": "If / he comes, / please let me know", "keywords": ["If", "comes"], "point": "If節 の中では、未来のことでも現在形 comes を使います。", "alt": "Please notify me when he arrives." },
+  { "grammar": "L2: Conjunction (Because)", "jp": "風邪を引いたので、会議に行けませんでした。", "en": "I could not go to the meeting because I had a cold", "display": "I could not go / to the meeting / because I had a cold", "keywords": ["had a cold"], "point": "理由を表す because です。have a cold で「風邪を引いている」です。", "alt": "I missed the meeting due to a cold." },
+  { "grammar": "L2: Conjunction (That)", "jp": "私は彼が良いリーダーだと信じています。", "en": "I believe that he is a good leader", "display": "I believe / that / he is a good leader", "keywords": ["believe"], "point": "believe that ... で確信している意見を述べます。", "alt": "I am sure of his leadership skills." },
+  { "grammar": "L2: Look + Adj", "jp": "そのニュースは良さそうですね。", "en": "The news looks good", "display": "The news / looks / good", "keywords": ["looks"], "point": "look + 形容詞 で「（見て）〜そうに見える」です。", "alt": "That sounds like a positive update." },
+  { "grammar": "L2: Give A B", "jp": "田中さんにこのペンをあげてください。", "en": "Please give Mr. Tanaka this pen", "display": "Please / give Mr. Tanaka / this pen", "keywords": ["give"], "point": "give + 人 + 物 の語順です。", "alt": "Could you hand this pen to Mr. Tanaka?" },
+  { "grammar": "L2: Buy A B", "jp": "彼はクライアントに昼食を買いました。", "en": "He bought the client lunch", "display": "He bought / the client / lunch", "keywords": ["bought"], "point": "buy + 人 + 物 で「人に物を買う」です。", "alt": "He treated the client to lunch." },
+  { "grammar": "L2: Shall I", "jp": "ドアを閉めましょうか？", "en": "Shall I close the door", "display": "Shall I / close / the door", "keywords": ["Shall I"], "point": "Shall I ...? は「（私が）〜しましょうか？」という丁寧な申し出です。", "alt": "Would you like me to close the door?" },
+  { "grammar": "L2: Shall we", "jp": "プロジェクトについて話し合いませんか？", "en": "Shall we discuss the project", "display": "Shall we / discuss / the project", "keywords": ["discuss"], "point": "Shall we ...? は「（一緒に）〜しませんか？」という勧誘です。", "alt": "Why don't we have a talk about the project?" },
+  { "grammar": "L2: Future (will)", "jp": "私たちは来週、新しい支店をオープンします。", "en": "We will open a new branch next week", "display": "We will open / a new branch / next week", "keywords": ["branch"], "point": "予定を will で伝えます。branch は「支店」です。", "alt": "A new branch is opening next week." },
+  { "grammar": "L2: To-Infinitive (Purpose)", "jp": "私は英語を勉強するためにロンドンへ行きました。", "en": "I went to London to study English", "display": "I went to London / to study / English", "keywords": ["to study"], "point": "目的地 + to study で目的を付け加えます。", "alt": "I stayed in London for English studies." },
+  { "grammar": "L2: Remember to do", "jp": "報告書を提出するのを覚えておいてください。", "en": "Please remember to submit the report", "display": "Please remember / to submit / the report", "keywords": ["submit"], "point": "remember to do で「忘れずに〜する」です。submit は「提出する」です。", "alt": "Don't forget to hand in the report." },
+  { "grammar": "L2: Forget to do", "jp": "鍵を閉めるのを忘れました。", "en": "I forgot to lock the door", "display": "I forgot / to lock / the door", "keywords": ["lock"], "point": "forget to do で「〜し忘れる」です。", "alt": "The door was left unlocked by mistake." },
+  { "grammar": "L2: Try -ing", "jp": "その新しいソフトを試しに使ってみました。", "en": "I tried using the new software", "display": "I tried / using / the new software", "keywords": ["tried using"], "point": "try -ing は「（試しに）〜してみる」という意味です。", "alt": "I gave the new software a try." },
+  { "grammar": "L2: Like -ing", "jp": "私はプレゼン資料を作るのが好きです。", "en": "I like making presentation slides", "display": "I like / making / presentation slides", "keywords": ["making"], "point": "動名詞を使った趣味や好みの表現です。", "alt": "I enjoy creating presentation decks." },
+  { "grammar": "L2: Better than (Adv)", "jp": "彼は私より上手に英語を話します。", "en": "He speaks English better than me", "display": "He speaks English / better / than me", "keywords": ["better"], "point": "well（上手に）の比較級 better です。", "alt": "His English speaking skills are better than mine." },
+  { "grammar": "L2: Most interesting", "jp": "これがこれまでで最も面白いプロジェクトです。", "en": "This is the most interesting project ever", "display": "This is / the most interesting project / ever", "keywords": ["most interesting"], "point": "interesting は長い単語なので the most を使います。", "alt": "I've never worked on a more exciting project." },
+  { "grammar": "L2: The same ... as", "jp": "私は彼と同じ意見です。", "en": "I have the same opinion as him", "display": "I have / the same opinion / as him", "keywords": ["the same as"], "point": "the same [名詞] as ... で「〜と同じ〜」です。", "alt": "I agree with his point of view." },
+  { "grammar": "L2: Call A B", "jp": "私たちはこの街を『テックシティ』と呼んでいます。", "en": "We call this city Tech City", "display": "We call / this city / Tech City", "keywords": ["call"], "point": "call A B で「AをBと呼ぶ」という第5文型です。", "alt": "This city is known as Tech City." },
+  { "grammar": "L2: Keep A B", "jp": "この部屋を静かに保ってください。", "en": "Please keep this room quiet", "display": "Please keep / this room / quiet", "keywords": ["keep"], "point": "keep A B で「AをBの状態に保つ」です。", "alt": "Please maintain a quiet environment here." },
+  { "grammar": "L2: Future (be going to)", "jp": "彼は明日、私たちを訪問するつもりです。", "en": "He is going to visit us tomorrow", "display": "He is going to / visit us / tomorrow", "keywords": ["going to"], "point": "確定している訪問予定を述べます。", "alt": "He is scheduled to visit us tomorrow." },
+  { "grammar": "L2: Must not", "jp": "ここで大きな声で話してはいけません。", "en": "You must not talk loudly here", "display": "You must not / talk loudly / here", "keywords": ["must not"], "point": "must not は強い禁止「〜してはいけない」です。", "alt": "Please refrain from talking loudly." },
+  { "grammar": "L2: Had to", "jp": "私は昨日、早く帰らなければなりませんでした。", "en": "I had to go home early yesterday", "display": "I had to / go home early / yesterday", "keywords": ["had to"], "point": "過去の義務は had to を使います。", "alt": "I was required to leave early yesterday." },
+  { "grammar": "L2: Will you? (Request)", "jp": "窓を閉めてくれますか？", "en": "Will you close the window", "display": "Will you / close / the window", "keywords": ["Will you"], "point": "Will you ...? はカジュアルな依頼の表現です。", "alt": "Could you close the window, please?" },
+  { "grammar": "L2: May I?", "jp": "質問してもよろしいですか？", "en": "May I ask a question", "display": "May I / ask / a question", "keywords": ["May I"], "point": "May I ...? はビジネスシーンで好まれる丁寧な許可の求め方です。", "alt": "I have a question; is it okay to ask?" },
+  { "grammar": "L2: Show A B", "jp": "私にあなたのパスポートを見せてください。", "en": "Please show me your passport", "display": "Please show me / your / passport", "keywords": ["show"], "point": "show + 人 + 物 の第4文型です。", "alt": "May I see your passport, please?" },
+  { "grammar": "L2: Tell A B", "jp": "私にあなたのメールアドレスを教えてください。", "en": "Please tell me your email address", "display": "Please tell me / your email address", "keywords": ["tell me"], "point": "tell + 人 + 物 で「人に（情報を）教える」です。", "alt": "Could I have your email address?" },
+  { "grammar": "L2: How to do", "jp": "このソフトの使い方を教えてください。", "en": "Please tell me how to use this software", "display": "Please tell me / how to use / this software", "keywords": ["how to"], "point": "how to + 動詞 で「〜のやり方」という名詞のカタマリになります。", "alt": "Could you explain the operation of this software?" },
+  { "grammar": "L2: Ask A B", "jp": "彼に助けを求めました。", "en": "I asked him for help", "display": "I asked him / for help", "keywords": ["asked for"], "point": "ask A for B で「AにBを求める・頼む」です。", "alt": "I requested his assistance." },
+  { "grammar": "L2: Between A and B", "jp": "AとBの間に大きな違いがあります。", "en": "There is a big difference between A and B", "display": "There is / a big difference / between A and B", "keywords": ["between"], "point": "between A and B で「AとBの間」です。", "alt": "A and B are very different from each other." },
+  { "grammar": "L2: Comparison (Far)", "jp": "私の家はオフィスより遠いです。", "en": "My house is farther than the office", "display": "My house / is farther / than the office", "keywords": ["farther"], "point": "far の比較級は farther（距離）または further（程度）です。", "alt": "I live quite a distance from the office." },
+  { "grammar": "L2: Conjunction (When)", "jp": "彼がオフィスに来た時、私は電話中でした。", "en": "When he came to the office, I was on the phone", "display": "When he came to the office, / I was / on the phone", "keywords": ["on the phone"], "point": "過去の2つの動作を when で繋ぎます。", "alt": "I was taking a call at the moment he arrived." },
+  { "grammar": "L2: It is ... to (Review)", "jp": "毎日運動することは健康に良いです。", "en": "It is good for health to exercise every day", "display": "It is good for health / to exercise / every day", "keywords": ["exercise"], "point: "exercise（運動する）はビジネスマンの自己紹介でもよく使われます。", "alt": "Daily exercise is beneficial for your health." },
+  { "grammar": "L2: Look forward to -ing", "jp": "あなたと仕事をすることを楽しみにしています。", "en": "I am looking forward to working with you", "display": "I am looking forward to / working / with you", "keywords": ["looking forward to"], "point: "to は前置詞なので、後ろは動名詞 working になります。", "alt": "I'm excited to start our collaboration." },
+  { "grammar": "L2: Review Future", "jp": "今夜、彼に電話するつもりです。", "en": "I will call him tonight", "display": "I will / call him / tonight", "keywords": ["call"], "point: "その場で決めた意思の will です。", "alt": "I'm planning to give him a ring this evening." }
+  { "grammar": "L3: Present Perfect (Completion)", "jp": "ちょうどそのメールを送ったところです。", "en": "I have just sent the email", "display": "I have just / sent / the email", "keywords": ["just", "sent"], "point": "have just + 過去分詞で「たった今〜し終えた」という完了を表します。", "alt": "I've just dispatched the message." },
+  { "grammar": "L3: Present Perfect (Completion)", "jp": "もうその報告書を読みましたか？", "en": "Have you read the report yet", "display": "Have you / read / the report / yet", "keywords": ["yet"], "point": "疑問文の末尾に yet を置くと「もう〜しましたか？」という意味になります。", "alt": "Did you finish reading the report?" },
+  { "grammar": "L3: Present Perfect (Completion)", "jp": "まだその資料を受け取っていません。", "en": "I have not received the document yet", "display": "I have not / received / the document / yet", "keywords": ["not yet"], "point": "否定文の末尾に yet を置くと「まだ〜していない」となります。", "alt": "The document hasn't arrived at my desk yet." },
+  { "grammar": "L3: Present Perfect (Experience)", "jp": "私は以前に一度、彼に会ったことがあります。", "en": "I have met him once before", "display": "I have met / him / once before", "keywords": ["once before"], "point": "have + 過去分詞で「〜した経験がある」を表します。once は「一度」です。", "alt": "I've had the pleasure of meeting him once." },
+  { "grammar": "L3: Present Perfect (Experience)", "jp": "その工場へ行ったことがありますか？", "en": "Have you ever been to the factory", "display": "Have you / ever / been to / the factory", "keywords": ["Have you ever"], "point": "Have you ever been to ...? は「〜へ行ったことがありますか？」の定番フレーズです。", "alt": "Is this your first time visiting the plant?" },
+  { "grammar": "L3: Present Perfect (Continuation)", "jp": "私はここで3年間働いています。", "en": "I have worked here for three years", "display": "I have worked / here / for three years", "keywords": ["for three years"], "point": "現在完了の継続。for [期間] で「〜の間ずっと」の状態を表します。", "alt": "I've been with this company for three years." },
+  { "grammar": "L3: Present Perfect (Continuation)", "jp": "先週からずっと忙しいです。", "en": "I have been busy since last week", "display": "I have been busy / since / last week", "keywords": ["since"], "point": "since [時点] で「〜から（今にいたるまで）ずっと」を表します。", "alt": "My schedule has been packed since Monday." },
+  { "grammar": "L3: Passive Voice (Present)", "jp": "この製品はドイツで作られています。", "en": "This product is made in Germany", "display": "This product / is made / in Germany", "keywords": ["is made"], "point": "be動詞 + 過去分詞で「〜されている」という受動態になります。", "alt": "We manufacture this product in Germany." },
+  { "grammar": "L3: Passive Voice (Past)", "jp": "その会議は昨日開かれました。", "en": "The meeting was held yesterday", "display": "The meeting / was held / yesterday", "keywords": ["was held"], "point": "hold（開催する）の過去分詞 held を使った過去の受動態です。", "alt": "The meeting took place yesterday." },
+  { "grammar": "L3: Passive Voice (Future)", "jp": "新しいスケジュールは明日発表されます。", "en": "A new schedule will be announced tomorrow", "display": "A new schedule / will be announced / tomorrow", "keywords": ["will be announced"], "point": "will be + 過去分詞で「〜される予定だ」という未来の受動態です。", "alt": "We will announce the new schedule tomorrow." },
+  { "grammar": "L3: It is ... for A to", "jp": "私たちが納期を守ることは重要です。", "en": "It is important for us to meet the deadline", "display": "It is important / for us / to meet the deadline", "keywords": ["deadline"], "point": "It is [形容詞] for [人] to [動詞] で「人にとって〜することは…だ」となります。", "alt": "Meeting the deadline is crucial for our team." },
+  { "grammar": "L3: It is ... for A to", "jp": "彼にとってこの問題を解決するのは簡単ではありません。", "en": "It is not easy for him to solve this problem", "display": "It is not easy / for him / to solve / this problem", "keywords": ["solve"], "point": "形式主語 It が指す内容は to solve... の部分です。", "alt": "He is finding it difficult to solve this issue." },
+  { "grammar": "L3: Indirect Question", "jp": "彼がどこにいるか知っていますか？", "en": "Do you know where he is", "display": "Do you know / where / he is", "keywords": ["where he is"], "point": "間接疑問文では、疑問詞の後の語順は「主語＋動詞」になります。", "alt": "Could you tell me his current location?" },
+  { "grammar": "L3: Indirect Question", "jp": "いつ会議が始まるか教えていただけますか？", "en": "Can you tell me when the meeting starts", "display": "Can you tell me / when / the meeting starts", "keywords": ["when starts"], "point": "when does it start ではなく when it starts となるのがポイントです。", "alt": "What time is the meeting scheduled to begin?" },
+  { "grammar": "L3: Relative Pronoun (Who)", "jp": "私は英語を話せるスタッフを探しています。", "en": "I am looking for a staff member who can speak English", "display": "I am looking for / a staff member / who / can speak English", "keywords": ["who"], "point": "関係代名詞 who を使って直前の「人」を説明します。", "alt": "I need an English-speaking employee." },
+  { "grammar": "L3: Relative Pronoun (Which)", "jp": "これは私が昨日送ったメールです。", "en": "This is the email which I sent yesterday", "display": "This is the email / which / I sent yesterday", "keywords": ["which"], "point": "関係代名詞 which を使って直前の「物」を説明します。", "alt": "Here is the message I sent you yesterday." },
+  { "grammar": "L3: SVOC (Make)", "jp": "そのニュースは私たちを幸せにしました。", "en": "The news made us happy", "display": "The news / made us / happy", "keywords": ["made us happy"], "point": "make A B で「AをBの状態にする」という第5文型です。", "alt": "We were delighted to hear the news." },
+  { "grammar": "L3: SVOC (Call)", "jp": "私たちはそのプロジェクトを『サクラ』と呼んでいます。", "en": "We call the project Sakura", "display": "We call / the project / Sakura", "keywords": ["call"], "point": "call A B で「AをBと呼ぶ」という意味です。", "alt": "The project's codename is Sakura." },
+  { "grammar": "L3: Tell A to Do", "jp": "彼に私に電話するように伝えてください。", "en": "Please tell him to call me", "display": "Please tell him / to call / me", "keywords": ["tell to"], "point": "tell + 人 + to [動詞] で「人に〜するように言う」です。", "alt": "Could you ask him to give me a ring?" },
+  { "grammar": "L3: Ask A to Do", "jp": "彼女に資料をチェックしてくれるよう頼みました。", "en": "I asked her to check the document", "display": "I asked her / to check / the document", "keywords": ["asked to"], "point": "ask + 人 + to [動詞] で「人に〜するように頼む」です。", "alt": "I've requested her to look over the files." },
+  { "grammar": "L3: Want A to Do", "jp": "あなたにこのメールを読んでほしいです。", "en": "I want you to read this email", "display": "I want you / to read / this email", "keywords": ["want you to"], "point": "want + 人 + to [動詞] で「人に〜してほしい」です。", "alt": "I'd like you to review this message." },
+  { "grammar": "L3: Present Perfect (Result)", "jp": "彼はもうオフィスを出てしまいました。", "en": "He has already left the office", "display": "He has already / left / the office", "keywords": ["already left"], "point": "「出てしまった（だから今はいない）」という結果を表します。", "alt": "He is gone for the day." },
+  { "grammar": "L3: Present Perfect (Duration)", "jp": "どのくらいの期間、日本に住んでいますか？", "en": "How long have you lived in Japan", "display": "How long / have you lived / in Japan", "keywords": ["How long"], "point": "期間を尋ねる時は How long + 現在完了の疑問文を使います。", "alt": "When did you first move to Japan?" },
+  { "grammar": "L3: Too ... to", "jp": "この問題は難しすぎて解決できません。", "en": "This problem is too difficult to solve", "display": "This problem / is too difficult / to solve", "keywords": ["too to"], "point": "too [形容詞] to [動詞] で「〜すぎて…できない」という意味になります。", "alt": "This issue is impossible for us to handle." },
+  { "grammar": "L3: Enough to", "jp": "彼はそのチームを率いるのに十分な経験があります。", "en": "He is experienced enough to lead the team", "display": "He is / experienced enough / to lead the team", "keywords": ["enough to"], "point": "[形容詞] + enough to [動詞] で「〜するのに十分…だ」となります。", "alt": "His experience is sufficient for a leadership role." },
+  { "grammar": "L3: Participle (Adjective)", "jp": "窓のそばで話している男性は私の同僚です。", "en": "The man talking by the window is my colleague", "display": "The man / talking by the window / is my colleague", "keywords": ["talking"], "point": "現在分詞（-ing）を使って、直前の名詞を修飾（後置修飾）します。", "alt": "My coworker is the one speaking over there." },
+  { "grammar": "L3: Participle (Passive)", "jp": "これは有名なデザイナーによって作られた椅子です。", "en": "This is a chair made by a famous designer", "display": "This is a chair / made by / a famous designer", "keywords": ["made by"], "point": "過去分詞を使って「〜された名詞」と説明を加えます。", "alt": "A well-known designer created this chair." },
+  { "grammar": "L3: Indirect Question (Why)", "jp": "なぜ彼が遅れたのか分かりません。", "en": "I do not know why he was late", "display": "I do not know / why / he was late", "keywords": ["why"], "point": "間接疑問文の why。語順は肯定文 (he was late) です。", "alt": "The reason for his delay is unknown to me." },
+  { "grammar": "L3: Relative Pronoun (That)", "jp": "これは彼がずっと探していた資料です。", "en": "This is the document that he was looking for", "display": "This is the document / that / he was looking for", "keywords": ["looking for"], "point": "that は人にも物にも使える便利な関係代名詞です。", "alt": "He's been searching for this specific file." },
+  { "grammar": "L3: Passive Voice (Neg)", "jp": "その情報はまだ共有されていません。", "en": "The information is not shared yet", "display": "The information / is not shared / yet", "keywords": ["not shared"], "point": "受動態の否定形。yet（まだ）を添えて未完了を強調します。", "alt": "We haven't distributed that information yet." },
+  { "grammar": "L3: Help A (to) Do", "jp": "あなたのプレゼンを手伝いましょうか？", "en": "Shall I help you prepare your presentation", "display": "Shall I / help you / prepare your presentation", "keywords": ["help prepare"], "point": "help + 人 + 動詞の原形で「人が〜するのを助ける」となります。", "alt": "Would you like some assistance with your slides?" },
+  { "grammar": "L3: Make A B (Noun)", "jp": "彼らは彼をマネージャーに任命しました。", "en": "They made him a manager", "display": "They made / him / a manager", "keywords": ["made manager"], "point": "make A B で「AをB（役職など）にする」です。", "alt": "He was promoted to the position of manager." },
+  { "grammar": "L3: Keep A B", "jp": "机の上を綺麗に保ってください。", "en": "Please keep your desk clean", "display": "Please keep / your desk / clean", "keywords": ["keep clean"], "point": "keep + A + 形容詞 で「Aを〜の状態に保つ」です。", "alt": "Make sure your workspace stays tidy." },
+  { "grammar": "L3: Find A B", "jp": "その本はとても役に立つと分かりました。", "en": "I found the book very useful", "display": "I found / the book / very useful", "keywords": ["found useful"], "point": "find + A + 形容詞 で「Aが〜だとわかる（気づく）」です。", "alt": "The book proved to be quite helpful." },
+  { "grammar": "L3: Show A How to Do", "jp": "このソフトの使い方を教えていただけますか？", "en": "Could you show me how to use this software", "display": "Could you show me / how to use / this software", "keywords": ["how to use"], "point": "how to + 動詞の原形で「〜のやり方」です。", "alt": "Can you explain the operation of this program?" },
+  { "grammar": "L3: Indirect Question (How)", "jp": "彼がどうやって成功したか知りたいです。", "en": "I want to know how he succeeded", "display": "I want to know / how / he succeeded", "keywords": ["how succeeded"], "point": "how S + V で「どのように〜したか」を表します。", "alt": "I'm curious about the secret to his success." },
+  { "grammar": "L3: Present Perfect (Neg Review)", "jp": "一度もその場所へ行ったことがありません。", "en": "I have never been to that place", "display": "I have never / been to / that place", "keywords": ["never been"], "point": "never（一度も〜ない）を使った強い否定の経験です。", "alt": "That's a location I've yet to visit." },
+  { "grammar": "L3: Relative Pronoun (Whose)", "jp": "名前が思い出せないクライアントがいます。", "en": "I have a client whose name I cannot remember", "display": "I have a client / whose name / I cannot remember", "keywords": ["whose"], "point": "whose + 名詞 で「〜の…である（所有の関係）」を表します。", "alt: "There's a client whose name escapes me." },
+  { "grammar": "L3: It is ... that", "jp": "彼が会議に遅れたのは事実です。", "en": "It is true that he was late for the meeting", "display": "It is true / that / he was late / for the meeting", "keywords": ["true that"], "point": "It is [形容詞] that [文章] で「〜であることは事実だ」となります。", "alt": "He was indeed late for the session." },
+  { "grammar": "L3: Present Perfect Continuous", "jp": "朝からずっとこの報告書を書いています。", "en": "I have been writing this report since morning", "display": "I have been writing / this report / since morning", "keywords": ["have been -ing"], "point": "have been + ing で「ずっと〜し続けている」という動作の継続を強調します。", "alt": "I've been working on this draft all day." },
+  { "grammar": "L3: Passive Voice (By)", "jp": "その計画は社長によって承認されました。", "en": "The plan was approved by the president", "display": "The plan / was approved / by the president", "keywords": ["by the president"], "point": "by [人] で「誰によって〜された」を明示します。", "alt": "The CEO gave the green light to the proposal." },
+  { "grammar": "L3: So ... that", "jp": "彼はとても忙しいので、ランチを食べる時間がありません。", "en": "He is so busy that he has no time for lunch", "display": "He is so busy / that / he has no time / for lunch", "keywords": ["so that"], "point": "so [形容詞] that [結果] で「非常に〜なので…だ」となります。", "alt": "Due to his busy schedule, he's skipping lunch." },
+  { "grammar": "L3: Use to do", "jp": "以前はこの近くで働いていました。", "en": "I used to work near here", "display": "I used to / work / near here", "keywords": ["used to"], "point": "used to で「以前は〜していた（今はしていない）」という過去の習慣を表します。", "alt": "My former office was in this area." },
+  { "grammar": "L3: Indirect Question (Whether)", "jp": "彼が会議に来るかどうか分かりません。", "en": "I do not know whether he will come to the meeting", "display": "I do not know / whether / he will come", "keywords": ["whether"], "point": "whether... で「〜かどうか」という意味になります。if でも代用可能です。", "alt": "His attendance at the meeting is still uncertain." },
+  { "grammar": "L3: Relative Pronoun (Omission)", "jp": "これは私が昨日買った本です。", "en": "This is the book I bought yesterday", "display": "This is the book / (which) / I bought yesterday", "keywords": ["bought"], "point": "目的語となる関係代名詞（which等）は省略されるのが一般的です。", "alt": "I purchased this book just yesterday." },
+  { "grammar": "L3: Present Perfect (Review)", "jp": "ちょうど資料を読み終えました。", "en": "I have just finished reading the document", "display": "I have just / finished / reading the document", "keywords": ["finished reading"], "point": "finish の後は動名詞（reading）が続きます。現在完了との組み合わせです。", "alt": "I'm done reviewing the file." },
+  { "grammar": "L3: Tell A B (Omission of that)", "jp": "彼はそのニュースは本当だと言いました。", "en": "He told me the news was true", "display": "He told me / (that) / the news was true", "keywords": ["told me"], "point": "tell + 人 + (that) + 文 の that はよく省略されます。", "alt": "He confirmed the truth of the news to me." },
+  { "grammar": "L3: Suggest that", "jp": "明日話し合うことを提案します。", "en": "I suggest that we talk tomorrow", "display": "I suggest / that / we talk tomorrow", "keywords": ["suggest"], "point": "suggest that ... で「〜することを提案する」です。", "alt": "How about we have a discussion tomorrow?" },
+  { "grammar": "L3: Tag Question", "jp": "あなたはマネージャーですよね？", "en": "You are a manager, aren't you", "display": "You are a manager, / aren't you", "keywords": ["aren't you"], "point": "文末に付け加える「〜ですよね？」という付加疑問文です。", "alt": "You hold a managerial position, don't you?" },
+  { "grammar": "L3: Present Perfect (Continuation Review)", "jp": "私たちは長い間、お互いを知っています。", "en": "We have known each other for a long time", "display": "We have known / each other / for a long time", "keywords": ["known each other"], "point": "know（知っている）は状態を表す動詞なので、現在完了形で継続を表します。", "alt": "We are long-time acquaintances." }
+ [
+  { "grammar": "L3: Present Perfect Continuous", "jp": "2時間ずっとその資料を探しています。", "en": "I have been looking for the document for two hours", "display": "I have been looking for / the document / for two hours", "keywords": ["have been looking"], "point": "現在完了進行形（have been + -ing）で、「（過去から今も）ずっと〜し続けている」という動作の継続を強調します。", "alt": "I've been searching for that file for two hours now." },
+  { "grammar": "L3: Present Perfect Continuous", "jp": "彼らは朝からずっと会議をしています。", "en": "They have been having a meeting since morning", "display": "They have been having / a meeting / since morning", "keywords": ["since morning"], "point": "since（〜から）を使って、継続している期間の起点を表します。", "alt": "The meeting has been going on since this morning." },
+  { "grammar": "L3: Passive Voice (with Modals)", "jp": "その問題はすぐに解決されるべきです。", "en": "The problem should be solved immediately", "display": "The problem / should be solved / immediately", "keywords": ["should be solved"], "point": "助動詞（should/must/can）+ be + 過去分詞で、「〜されるべきだ／されなければならない」となります。", "alt": "We need to fix this issue right away." },
+  { "grammar": "L3: Passive Voice (with Modals)", "jp": "この書類は今日中に提出されなければなりません。", "en": "This document must be submitted today", "display": "This document / must be submitted / today", "keywords": ["must be submitted"], "point": "must be + 過去分詞の形です。submit（提出する）はビジネスの最重要動詞の一つです。", "alt": "It's mandatory to hand in this paperwork today." },
+  { "grammar": "L3: Indirect Question", "jp": "彼が何を言ったか教えていただけますか？", "en": "Could you tell me what he said", "display": "Could you tell me / what he said", "keywords": ["what he said"], "point": "間接疑問文の中の動詞は、疑問文の形（did he say）ではなく肯定文の形（he said）にします。", "alt": "May I know the details of his statement?" },
+  { "grammar": "L3: Indirect Question", "jp": "どちらの案がベストか分かりません。", "en": "I do not know which plan is the best", "display": "I do not know / which plan / is the best", "keywords": ["which plan is"], "point": "which plan（どちらの案）がカタマリとして疑問詞の役割をします。", "alt": "I'm unsure which proposal works better." },
+  { "grammar": "L3: Relative Pronoun (Who)", "jp": "彼は英語を話すことができるエンジニアです。", "en": "He is an engineer who can speak English", "display": "He is / an engineer / who / can speak English", "keywords": ["who"], "point": "関係代名詞 who を使い、先行詞（an engineer）に説明を加えます。", "alt": "He's a bilingual engineer." },
+  { "grammar": "L3: Relative Pronoun (Which)", "jp": "これは私が昨年使っていたパソコンです。", "en": "This is the computer which I used last year", "display": "This is the computer / which / I used last year", "keywords": ["which"], "point": "物（the computer）を先行詞とする場合は関係代名詞 which または that を使います。", "alt": "I was using this laptop last year." },
+  { "grammar": "L3: Relative Pronoun (Whose)", "jp": "私は名前を知らない人と話をしました。", "en": "I talked to a person whose name I did not know", "display": "I talked to a person / whose name / I did not know", "keywords": ["whose"], "point": "whose は所有を表す関係代名詞で、「〜の名前が…である人」という構造を作ります。", "alt": "I spoke with someone whose name escapes me." },
+  { "grammar": "L3: Relative Pronoun (Omission)", "jp": "これが、彼が昨日見つけた答えです。", "en": "This is the answer he found yesterday", "display": "This is the answer / (that) / he found yesterday", "keywords": ["found"], "point": "目的格の関係代名詞（ここでは the answer の後の that）は省略されるのが一般的です。", "alt": "He came up with this solution yesterday." },
+  { "grammar": "L3: SVOC (Make)", "jp": "その結果は社長を満足させました。", "en": "The result made the president satisfied", "display": "The result / made the president / satisfied", "keywords": ["made", "satisfied"], "point": "make A B（AをBの状態にする）です。satisfied（満足した）という形容詞を補語（C）に置きます。", "alt": "The CEO was pleased with the outcome." },
+  { "grammar": "L3: SVOC (Find)", "jp": "私はその計画が非常に良いと分かりました。", "en": "I found the plan very good", "display": "I found / the plan / very good", "keywords": ["found"], "point: "find A B で「AがBだとわかる／気づく」という意味の第5文型です。", "alt": "I realized that the proposal was excellent." },
+  { "grammar": "L3: SVOC (Keep)", "jp": "このドアは常に閉めておいてください。", "en": "Please keep this door closed at all times", "display": "Please keep / this door / closed / at all times", "keywords": ["keep", "closed"], "point": "keep A B で「AをBの状態に保つ」です。at all times は「常に」というフォーマルな表現です。", "alt": "Make sure this door remains shut." },
+  { "grammar": "L3: Help A (to) Do", "jp": "あなたが仕事を終わらせるのを手伝いましょう。", "en": "I will help you finish your work", "display": "I will help you / finish / your work", "keywords": ["help you finish"], "point": "help + 人 + (to) + 動詞の原形。ビジネスでは to を省略するのが非常に一般的です。", "alt": "I'd be happy to assist you with your tasks." },
+  { "grammar": "L3: Let A Do", "jp": "私にスケジュールを調整させてください。", "en": "Please let me adjust the schedule", "display": "Please let me / adjust / the schedule", "keywords": ["let me"], "point": "let + 人 + 動詞の原形。「私に〜させてください」という、申し出や許可の定番です。", "alt": "Allow me to rearrange the timetable." },
+  { "grammar": "L3: Too ... to", "jp": "彼は忙しすぎて電話に出られません。", "en": "He is too busy to answer the phone", "display": "He is / too busy / to answer the phone", "keywords": ["too to"], "point": "too [形容詞] to [動詞] で「〜すぎて…できない」という否定的な意味になります。", "alt": "He's so occupied that he can't take the call." },
+  { "grammar": "L3: Enough to", "jp": "彼はそのプロジェクトを任せるのに十分信頼できます。", "en": "He is reliable enough to handle the project", "display": "He is reliable enough / to handle / the project", "keywords": ["reliable enough"], "point": "形容詞 + enough to で「〜するのに十分…だ」となります。reliable（信頼できる）。", "alt": "We can trust him with the project responsibility." },
+  { "grammar": "L3: It is ... for A to", "jp": "私たちがこのチャンスを逃さないことが重要です。", "en": "It is important for us not to miss this chance", "display": "It is important for us / not to miss / this chance", "keywords": ["not to miss"], "point": "不定詞の否定形は not to [動詞] です。 miss a chance は「機会を逃す」。", "alt": "We must make sure to seize this opportunity." },
+  { "grammar": "L3: Participle (Active)", "jp": "あちらで電話をしている女性を知っていますか？", "en": "Do you know the woman talking on the phone over there", "display": "Do you know the woman / talking on the phone / over there", "keywords": ["talking"], "point": "現在分詞 talking が直前の woman を後ろから修飾しています。", "alt": "Who is that lady on the phone?" },
+  { "grammar": "L3: Participle (Passive)", "jp": "これは日本で作られた報告書です。", "en": "This is a report written in Japan", "display": "This is a report / written / in Japan", "keywords": ["written"], "point": "過去分詞 written が report を修飾します。made in Japan と同じ構造です。", "alt": "This document was drafted in Japan." },
+  { "grammar": "L3: Indirect Question (Whether)", "jp": "彼が契約を承諾するかどうか教えてください。", "en": "Please let me know whether he will accept the contract", "display": "Please let me know / whether / he will accept", "keywords": ["whether"], "point": "whether... は「〜かどうか」という意味です。accept（受け入れる／承諾する）。", "alt": "Tell me if he's going to sign the agreement." },
+  { "grammar": "L3: Tell A to Do (Neg)", "jp": "彼にそのボタンを押さないように言ってください。", "en": "Please tell him not to press the button", "display": "Please tell him / not to press / the button", "keywords": ["not to press"], "point": "tell + 人 + not to do で「人に〜しないように言う（指示する）」となります。", "alt": "Warn him against pressing that button." },
+  { "grammar": "L3: Present Perfect (Completion)", "jp": "私はちょうど会議を終えたところです。", "en": "I have just finished the meeting", "display": "I have just / finished / the meeting", "keywords": ["just finished"], "point": "finish（終える）の直後の状態を表します。", "alt": "I've just wrapped up the session." },
+  { "grammar": "L3: Present Perfect (Experience)", "jp": "私たちは以前、その問題を議論したことがあります。", "en": "We have discussed the problem before", "display": "We have discussed / the problem / before", "keywords": ["discussed", "before"], "point": "現在完了の経験用法です。discuss は他動詞なので about は不要です。", "alt": "This issue has come up in our previous talks." },
+  { "grammar": "L3: Passive Voice (Question)", "jp": "その新製品はどこで売られていますか？", "en": "Where is the new product sold", "display": "Where / is / the new product / sold", "keywords": ["sold"], "point": "受動態の疑問文です。is/are を主語の前に置きます。", "alt": "In which markets can we find the new product?" },
+  { "grammar": "L3: It is ... to (Review)", "jp": "毎日メールをチェックすることは必要です。", "en": "It is necessary to check emails every day", "display": "It is necessary / to check emails / every day", "keywords": ["necessary"], "point": "It is [形容詞] to do の基本形です。necessary はビジネスのキーワードです。", "alt": "Daily email checks are a must." },
+  { "grammar": "L3: Suggest that", "jp": "もう一度話し合うことを提案します。", "en": "I suggest that we discuss it again", "display": "I suggest / that / we discuss it again", "keywords": ["suggest"], "point": "suggest that S + V で「〜することを提案する」です。", "alt": "How about we have another round of talks?" },
+  { "grammar": "L3: Perception Verb (See)", "jp": "彼がオフィスを出るのを見ました。", "en": "I saw him leave the office", "display": "I saw him / leave / the office", "keywords": ["saw him leave"], "point": "see + 人 + 動詞の原形。leave（立ち去る）の原形を使うのがポイントです。", "alt": "I noticed him heading out of the building." },
+  { "grammar": "L3: So ... that", "jp": "このタスクはとても重要なので、ミスは許されません。", "en": "This task is so important that we cannot make mistakes", "display": "This task is so important / that / we cannot make mistakes", "keywords": ["so that"], "point": "so [形容詞] that [文] で「とても〜なので…だ」となります。", "alt": "The high importance of this task leaves no room for error." },
+  { "grammar": "L3: Use to do", "jp": "以前はここに住んでいました。", "en": "I used to live here", "display": "I used to / live / here", "keywords": ["used to"], "point": "used to do で「以前は〜していた（今はしていない）」という過去の習慣・状態を表します。", "alt": "This place was my former residence." },
+  { "grammar": "L3: Indirect Question (Whose)", "jp": "これが誰のサインか知っていますか？", "en": "Do you know whose signature this is", "display": "Do you know / whose signature / this is", "keywords": ["whose signature"], "point": "whose signature this is の語順に注意してください。", "alt": "Can you identify whose autograph this is?" },
+  { "grammar": "L3: Passive (Future)", "jp": "その会議は来週開かれる予定です。", "en": "The meeting will be held next week", "display": "The meeting / will be held / next week", "keywords": ["will be held"], "point": "未来の受動態。hold（開催する）の過去分詞 held を使います。", "alt": "The meeting is scheduled for next week." },
+  { "grammar": "L3: Tag Question", "jp": "あなたは田中さんですよね？", "en": "You are Mr. Tanaka, aren't you", "display": "You are Mr. Tanaka, / aren't you", "keywords": ["aren't you"], "point": "相手に確認を求める付加疑問文です。", "alt": "Mr. Tanaka, I presume?" },
+  { "grammar": "L3: Present Perfect (Neg)", "jp": "まだ何の連絡も受けていません。", "en": "I have not heard anything yet", "display": "I have not heard / anything / yet", "keywords": ["heard", "yet"], "point": "hear from... で「〜から連絡がある」ですが、hear anything で「何も聞いていない」となります。", "alt": "There hasn't been any update so far." },
+  { "grammar": "L3: Relative Pronoun (That)", "jp": "これは先週話していた課題です。", "en": "This is the issue that we talked about last week", "display": "This is the issue / that / we talked about last week", "keywords": ["issue"], "point": "issue（課題・問題点）を関係代名詞で修飾しています。", "alt": "This is the topic from our last week's discussion." },
+  { "grammar": "L3: Indirect Question (How)", "jp": "彼がどうやって成功したか知りたいです。", "en": "I want to know how he succeeded", "display": "I want to know / how / he succeeded", "keywords": ["how succeeded"], "point": "succeed は動詞で「成功する」です。", "alt": "I'm curious about the key to his success." },
+  { "grammar": "L3: Passive (Neg)", "jp": "そのニュースはまだ発表されていません。", "en": "The news is not announced yet", "display": "The news / is not announced / yet", "keywords": ["not announced"], "point": "announce（発表する）の受動態否定形です。", "alt": "The information hasn't been released yet." },
+  { "grammar": "L3: Make A B (Adjective)", "jp": "このツールは仕事を効率的にします。", "en": "This tool makes our work efficient", "display": "This tool / makes our work / efficient", "keywords": ["makes efficient"], "point": "make A B。efficient は「効率的な」というビジネス必須形容詞です。", "alt": "Our productivity increases with this tool." },
+  { "grammar": "L3: Help A (to) Do", "jp": "その問題を解決するのを手伝ってください。", "en": "Please help me solve the problem", "display": "Please / help me / solve / the problem", "keywords": ["help solve"], "point: "help + 人 + 動詞の原形 の基本構成です。", "alt": "Could you assist me in resolving this issue?" },
+  { "grammar": "L3: Show A How to Do", "jp": "このアプリの使い方を教えてください。", "en": "Please show me how to use this app", "display": "Please show me / how to use / this app", "keywords": ["how to use"], "point": "how to + 動詞の原形で「〜の仕方」となります。", "alt": "Could you demonstrate the use of this application?" },
+  { "grammar": "L3: Present Perfect (Result)", "jp": "彼はもう外出してしまいました。", "en": "He has already gone out", "display": "He has already / gone out", "keywords": ["already gone"], "point": "「行ってしまった（だから今はいない）」という結果にフォーカスした表現です。", "alt": "He is out of the office at the moment." },
+  { "grammar": "L3: Relative Pronoun (Who)", "jp": "中国語を話せる人はいますか？", "en": "Is there anyone who can speak Chinese", "display": "Is there anyone / who / can speak Chinese", "keywords": ["who"], "point": "anyone（誰か）を関係代名詞 who で詳しく説明しています。", "alt": "Do we have a Chinese speaker here?" },
+  { "grammar": "L3: It is ... for A to", "jp": "あなたが期限を守ることは可能です。", "en": "It is possible for you to meet the deadline", "display": "It is possible for you / to meet / the deadline", "keywords": ["meet the deadline"], "point": "meet the deadline（締切を守る）はセットで覚えましょう。", "alt": "You can definitely finish it by the due date." },
+  { "grammar": "L3: Indirect Question (Where)", "jp": "彼がどこに住んでいるか知っていますか？", "en": "Do you know where he lives", "display": "Do you know / where / he lives", "keywords": ["where he lives"], "point": "lives の三単現の s を忘れないように注意しましょう。", "alt": "Are you aware of his home address?" },
+  { "grammar": "L3: Perception Verb (Hear)", "jp": "彼が大きな声で笑うのを聞きました。", "en": "I heard him laugh loudly", "display": "I heard him / laugh / loudly", "keywords": ["heard laugh"], "point": "hear + 人 + 動詞の原形 です。", "alt": "His loud laughter reached my ears." },
+  { "grammar": "L3: Causative (Have)", "jp": "秘書にスケジュールを確認させます。", "en": "I will have my secretary check the schedule", "display": "I will have / my secretary / check / the schedule", "keywords": ["have check"], "point": "have + 人 + 動詞の原形で「（仕事として）人に〜してもらう」という意味になります。", "alt": "I'll ask my assistant to look over the timetable." },
+  { "grammar": "L3: Passive (By)", "jp": "この企画は田中さんによって提案されました。", "en": "This project was proposed by Mr. Tanaka", "display": "This project / was proposed / by Mr. Tanaka", "keywords": ["proposed by"], "point": "propose（提案する）の過去分詞形を使います。", "alt": "Mr. Tanaka is the one who came up with this plan." },
+  { "grammar": "L3: Present Perfect (Review)", "jp": "私はここで長い間働いています。", "en": "I have worked here for a long time", "display": "I have worked / here / for a long time", "keywords": ["for a long time"], "point": "現在完了の継続用法です。", "alt": "My tenure at this company is quite long." },
+  { "grammar": "L3: So ... that", "jp": "彼はとても親切なので、みんな彼が好きです。", "en": "He is so kind that everyone likes him", "display": "He is so kind / that / everyone likes him", "keywords": ["so kind that"], "point": "原因（so kind）と結果（that everyone likes him）を繋ぎます。", "alt": "His kindness makes him popular with everyone." },
+  { "grammar": "L3: Too ... to (Review)", "jp": "今日は暑すぎて外に出られません。", "en": "It is too hot to go out today", "display": "It is / too hot / to go out / today", "keywords": ["too hot to"], "point": "天候を表す it を主語にした too ... to 構文です。", "alt": "The heat today is preventing us from heading outside." }
+[
+  { "grammar": "L3: Present Perfect (Completion)", "jp": "予算案の作成をちょうど終えたところです。", "en": "I have just finished preparing the budget proposal", "display: "I have just / finished / preparing / the budget proposal", "keywords": ["budget", "proposal"], "point": "have just + 過去分詞に加え、finish + 動名詞(-ing)を組み合わせた実戦的な文です。", "alt": "The budget draft is finally ready." },
+  { "grammar": "L3: Present Perfect (Experience)", "jp": "以前、同様のトラブルを経験したことがあります。", "en": "I have experienced a similar trouble before", "display": "I have experienced / a similar trouble / before", "keywords": ["experienced", "similar"], "point": "have + 過去分詞の経験用法です。similar（似たような）はビジネス頻出語です。", "alt": "I've dealt with this kind of issue in the past." },
+  { "grammar": "L3: Present Perfect (Duration)", "jp": "この会社は20年間、この業界でトップです。", "en": "This company has been the leader in this industry for twenty years", "display": "This company / has been / the leader / in this industry / for twenty years", "keywords": ["industry", "leader"], "point": "has been で「ずっと〜である」という状態の継続を表します。", "alt": "We have led this market for two decades." },
+  { "grammar": "L3: Present Perfect Continuous", "jp": "午後からずっと次の戦略について考えています。", "en": "I have been thinking about the next strategy since afternoon", "display": "I have been thinking / about the next strategy / since afternoon", "keywords": ["strategy", "thinking"], "point": "have been -ing で「（今も）ずっと考え続けている」という継続を強調します。", "alt": "I've been focusing on our future plans all afternoon." },
+  { "grammar": "L3: Passive Voice (Present)", "jp": "これらのガイドラインは全従業員に適用されます。", "en": "These guidelines are applied to all employees", "display": "These guidelines / are applied / to all employees", "keywords": ["guidelines", "applied"], "point": "apply to ... で「〜に適用される」という受動態です。", "alt": "Everyone in the company must follow these rules." },
+  { "grammar": "L3: Passive Voice (with Modals)", "jp": "そのミスは二度と繰り返されるべきではありません。", "en": "The mistake should not be repeated again", "display": "The mistake / should not / be repeated / again", "keywords": ["repeated", "should not"], "point": "should + be + 過去分詞で「〜されるべきだ」という強い助言・義務です。", "alt": "We must ensure this error doesn't happen twice." },
+  { "grammar": "L3: Passive Voice (Future)", "jp": "最終決定は金曜日に下される予定です。", "en": "The final decision will be made on Friday", "display": "The final decision / will be made / on Friday", "keywords": ["final", "decision"], "point": "make a decision（決定を下す）の受動態 will be made です。", "alt": "We'll have the final answer by Friday." },
+  { "grammar": "L3: Indirect Question (Whether)", "jp": "彼がオファーを受けるかどうか確信が持てません。", "en": "I am not sure whether he will accept the offer", "display": "I am not sure / whether / he will accept / the offer", "keywords": ["whether", "accept"], "point": "whether...（〜かどうか）を使った間接疑問文です。accept は「受け入れる」。", "alt": "It's uncertain if he'll say yes to the proposal." },
+  { "grammar": "L3: Indirect Question (Wh-)", "jp": "なぜそのプロジェクトが失敗したのか教えてください。", "en": "Please tell me why the project failed", "display": "Please tell me / why / the project failed", "keywords": ["why", "failed"], "point": "why の後の語順が肯定文（the project failed）になるのがポイントです。", "alt": "Could you explain the reasons for the project's failure?" },
+  { "grammar": "L3: Relative Pronoun (Who)", "jp": "交渉が得意な上司がいます。", "en": "I have a boss who is good at negotiating", "display": "I have a boss / who / is good at negotiating", "keywords": ["negotiating"], "point": "関係代名詞 who が主語の働きをして、上司を詳しく説明しています。", "alt": "My manager is an excellent negotiator." },
+  { "grammar": "L3: Relative Pronoun (Which/That)", "jp": "これは私が昨日会議で話した計画です。", "en": "This is the plan which I talked about in the meeting yesterday", "display": "This is the plan / which / I talked about / yesterday", "keywords": ["talked about"], "point": "which節の中で talked about の後の目的語が欠けている「目的格」の形です。", "alt": "Here is the proposal I mentioned yesterday." },
+  { "grammar": "L3: Relative Pronoun (Whose)", "jp": "私は、歴史が非常に長い会社で働いています。", "en": "I work for a company whose history is very long", "display": "I work for a company / whose history / is / very long", "keywords": ["whose", "history"], "point": "whose + 名詞 で「〜の歴史が…な会社」という所有を表します。", "alt": "My company has a long-standing tradition." },
+  { "grammar": "L3: Relative Pronoun (Omission)", "jp": "これは彼らが一番必要としている情報です。", "en": "This is the information they need most", "display": "This is the information / (that) / they need most", "keywords": ["information", "need"], "point": "目的語になる関係代名詞 that/which はビジネスでは省略されることが多いです。", "alt": "This is their highest priority information." },
+  { "grammar": "L3: SVOC (Make)", "jp": "その効率的なツールは私たちの仕事を楽にしました。", "en": "The efficient tool made our work easy", "display": "The efficient tool / made / our work / easy", "keywords": ["efficient", "easy"], "point": "make + O + C で「OをCの状態にする」。ビジネス効率化の定番表現です。", "alt": "Our work became easier thanks to that tool." },
+  { "grammar": "L3: SVOC (Keep)", "jp": "顧客情報を安全に保つことが不可欠です。", "en": "It is essential to keep customer information safe", "display": "It is essential / to keep / customer information / safe", "keywords": ["essential", "safe"], "point": "It is ... to 構文の中に keep O C が入った高度な形です。", "alt": "Ensuring client data security is a must." },
+  { "grammar": "L3: SVOC (Find)", "jp": "彼はその新しい市場が非常に有望だと分かりました。", "en": "He found the new market very promising", "display": "He found / the new market / very promising", "keywords": ["promising"], "point": "find O C で「OがCだと気づく／分かる」。promising は「将来有望な」。", "alt": "The new market seemed very attractive to him." },
+  { "grammar": "L3: Tell/Ask A to do", "jp": "彼にそのデータを再確認するように頼みました。", "en": "I asked him to double-check the data", "display": "I asked him / to double-check / the data", "keywords": ["asked to", "double-check"], "point": "ask + 人 + to [動詞] で依頼を表します。double-check はよく使われます。", "alt": "I requested a re-evaluation of the data from him." },
+  { "grammar": "L3: Want A to do", "jp": "あなたに私たちのチームに加わってほしいです。", "en": "I want you to join our team", "display": "I want you / to join / our team", "keywords": ["want you to"], "point: "ビジネスでは I'd like you to... が一般的ですが、意思を伝える際は want も使います。", "alt": "We would be honored to have you on our team." },
+  { "grammar": "L3: It is ... for A to", "jp": "会社がリスクを取ることは必要です。", "en": "It is necessary for the company to take risks", "display": "It is necessary / for the company / to take risks", "keywords": ["necessary", "risks"], "point": "It is ... for A to [動詞] で、主体の A を明示します。", "alt": "Taking risks is a necessity for the firm." },
+  { "grammar": "L3: Too ... to", "jp": "その案件は複雑すぎて、今すぐには説明できません。", "en": "The matter is too complex to explain right now", "display": "The matter / is / too complex / to explain / right now", "keywords": ["complex"], "point": "too ... to で「〜すぎて…できない」。complex（複雑な）を強調します。", "alt": "The issue's complexity prevents an immediate explanation." },
+  { "grammar": "L3: Enough to", "jp": "その製品は世界中で売れるのに十分な品質があります。", "en": "The product has enough quality to be sold worldwide", "display": "The product / has / enough quality / to be sold / worldwide", "keywords": ["worldwide"], "point": "enough + 名詞 + to [動詞] の形です。be sold（売られる）という受動態が続いています。", "alt": "The product quality is high enough for global sales." },
+  { "grammar": "L3: So ... that", "jp": "そのプレゼンは非常に分かりやすかったので、誰もが理解できました。", "en": "The presentation was so clear that everyone could understand it", "display": "The presentation / was so clear / that / everyone could understand / it", "keywords": ["so clear that"], "point": "so ... that ... で「非常に〜だったので…だ」という因果関係を作ります。", "alt": "The clarity of the presentation ensured full understanding." },
+  { "grammar": "L3: Help A (to) Do", "jp": "このソフトはあなたが時間を節約するのを助けます。", "en": "This software helps you save time", "display": "This software / helps you / save / time", "keywords": ["save time"], "point": "help + 人 + 動詞の原形。「〜するのを手伝う／助ける」です。", "alt": "Using this tool will save you a lot of time." },
+  { "grammar": "L3: Let A Do", "jp": "私にあなたの計画について話させてください。", "en": "Let me talk about your plan", "display": "Let me / talk about / your plan", "keywords": ["Let me"], "point": "let + 人 + 動詞の原形。「私に〜させて」という申し出です。", "alt": "Allow me to discuss the details of your proposal." },
+  { "grammar": "L3: Suggest that S V", "jp": "もう一度、契約書を見直すことを提案します。", "en": "I suggest that we review the contract again", "display": "I suggest / that we / review / the contract / again", "keywords": ["suggest", "review"], "point": "suggest that S + V で「SがVすることを提案する」です。", "alt": "How about a second look at the agreement?" },
+  { "grammar": "L3: Perception Verb (Hear)", "jp": "彼が電話で誰かと口論しているのを聞きました。", "en": "I heard him arguing with someone on the phone", "display": "I heard him / arguing / with someone / on the phone", "keywords": ["heard arguing"], "point": "hear + 人 + -ing（進行）で「〜しているのを聞く」です。argue（口論する）。", "alt": "I overheard his heated conversation." },
+  { "grammar": "L3: Causative (Have)", "jp": "スタッフにその部屋を準備させます。", "en": "I will have my staff prepare the room", "display": "I will have / my staff / prepare / the room", "keywords": ["have prepare"], "point": "have + 人 + 動詞の原形。「（義務や仕事として）人に〜させる」です。", "alt": "I'll arrange for my team to set up the room." },
+  { "grammar": "L3: Participle (Active)", "jp": "隣のオフィスで働いている人々はとても静かです。", "en": "The people working in the next office are very quiet", "display": "The people / working in the next office / are / very quiet", "keywords": ["working"], "point": "working ... が直前の the people を修飾しています。", "alt": "The next-door team is quite reserved." },
+  { "grammar": "L3: Participle (Passive)", "jp": "これは私の同僚によって書かれたメモです。", "en": "This is a memo written by my colleague", "display": "This is a memo / written by / my colleague", "keywords": ["written"], "point": "written ...（書かれた〜）が memo を修飾する後置修飾です。", "alt": "My coworker left this note." },
+  { "grammar": "L3: Used to do", "jp": "以前は毎日、紙の資料を使っていました。", "en": "I used to use paper documents every day", "display": "I used to / use / paper documents / every day", "keywords": ["used to"], "point": "used to do で「以前は〜していた（今はしていない）」という対比を表します。", "alt": "Paperwork was my daily routine in the past." },
+  { "grammar": "L3: Present Perfect (Review)", "jp": "私たちは新しいマーケットに参入したばかりです。", "en": "We have just entered the new market", "display": "We have just / entered / the new market", "keywords": ["entered"], "point": "enter a market で「市場に参入する」というビジネス語です。", "alt": "We recently broke into a new market." },
+  { "grammar": "L3: Passive Voice (Review)", "jp": "その新機能はユーザーから高く評価されています。", "en": "The new feature is highly evaluated by users", "display": "The new feature / is / highly evaluated / by users", "keywords": ["evaluated"], "point: "evaluate（評価する）の受動態。highly（高く）を伴います。", "alt": "Users are giving great feedback on the new feature." },
+  { "grammar": "L3: It is ... for A to", "jp": "我々が最新のトレンドを把握しておくことは不可欠です。", "en": "It is essential for us to keep track of the latest trends", "display": "It is essential / for us / to keep track of / the latest trends", "keywords": ["keep track of"], "point": "keep track of ...（〜を把握し続ける／見失わない）は重要熟語です。", "alt": "Staying updated on trends is a priority." },
+  { "grammar": "L3: Indirect Question", "jp": "誰がそのタスクに最も適しているか分かりません。", "en": "I do not know who is the best for the task", "display": "I do not know / who / is the best / for the task", "keywords": ["best for"], "point": "who が疑問詞兼主語なので、その後にすぐ is が来ます。", "alt": "I'm unsure about the right person for this job." },
+  { "grammar": "L3: Relative Pronoun", "jp": "これは、彼が解決しようと努力していた問題です。", "en": "This is the problem that he was trying to solve", "display": "This is the problem / that / he was trying to solve", "keywords": ["trying to solve"], "point": "trying to solve（解決しようと努めている）が関係代名詞で問題にかかります。", "alt": "This is the challenge he's been working on." },
+  { "grammar": "L3: Make A B (Noun)", "jp": "その成功が彼女をチームの人気者にしました。", "en": "The success made her a popular person in the team", "display": "The success / made / her / a popular person / in the team", "keywords": ["made her"], "point": "make + 人 + 名詞 で「人を〜という立場／状態にする」です。", "alt": "She gained a lot of popularity after that success." },
+  { "grammar": "L3: Tell A to do (Neg)", "jp": "彼に、この情報を外部の人に漏らさないよう言ってください。", "en": "Please tell him not to leak this information to outsiders", "display": "Please tell him / not to leak / this information / to outsiders", "keywords": ["not to leak", "outsiders"], "point": "tell + 人 + not to do。 leak は「漏らす／漏洩する」です。", "alt": "Ask him to keep this info confidential." },
+  { "grammar": "L3: Tag Question", "jp": "あなたはまだそのファイルを持っていますよね？", "en": "You still have the file, don't you", "display": "You still / have the file, / don't you", "keywords": ["still", "don't you"], "point": "現在形 have に対応する付加疑問 don't you です。", "alt": "I assume the file is still in your possession?" },
+  { "grammar": "L3: Present Perfect (Review)", "jp": "あなたは今まで、海外の支店で働いたことがありますか？", "en": "Have you ever worked at an overseas branch", "display": "Have you ever / worked / at / an overseas branch", "keywords": ["overseas branch"], "point": "Have you ever ...?（経験）の疑問文。overseas は「海外の」。", "alt": "Any experience working in our foreign offices?" },
+  { "grammar": "L3: Too ... to (Review)", "jp": "その計画はあまりに野心的すぎて、実行できません。", "en": "The plan is too ambitious to carry out", "display": "The plan / is / too ambitious / to carry out", "keywords": ["ambitious", "carry out"], "point": "ambitious（野心的な／壮大な）。carry out（実行する）。", "alt": "It's such a grand plan that we can't implement it." },
+  { "grammar": "L3: Enough to (Review)", "jp": "彼は状況を好転させるのに十分な賢さがあります。", "en": "He is smart enough to change the situation", "display": "He is / smart enough / to change / the situation", "keywords": ["smart enough"], "point": "形容詞 + enough to [動詞] です。", "alt": "His intelligence is sufficient to fix the matter." },
+  { "grammar": "L3: Relative Pronoun (Whose)", "jp": "私は、CEOのオフィスが最上階にある会社を訪問しました。", "en": "I visited a company whose CEO's office is on the top floor", "display": "I visited a company / whose CEO's office / is / on the top floor", "keywords": ["whose"], "point": "whose + 名詞 で所有関係を繋ぎます。", "alt": "The company I visited had the CEO's office at the top." },
+  { "grammar": "L3: Indirect Question (Wh-)", "jp": "そのコストがいくらになるか見積もっていただけますか？", "en": "Could you estimate how much the cost will be", "display": "Could you estimate / how much / the cost will be", "keywords": ["estimate"], "point": "estimate（見積もる）。how much ... will be の語順に注意。", "alt": "Can you give me a quote for the total expense?" },
+  { "grammar": "L3: Perception Verb (Watch)", "jp": "彼が新製品のデモンストレーションをするのを見守りました。", "en": "I watched him demonstrate the new product", "display": "I watched him / demonstrate / the new product", "keywords": ["demonstrate"], "point": "watch + 人 + 動詞の原形。「人が〜するのを注意して見る」。", "alt": "I observed his demo of the new item." },
+  { "grammar": "L3: Present Perfect Continuous", "jp": "一週間ずっと、その顧客と交渉し続けています。", "en": "I have been negotiating with the client for a week", "display": "I have been negotiating / with the client / for a week", "keywords": ["negotiating"], "point": "negotiate（交渉する）。現在完了進行形での継続強調です。", "alt": "Negotiations with that client have lasted a week." },
+  { "grammar": "L3: So ... that", "jp": "スケジュールが非常に厳しかったので、休憩を取ることができませんでした。", "en": "The schedule was so tight that we could not take a break", "display": "The schedule / was so tight / that / we could not / take a break", "keywords": ["tight", "break"], "point": "tight schedule で「過密なスケジュール」。", "alt": "The intense timeline meant no time for breaks." },
+  { "grammar": "L3: Suggest that (Review)", "jp": "明日の朝、もう一度チェックすることを提案します。", "en": "I suggest that we check it again tomorrow morning", "display": "I suggest / that we / check it again / tomorrow morning", "keywords": ["suggest"], "point": "動詞 suggest を使ったフォーマルな提案です。", "alt": "Let's do one final check tomorrow morning." },
+  { "grammar": "L3: It is ... to (Review)", "jp": "我々が競合他社を知ることは重要です。", "en": "It is important for us to know our competitors", "display": "It is important / for us / to know / our competitors", "keywords": ["competitors"], "point": "competitor（競合他社／ライバル）。ビジネスに必須の視点です。", "alt": "Understanding our rivals is vital." },
+  { "grammar": "L3: Present Perfect (Review)", "jp": "私はここで働くのが初めてではありません。", "en": "This is not the first time I have worked here", "display": "This is not the first time / I have worked / here", "keywords": ["first time"], "point": "It is the [序数] time ... の後には現在完了がよく使われます。", "alt": "I have some previous experience in this workplace." },
+  { "grammar": "L3: Goal Achieved", "jp": "私たちはついに400個のフレーズを完了しました！", "en": "We have finally completed four hundred phrases", "display": "We have finally / completed / four hundred / phrases", "keywords": ["finally", "completed"], "point: "現在完了の完了用法です。complete は「完了させる／完成させる」。", "alt": "Target reached: 400 phrases are now done!" }
+[
+  { "grammar": "L1: Present Simple", "jp": "私は物流部で働いています。", "en": "I work in the logistics department", "display": "I work / in the logistics department", "keywords": ["logistics"], "point": "logistics は「物流・ロジスティクス」を指す不可欠な単語です。", "alt": "I am in the supply chain team." },
+  { "grammar": "L1: Be verb", "jp": "これは私たちのメインの倉庫です。", "en": "This is our main warehouse", "display": "This is / our main / warehouse", "keywords": ["warehouse"], "point": "warehouse は「倉庫」です。storehouse とも言います。", "alt": "This building serves as our primary warehouse." },
+  { "grammar": "L1: Have", "jp": "100個の在庫があります。", "en": "We have one hundred items in stock", "display": "We have / one hundred items / in stock", "keywords": ["in stock"], "point": "in stock で「在庫がある」という状態を表します。", "alt": "There are 100 units available now." },
+  { "grammar": "L1: Present Continuous", "jp": "トラックが今、到着しています。", "en": "The truck is arriving now", "display": "The truck / is arriving / now", "keywords": ["arriving"], "point": "配送状況をリアルタイムで伝える現在進行形です。", "alt": "The delivery truck has just pulled in." },
+  { "grammar": "L1: Imperative", "jp": "在庫リストを確認してください。", "en": "Please check the inventory list", "display": "Please check / the inventory list", "keywords": ["inventory"], "point": "inventory は「在庫・棚卸し」を指す最重要単語です。", "alt": "Could you review the stock records?" },
+  { "grammar": "L1: Can", "jp": "出荷を早めることはできますか？", "en": "Can you speed up the shipment", "display": "Can you / speed up / the shipment", "keywords": ["shipment"], "point": "shipment は「出荷・積み荷」です。speed up は「加速させる」。", "alt": "Is it possible to expedite the delivery?" },
+  { "grammar": "L1: Wh-Quest (When)", "jp": "荷物はいつ届きますか？", "en": "When will the package arrive", "display": "When / will the package / arrive", "keywords": ["package"], "point": "package は「小包・荷物」です。", "alt": "What is the expected delivery date?" },
+  { "grammar": "L1: Wh-Quest (How many)", "jp": "いくつパレットが必要ですか？", "en": "How many pallets do you need", "display": "How many pallets / do you need", "keywords": ["pallets"], "point": "pallet（パレット）は物流現場の基本単位です。", "alt": "What quantity of pallets is required?" },
+  { "grammar": "L1: Past Simple", "jp": "昨日、原材料を注文しました。", "en": "I ordered raw materials yesterday", "display": "I ordered / raw materials / yesterday", "keywords": ["raw materials"], "point": "raw materials で「原材料」です。", "alt": "The order for materials was placed yesterday." },
+  { "grammar": "L1: Negative", "jp": "まだ部品が足りません。", "en": "We do not have enough parts", "display": "We / do not have / enough parts", "keywords": ["enough parts"], "point: "parts は「部品」です。enough で「十分な」量を表します。", "alt": "We are currently short on components." },
+  { "grammar": "L2: Future (will)", "jp": "明日、出荷案内を送ります。", "en": "I will send a shipping notice tomorrow", "display": "I will send / a shipping notice / tomorrow", "keywords": ["shipping notice"], "point": "shipping notice（出荷案内通知）はASNとも呼ばれます。", "alt": "You will receive the tracking info tomorrow." },
+  { "grammar": "L2: Future (be going to)", "jp": "新しいサプライヤーを訪問する予定です。", "en": "I am going to visit a new supplier", "display": "I am going to visit / a new supplier", "keywords": ["supplier"], "point": "supplier は「供給業者・仕入先」です。", "alt": "I have a meeting scheduled with a new vendor." },
+  { "grammar": "L2: Must", "jp": "リードタイムを短縮しなければなりません。", "en": "We must shorten the lead time", "display": "We must / shorten / the lead time", "keywords": ["lead time"], "point": "lead time（発注から納品までの時間）はSCMの鍵です。", "alt": "It is necessary to reduce our turnaround time." },
+  { "grammar": "L2: Have to", "jp": "私たちは在庫を減らす必要があります。", "en": "We have to reduce the inventory", "display": "We have to / reduce / the inventory", "keywords": ["reduce"], "point": "reduce は「削減する」。在庫削減はSCMの大きな目標です。", "alt": "We need to cut down on our stock levels." },
+  { "grammar": "L2: Should", "jp": "安全在庫を持つべきです。", "en": "We should have safety stock", "display": "We should have / safety stock", "keywords": ["safety stock"], "point": "safety stock（安全在庫）は欠品を防ぐための予備です。", "alt": "Maintaining a buffer stock is recommended." },
+  { "grammar": "L2: To-Infinitive (Purpose)", "jp": "コストを抑えるためにルートを変更しました。", "en": "We changed the route to save costs", "display": "We changed the route / to save costs", "keywords": ["route"], "point": "to save costs で「コストを節約するために」という目的です。", "alt": "The route was optimized for cost efficiency." },
+  { "grammar": "L2: Gerund", "jp": "海上輸送を使うことは安いです。", "en": "Using ocean freight is cheap", "display": "Using ocean freight / is / cheap", "keywords": ["ocean freight"], "point": "ocean freight は「海上運賃・海上輸送」です。", "alt": "Sea shipping is a cost-effective option." },
+  { "grammar": "L2: Comparison", "jp": "航空便は船便より速いです。", "en": "Air freight is faster than sea freight", "display": "Air freight / is faster than / sea freight", "keywords": ["air freight"], "point": "air freight（航空輸送）と sea/ocean freight の比較です。", "alt": "Shipping by air saves more time than by sea." },
+  { "grammar": "L2: Superlative", "jp": "これが最も安い輸送手段です。", "en": "This is the cheapest mode of transport", "display": "This is / the cheapest / mode of transport", "keywords": ["mode of transport"], "point": "mode of transport で「輸送手段（船、陸、空など）」です。", "alt": "This is the most economical way to ship." },
+  { "grammar": "L2: Conjunction (If)", "jp": "もし部品が遅れたら、生産を止めます。", "en": "If the parts are late, we will stop production", "display": "If the parts are late, / we will / stop production", "keywords": ["production"], "point": "stop production（生産停止）は避けたい事態の一つです。", "alt": "Delayed components will halt the assembly line." },
+  { "grammar": "L2: Give A B", "jp": "私に見積もりをください。", "en": "Please give me a quotation", "display": "Please give me / a quotation", "keywords": ["quotation"], "point": "quotation（見積もり）はビジネスの基本語です。", "alt": "Could you provide a price estimate?" },
+  { "grammar": "L2: Look forward to -ing", "jp": "新製品の出荷を楽しみにしています。", "en": "I am looking forward to shipping the new product", "display": "I am looking forward to / shipping / the new product", "keywords": ["shipping"], "point": "to は前置詞なので後ろは shipping になります。", "alt": "We are excited about the product rollout." },
+  { "grammar": "L2: Modal (Don't have to)", "jp": "この箱を検品する必要はありません。", "en": "You do not have to inspect this box", "display": "You do not have to / inspect / this box", "keywords": ["inspect"], "point": "inspect（検査・検品する）は品質管理の重要語です。", "alt": "Inspection for this specific carton is not required." },
+  { "grammar": "L2: Adverbs", "jp": "原材料を定期的に購入します。", "en": "We buy raw materials regularly", "display": "We buy / raw materials / regularly", "keywords": ["regularly"], "point": "regularly（定期的に）は購買サイクルで使われます。", "alt": "We have a recurring order for materials." },
+  { "grammar": "L2: Comparison (More)", "jp": "このサプライヤーの方が信頼できます。", "en": "This supplier is more reliable", "display": "This supplier / is / more reliable", "keywords": ["reliable"], "point": "reliable（信頼できる）は取引先選定の基準です。", "alt": "We prefer this vendor due to their reliability." },
+  { "grammar": "L3: Present Perfect (Completion)", "jp": "貨物はちょうど港に到着しました。", "en": "The cargo has just arrived at the port", "display": "The cargo / has just / arrived / at the port", "keywords": ["cargo", "port"], "point": "cargo（貨物）と port（港）の組み合わせです。", "alt": "The shipment has just reached the harbor." },
+  { "grammar": "L3: Present Perfect (Experience)", "jp": "私たちは以前、そのロジスティクス業者を使ったことがあります。", "en": "We have used that logistics provider before", "display": "We have used / that logistics provider / before", "keywords": ["provider"], "point": "logistics provider（物流業者）は3PLなどを指すこともあります。", "alt": "We have prior experience with that carrier." },
+  { "grammar": "L3: Present Perfect (Duration)", "jp": "2週間、欠品状態が続いています。", "en": "We have been out of stock for two weeks", "display": "We have been / out of stock / for two weeks", "keywords": ["out of stock"], "point": "out of stock で「在庫切れ（欠品）」の状態です。", "alt": "The item has been unavailable for the past 14 days." },
+  { "grammar": "L3: Passive Voice", "jp": "在庫はこのソフトウェアで管理されています。", "en": "Inventory is managed by this software", "display": "Inventory / is managed / by this software", "keywords": ["managed"], "point": "受動態を使って「〜によって管理されている」と表現します。", "alt": "This system controls our stock levels." },
+  { "grammar": "L3: Passive Voice (Future)", "jp": "荷物は明日配達される予定です。", "en": "The package will be delivered tomorrow", "display": "The package / will be delivered / tomorrow", "keywords": ["delivered"], "point": "deliver（配達する）の受動態未来形です。", "alt": "You can expect the delivery tomorrow." },
+  { "grammar": "L3: It is ... to", "jp": "需要を予測することは難しいです。", "en": "It is difficult to forecast demand", "display": "It is difficult / to forecast / demand", "keywords": ["forecast", "demand"], "point": "forecast（予測する）と demand（需要）はSCMの核心です。", "alt": "Predicting customer demand is a challenge." },
+  { "grammar": "L3: Indirect Question", "jp": "いつ部品が届くか知っていますか？", "en": "Do you know when the parts will arrive", "display": "Do you know / when / the parts / will arrive", "keywords": ["parts"], "point": "間接疑問文の語順（when the parts will arrive）に注意。", "alt": "Can you confirm the arrival time of the components?" },
+  { "grammar": "L3: Relative Pronoun", "jp": "これは私たちが必要としている材料です。", "en": "This is the material that we need", "display": "This is the material / (that) / we need", "keywords": ["material"], "point": "material（材料・資材）を関係代名詞で説明します。", "alt": "Here are the supplies we require." },
+  { "grammar": "L3: SVOC (Keep)", "jp": "倉庫を常に整理しておいてください。", "en": "Please keep the warehouse organized at all times", "display": "Please keep / the warehouse / organized / at all times", "keywords": ["organized"], "point": "keep A organized で「Aを整理された状態にする」。", "alt": "Make sure the storage area stays tidy." },
+  { "grammar": "L3: Too ... to", "jp": "この注文は大きすぎて、1日で処理できません。", "en": "This order is too big to process in one day", "display": "This order / is / too big / to process / in one day", "keywords": ["process"], "point": "process は「（注文や書類を）処理する」という動詞です。", "alt": "The order volume exceeds our daily capacity." },
+  { "grammar": "L3: Tell A to do", "jp": "彼に荷物を積み込むように言ってください。", "en": "Please tell him to load the cargo", "display": "Please tell him / to load / the cargo", "keywords": ["load"], "point": "load は「（荷物を）積み込む」、unload は「下ろす」です。", "alt": "Ask him to start the loading process." },
+  { "grammar": "L3: Make A B", "jp": "遅延が私たちを困らせました。", "en": "The delay made us troubled", "display": "The delay / made us / troubled", "keywords": ["delay"], "point: "delay（遅延）はSCMで最も避けたい言葉の一つです。", "alt": "The late shipment caused us a lot of problems." },
+  { "grammar": "L3: Present Perfect Continuous", "jp": "1時間ずっと、在庫を数えています。", "en": "I have been counting the stock for an hour", "display": "I have been counting / the stock / for an hour", "keywords": ["counting"], "point": "棚卸しなどで「ずっと数え続けている」継続を強調します。", "alt": "I've been doing a physical stock check for an hour." },
+  { "grammar": "L3: Passive (Past)", "jp": "コンテナは昨夜、積み下ろされました。", "en": "The container was unloaded last night", "display": "The container / was unloaded / last night", "keywords": ["unloaded"], "point": "unload（荷を下ろす）の受動態です。", "alt": "Workers emptied the container yesterday evening." },
+  { "grammar": "L3: Relative Pronoun (Who)", "jp": "配送を担当している人を知っていますか？", "en": "Do you know the person who is in charge of delivery", "display": "Do you know the person / who is / in charge of delivery", "keywords": ["in charge of"], "point": "be in charge of ... で「〜の担当である」です。", "alt": "Who is the contact person for shipping?" },
+  { "grammar": "L3: Indirect Question", "jp": "どこに追跡番号があるか教えてください。", "en": "Please tell me where the tracking number is", "display": "Please tell me / where / the tracking number / is", "keywords": ["tracking number"], "point": "tracking number（追跡番号）の場所を尋ねる間接疑問文です。", "alt": "Where can I find the shipment ID?" },
+  { "grammar": "L3: Enough to", "jp": "このトラックはすべての荷物を運ぶのに十分な大きさです。", "en": "This truck is large enough to carry all the packages", "display": "This truck / is / large enough / to carry / all the packages", "keywords": ["large enough"], "point": "積載量（capacity）を確認する時に使います。", "alt": "The vehicle's capacity is sufficient for this load." },
+  { "grammar": "L3: Relative Pronoun (Whose)", "jp": "私は、配送コストが非常に低い会社を選びました。", "en": "I chose a company whose shipping cost is very low", "display": "I chose a company / whose / shipping cost / is / very low", "keywords": ["shipping cost"], "point": "shipping cost（送料）を所有格の関係代名詞で繋ぎます。", "alt": "We went with the carrier offering the lowest rates." },
+  { "grammar": "L3: Passive (Present)", "jp": "原材料は世界中から調達されています。", "en": "Raw materials are sourced from all over the world", "display": "Raw materials / are sourced / from / all over the world", "keywords": ["sourced"], "point": "source（調達する・仕入れる）はSCMの最重要動詞の一つです。", "alt": "We procure our supplies globally." },
+  { "grammar": "L3: SVOC (Find)", "jp": "リードタイムを短縮するのが難しいと分かりました。", "en": "I found it difficult to shorten the lead time", "display": "I found it / difficult / to shorten / the lead time", "keywords": ["shorten"], "point": "it を仮目的語にした高度な第5文型です。", "alt": "Reducing lead times has proven to be a challenge." },
+  { "grammar": "L3: Tell A to Do (Neg)", "jp": "彼にまだ船を出さないように言ってください。", "en": "Please tell him not to sail the ship yet", "display": "Please tell him / not to sail / the ship / yet", "keywords": ["not to"], "point": "sail は動詞で「船を出す・航行する」。", "alt": "Ask them to hold the vessel's departure." },
+  { "grammar": "L3: Present Perfect (Completion)", "jp": "私たちはようやくサプライチェーンを最適化しました。", "en": "We have finally optimized the supply chain", "display": "We have finally / optimized / the supply chain", "keywords": ["optimized"], "point": "optimize（最適化する）はSCMで頻出する動詞です。", "alt": "Our supply chain efficiency has been improved at last." },
+  { "grammar": "L3: Tag Question", "jp": "在庫は十分ですよね？", "en": "The inventory is sufficient, isn't it", "display": "The inventory / is sufficient, / isn't it", "keywords": ["sufficient"], "point": "sufficient（十分な）を使った付加疑問文です。", "alt": "We have enough stock on hand, right?" },
+  { "grammar": "L3: Passive (Neg)", "jp": "その注文はまだ出荷されていません。", "en": "The order is not shipped yet", "display": "The order / is not / shipped / yet", "keywords": ["shipped"], "point": "ship（出荷する）の受動態否定形です。", "alt": "The goods are still waiting for dispatch." },
+  { "grammar": "L3: Help A do", "jp": "このアプリがあなたの在庫管理を助けます。", "en": "This app helps you manage your inventory", "display": "This app / helps you / manage / your inventory", "keywords": ["manage"], "point": "manage inventory（在庫を管理する）はSCMの基本機能です。", "alt": "Our software simplifies stock management for you." }
+[
+  { "grammar": "L1: Be verb", "jp": "これが私たちの最新の在庫報告書です。", "en": "This is our latest inventory report", "display": "This is / our latest / inventory report", "keywords": ["inventory", "report"], "point": "inventory report（在庫報告書）は状況把握に欠かせません。", "alt": "Here is the current stock status." },
+  { "grammar": "L1: Present Simple", "jp": "私たちは通常、現地のベンダーを使います。", "en": "We usually use local vendors", "display": "We usually / use / local vendors", "keywords": ["vendor"], "point": "vendor（ベンダー・売り手）はサプライヤーと同義で使われます。", "alt": "Our supplies mostly come from local providers." },
+  { "grammar": "L1: Wh-Quest (What)", "jp": "この製品のSKUは何ですか？", "en": "What is the SKU for this product", "display": "What / is the SKU / for this product", "keywords": ["SKU"], "point": "SKU（最小在庫管理単位）は物流管理の基本単位です。", "alt": "Could you give me the stock keeping unit number?" },
+  { "grammar": "L1: Can", "jp": "請求書を送ってもらえますか？", "en": "Can you send the invoice", "display": "Can you / send / the invoice", "keywords": ["invoice"], "point": "invoice（請求書・送り状）は代金請求や通関で必要です。", "alt": "Could you please forward the bill?" },
+  { "grammar": "L1: Past Simple", "jp": "今朝、見積依頼書（RFQ）を送りました。", "en": "I sent the RFQ this morning", "display": "I sent / the RFQ / this morning", "keywords": ["RFQ"], "point": "RFQ（見積依頼書）は調達プロセスの始まりです。", "alt": "I issued a request for quotation earlier today." },
+  { "grammar": "L1: Wh-Quest (How much)", "jp": "総重量はいくらですか？", "en": "How much is the total weight", "display": "How much / is / the total weight", "keywords": ["total weight"], "point": "weight（重量）は運賃計算の重要な要素です。", "alt": "What is the gross weight of the shipment?" },
+  { "grammar": "L1: Negative", "jp": "そのトラックはまだここに来ていません。", "en": "The truck is not here yet", "display": "The truck / is not / here yet", "keywords": ["not yet"], "point": "配送遅延時の基本報告フレーズです。", "alt": "The delivery vehicle hasn't arrived so far." },
+  { "grammar": "L1: Wh-Quest (Who)", "jp": "誰が通関書類を作っていますか？", "en": "Who is making the customs documents", "display": "Who / is making / the customs documents", "keywords": ["customs"], "point": "customs（税関・通関）は国際物流の必須用語です。", "alt": "Who is handling the clearance paperwork?" },
+  { "grammar": "L1: There is", "jp": "配送ルートに問題があります。", "en": "There is a problem with the delivery route", "display": "There is / a problem / with the delivery route", "keywords": ["delivery route"], "point": "route（ルート・経路）の変更を議論する際に使います。", "alt": "We are facing an issue on the shipping path." },
+  { "grammar": "L1: Imperative", "jp": "パレットを2段に積まないでください。", "en": "Please do not stack the pallets", "display": "Please / do not stack / the pallets", "keywords": ["stack"], "point": "stack（積み重ねる）は荷役作業の指示でよく使います。", "alt": "Double-stacking of pallets is prohibited." },
+  { "grammar": "L2: Future (will)", "jp": "後でトラッキング番号を教えます。", "en": "I will tell you the tracking number later", "display": "I will tell you / the tracking number / later", "keywords": ["tracking number"], "point": "tracking number（追跡番号）で荷物の現在地を確認します。", "alt": "I'll provide the tracking ID shortly." },
+  { "grammar": "L2: Must", "jp": "私たちはボトルネックを特定しなければなりません。", "en": "We must identify the bottleneck", "display": "We must / identify / the bottleneck", "keywords": ["bottleneck"], "point": "bottleneck（停滞箇所）の解消はSCMの改善活動です。", "alt": "Identifying the constraint in the process is mandatory." },
+  { "grammar": "L2: Have to", "jp": "関税を支払う必要があります。", "en": "We have to pay the customs duties", "display": "We have to / pay / the customs duties", "keywords": ["duties"], "point": "customs duties（関税）は輸入コストに直結します。", "alt": "Tariff payment is required for this import." },
+  { "grammar": "L2: Should", "jp": "梱包をもっと強くすべきです。", "en": "We should make the packaging stronger", "display": "We should / make / the packaging / stronger", "keywords": ["packaging"], "point": "packaging（梱包）の不備はダメージの原因になります。", "alt": "I recommend reinforcing the packing materials." },
+  { "grammar": "L2: To-Infinitive (Purpose)", "jp": "原材料を買うために承認が必要です。", "en": "I need approval to buy raw materials", "display": "I need / approval / to buy / raw materials", "keywords": ["approval"], "point": "approval（承認）は調達フローに欠かせません。", "alt": "Buying materials requires a green light from management." },
+  { "grammar": "L2: Gerund", "jp": "在庫を管理することは私の仕事です。", "en": "Managing stock is my job", "display": "Managing stock / is / my job", "keywords": ["Managing stock"], "point": "Managing stock（在庫管理）はSCMのコア業務です。", "alt": "I am responsible for inventory control." },
+  { "grammar": "L2: Comparison", "jp": "今回の注文は前回のより多いです。", "en": "This order is larger than the last one", "display": "This order / is / larger than / the last one", "keywords": ["larger"], "point": "発注量の変動を比較級で表現します。", "alt": "The quantity this time exceeds the previous order." },
+  { "grammar": "L2: Superlative", "jp": "これが私たちの最も重要なKPIです。", "en": "This is our most important KPI", "display": "This is / our / most important / KPI", "keywords": ["KPI"], "point": "KPI（重要業績評価指標）で物流品質を測定します。", "alt": "No other metric is more critical than this KPI." },
+  { "grammar": "L2: Conjunction (When)", "jp": "欠品が起きた時、すぐに知らせてください。", "en": "When a stockout occurs, please let me know immediately", "display": "When / a stockout occurs, / please let me know", "keywords": ["stockout"], "point": "stockout（欠品・品切れ）はSCMにおける重大事象です。", "alt": "Notify me at once if we run out of stock." },
+  { "grammar": "L2: Shall I", "jp": "船積書類を確認しましょうか？", "en": "Shall I check the shipping documents", "display": "Shall I / check / the shipping documents", "keywords": ["shipping documents"], "point": "B/Lなどのshipping documents（船積書類）は重要です。", "alt": "Would you like me to review the export paperwork?" },
+  { "grammar": "L2: Don't have to", "jp": "原産地証明書は必要ありません。", "en": "You do not have to provide a certificate of origin", "display": "You do not have to / provide / a certificate of origin", "keywords": ["certificate of origin"], "point": "certificate of origin（原産地証明書）は関税減免に使われます。", "alt": "A CO is not required for this shipment." },
+  { "grammar": "L2: Future (going to)", "jp": "私たちは倉庫管理システム（WMS）を導入する予定です。", "en": "We are going to introduce a WMS", "display": "We are going to / introduce / a WMS", "keywords": ["WMS"], "point": "WMS（倉庫管理システム）はDXの第一歩です。", "alt": "Implementation of a new warehouse system is planned." },
+  { "grammar": "L2: Comparison (Lower)", "jp": "このサプライヤーは価格が低いです。", "en": "This supplier has a lower price", "display": "This supplier / has / a lower price", "keywords": ["lower price"], "point": "コスト削減のために低い価格を比較します。", "alt": "This vendor offers more competitive rates." },
+  { "grammar": "L2: Give A B", "jp": "荷受人に到着予定日を伝えてください。", "en": "Please give the consignee the ETA", "display": "Please give / the consignee / the ETA", "keywords": ["consignee", "ETA"], "point": "consignee（荷受人）とETA（到着予定時刻）は実務用語です。", "alt": "Inform the receiver about the estimated arrival time." },
+  { "grammar": "L2: Adverbs", "jp": "私たちは輸送状況をリアルタイムで追跡します。", "en": "We track the shipment status in real time", "display": "We track / the shipment status / in real time", "keywords": ["track"], "point": "track（追跡する）は可視化（Visibility）の基本です。", "alt": "Shipment monitoring is done live." },
+  { "grammar": "L3: Present Perfect (Completion)", "jp": "ちょうど棚卸しが終わりました。", "en": "I have just finished the cycle count", "display": "I have just / finished / the cycle count", "keywords": ["cycle count"], "point": "cycle count（循環棚卸し）で在庫の精度を保ちます。", "alt": "Physical inventory check is now complete." },
+  { "grammar": "L3: Present Perfect (Experience)", "jp": "船が遅延したことは一度もありません。", "en": "The vessel has never been late before", "display": "The vessel / has never / been late / before", "keywords": ["vessel"], "point": "vessel（大型船）の定時運行の実績を述べます。", "alt": "This carrier has a perfect on-time record." },
+  { "grammar": "L3: Present Perfect (Duration)", "jp": "私たちはこの業者と長年取引をしています。", "en": "We have done business with this broker for years", "display": "We have done business / with this broker / for years", "keywords": ["broker"], "point": "broker（乙仲・通関業者）との信頼関係は重要です。", "alt": "This customs agent has been our partner for a long time." },
+  { "grammar": "L3: Passive Voice", "jp": "その貨物は現在、税関で止められています。", "en": "The cargo is currently held at customs", "display": "The cargo / is / currently held / at customs", "keywords": ["held"], "point": "hold（止める）の受動態。通関トラブルの報告です。", "alt": "Customs has placed a hold on our shipment." },
+  { "grammar": "L3: Passive Voice (Future)", "jp": "部品は金曜日までに補充される予定です。", "en": "The parts will be replenished by Friday", "display": "The parts / will be replenished / by Friday", "keywords": ["replenished"], "point": "replenish（補充する）は在庫管理の重要語です。", "alt": "Restocking will be completed by the end of the week." },
+  { "grammar": "L3: It is ... to", "jp": "サプライチェーンの回復力を高めることは不可欠です。", "en": "It is essential to improve supply chain resilience", "display": "It is essential / to improve / supply chain resilience", "keywords": ["resilience"], "point": "resilience（回復力・強靭性）は現代SCMのキーワードです。", "alt": "Strengthening our supply chain is a top priority." },
+  { "grammar": "L3: Indirect Question", "jp": "何個が不良品か教えてください。", "en": "Please tell me how many items are defective", "display": "Please tell me / how many items / are / defective", "keywords": ["defective"], "point": "defective（欠陥のある・不良の）は返品時に使います。", "alt": "What is the count of the faulty units?" },
+  { "grammar": "L3: Relative Pronoun", "jp": "これは私が昨日確認したB/Lです。", "en": "This is the B/L which I checked yesterday", "display": "This is the B/L / which / I checked / yesterday", "keywords": ["B/L"], "point": "B/L（船荷証券）は貨物の受領・所有権を表す超重要書類です。", "alt": "Here is the Bill of Lading I reviewed." },
+  { "grammar": "L3: SVOC (Keep)", "jp": "トラックのドアを閉めたままにしておいてください。", "en": "Please keep the truck doors locked", "display": "Please keep / the truck doors / locked", "keywords": ["locked"], "point": "security（防犯）のために状態を保つ指示です。", "alt": "Ensure the vehicle remains secured." },
+  { "grammar": "L3: Too ... to", "jp": "リードタイムが長すぎて、注文を受けられません。", "en": "The lead time is too long to accept the order", "display": "The lead time / is / too long / to accept / the order", "keywords": ["lead time"], "point": "納期が間に合わない時の理由説明です。", "alt": "We can't take the job because the turnaround is too slow." },
+  { "grammar": "L3: Tell A to do", "jp": "フォワーダーに集荷に来るよう伝えてください。", "en": "Please tell the forwarder to pick up the cargo", "display": "Please tell / the forwarder / to pick up / the cargo", "keywords": ["forwarder", "pick up"], "point": "forwarder（貨物運送業者）に集荷を依頼します。", "alt": "Ask the shipping agent for a collection." },
+  { "grammar": "L3: Make A B", "jp": "そのデジタル化が物流を効率的にしました。", "en": "The digitalization made logistics efficient", "display": "The digitalization / made / logistics / efficient", "keywords": ["efficient"], "point": "efficient（効率的な）はSCM改善のゴールです。", "alt": "Automation has increased our shipping efficiency." },
+  { "grammar": "L3: Present Perfect Continuous", "jp": "午前中ずっと、海上運賃を交渉しています。", "en": "I have been negotiating sea freight all morning", "display": "I have been negotiating / sea freight / all morning", "keywords": ["sea freight"], "point: "freight（運賃）の交渉継続を強調します。", "alt": "I've spent the whole morning discussing shipping rates." },
+  { "grammar": "L3: Relative Pronoun (Who)", "jp": "誰かインコタームズに詳しい人はいますか？", "en": "Is there anyone who is familiar with Incoterms", "display": "Is there anyone / who / is familiar with / Incoterms", "keywords": ["Incoterms"], "point": "Incoterms（貿易条件）は貿易実務のルールです。", "alt": "Does someone here understand trade terms well?" },
+  { "grammar": "L3: Indirect Question (How)", "jp": "どうやって輸送費を計算したか教えてください。", "en": "Please tell me how you calculated the shipping cost", "display": "Please tell me / how / you calculated / the shipping cost", "keywords": ["calculated"], "point": "cost calculation（コスト計算）の根拠を確認します。", "alt": "Explain the method for the freight estimation." },
+  { "grammar": "L3: Enough to", "jp": "この製品は航空輸送するのに十分な価値があります。", "en": "This product is valuable enough to be shipped by air", "display": "This product / is / valuable enough / to be shipped / by air", "keywords": ["valuable"], "point": "高付加価値品は輸送スピードを優先します。", "alt": "The item's high value justifies air freight costs." },
+  { "grammar": "L3: Relative Pronoun (Whose)", "jp": "私は、倉庫が港の近くにあるサプライヤーを選びました。", "en": "I chose a supplier whose warehouse is near the port", "display": "I chose a supplier / whose warehouse / is / near the port", "keywords": ["warehouse"], "point": "立地の利便性を所有格の関係代名詞で説明します。", "alt": "I selected a vendor with a port-side facility." },
+  { "grammar": "L3: Passive (Present)", "jp": "すべての荷物は出荷前に検査されます。", "en": "All packages are inspected before shipping", "display": "All packages / are inspected / before shipping", "keywords": ["inspected"], "point": "quality control（品質管理）の受動態表現です。", "alt": "We perform inspections on every carton before dispatch." },
+  { "grammar": "L3: SVOC (Find)", "jp": "荷揚げ作業が遅れていると分かりました。", "en": "I found the unloading work delayed", "display": "I found / the unloading work / delayed", "keywords": ["unloading"], "point": "現場の状況（遅延）に気づいたことを表します。", "alt": "I noticed a slowdown in the discharge operations." },
+  { "grammar": "L3: Help A do", "jp": "この追跡システムが、あなたの在庫管理を助けます。", "en": "This tracking system helps you manage stock", "display": "This tracking system / helps you / manage / stock", "keywords": ["tracking system"], "point": "visibility（可視化）によるメリットを伝えます。", "alt": "Our monitoring tool simplifies inventory control." },
+  { "grammar": "L3: Present Perfect (Review)", "jp": "私たちはようやく調達コストを削減しました。", "en": "We have finally reduced the procurement cost", "display": "We have finally / reduced / the procurement cost", "keywords": ["procurement"], "point": "procurement（調達）コストの削減は大きな成果です。", "alt": "Purchasing expenses have been lowered at last." },
+  { "grammar": "L3: Tag Question", "jp": "コンテナはもう港を出ましたよね？", "en": "The container has left the port, hasn't it", "display": "The container / has left the port, / hasn't it", "keywords": ["left the port"], "point": "出港（POL離脱）を確認する付加疑問文です。", "alt": "The vessel departed the terminal, right?" },
+  { "grammar": "L3: So ... that", "jp": "需要が非常に高かったので、在庫がなくなりました。", "en": "The demand was so high that we ran out of stock", "display": "The demand was so high / that / we ran out of stock", "keywords": ["ran out of stock"], "point": "run out of stock（在庫を切らす）という結果を招きました。", "alt": "Heavy demand caused a total stockout." },
+  { "grammar": "L3: Use to do", "jp": "以前はスプレッドシートで在庫を管理していました。", "en": "I used to manage inventory with spreadsheets", "display": "I used to / manage inventory / with spreadsheets", "keywords": ["spreadsheets"], "point": "過去のアナログな管理手法との対比です。", "alt": "In the past, we relied on manual logs for stock." },
+  { "grammar": "L3: Goal Achieved", "jp": "私たちはサプライチェーン全体の効率を高めました。", "en": "We have increased the efficiency of the whole supply chain", "display": "We have increased / the efficiency / of the whole supply chain", "keywords": ["efficiency"], "point": "SCMの究極の目標である全体最適（Total Optimization）です。", "alt": "The entire chain's productivity has been boosted." }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // ... (以下 500個分)
     ];
 
